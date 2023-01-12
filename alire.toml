@@ -1,0 +1,11 @@
+name = "euler_tools"
+description = "Shiny new project"
+version = "0.1.0-dev"
+
+authors = ["Francesc Rocher"]
+maintainers = ["Francesc Rocher <francesc.rocher@gmail.com>"]
+maintainers-logins = ["rocher"]
+[[depends-on]]
+aunit = "^23.0.0"
+[[depends-on]]
+gnatcoll_gmp = "^23.0.0"
