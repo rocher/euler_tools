@@ -1,6 +1,6 @@
 name = "euler_tools"
-description = "Shiny new project"
-version = "0.1.0-dev"
+description = "Mathematical functions and tool to solve Euler Project problems."
+version = "0.1.1-dev"
 
 authors = ["Francesc Rocher"]
 maintainers = ["Francesc Rocher <francesc.rocher@gmail.com>"]

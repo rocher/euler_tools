@@ -1,17 +1,17 @@
 with Ada.Text_IO;
-with Ada.Numerics.Elementary_Functions;
+with Ada.Numerics.Elementary_Functions; use Ada.Numerics.Elementary_Functions;
 
-package body Euler_Tools is
+package body Euler_Package is
 
-   Collatz_Number : T;
+   Collatz_Number : Int_Type;
 
-   function Collatz_First (Number : T) return T is
+   function Collatz_First (Number : Int_Type) return Int_Type is
    begin
       Collatz_Number := Number;
       return Collatz_Number;
    end Collatz_First;
 
-   function Collatz_Next return T is
+   function Collatz_Next return Int_Type is
    begin
       if Collatz_Number mod 2 = 0 then
          Collatz_Number := @ / 2;
@@ -21,8 +21,8 @@ package body Euler_Tools is
       return Collatz_Number;
    end Collatz_Next;
 
-   function Combination (N, K : T) return T is
-      Result : T := 0;
+   function Combination (N, K : Int_Type) return Int_Type is
+      Result : Int_Type := 0;
    begin
       if 0 <= K and then K <= N then
          if K = 0 or else K = N then
@@ -38,10 +38,10 @@ package body Euler_Tools is
       return Result;
    end Combination;
 
-   function Concat (Left, Right : T) return T is
-      SLeft  : String := Left'Image;
-      SRight : String := Right'Image;
-      Result : T      := 0;
+   function Concat (Left, Right : Int_Type) return Int_Type is
+      SLeft  : String   := Left'Image;
+      SRight : String   := Right'Image;
+      Result : Int_Type := 0;
    begin
       if Right >= 0 then
          if SLeft (SLeft'First) = ' ' then
@@ -55,7 +55,7 @@ package body Euler_Tools is
       return Result;
    end Concat;
 
-   function Is_Palindrome (Number : T) return Boolean is
+   function Is_Palindrome (Number : Int_Type) return Boolean is
       Img : constant String := Number'Image;
       Str : constant String := Img (2 .. Img'Length);
       I   : Natural         := Str'First;
@@ -72,9 +72,9 @@ package body Euler_Tools is
       return True;
    end Is_Palindrome;
 
-   function Factorial (Number : T) return T is
-      Result : T := 1;
-      N      : T := 1;
+   function Factorial (Number : Int_Type) return Int_Type is
+      Result : Int_Type := 1;
+      N      : Int_Type := 1;
    begin
       if Number > 1 then
          loop
@@ -86,10 +86,10 @@ package body Euler_Tools is
       return Result;
    end Factorial;
 
-   function Factors (Number : T) return List_Type is
-      use Ada.Numerics.Elementary_Functions;
+   function Factors (Number : Int_Type) return List_Type is
       package Sorting is new List_Package.Generic_Sorting;
-      Square_Root : constant T := T (Float'Floor (Sqrt (Float (Number))));
+      Square_Root : constant Int_Type :=
+        Int_Type (Float'Floor (Sqrt (Float (Number))));
       Factor_List : List_Type;
    begin
       Factor_List.Append (1);
@@ -104,7 +104,45 @@ package body Euler_Tools is
       return Factor_List;
    end Factors;
 
-   function Is_Prime (Number : T) return Boolean is
+   type Fibonacci_Type is record
+      Term_2 : Int_Type;
+      Term_1 : Int_Type;
+
+   end record;
+
+   Fibonacci_Cursor : Fibonacci_Type;
+
+   function Fibonacci_Start return Int_Type is
+   begin
+      Fibonacci_Cursor.Term_2 := 1;
+      Fibonacci_Cursor.Term_1 := 1;
+      return Fibonacci_Next;
+   end Fibonacci_Start;
+
+   function Fibonacci_Start (A, B : Int_Type) return Int_Type is
+   begin
+      Fibonacci_Cursor.Term_2 := A;
+      Fibonacci_Cursor.Term_1 := B;
+      return Fibonacci_Next;
+   end Fibonacci_Start;
+
+   function Fibonacci_Next return Int_Type is
+      Term_N : Int_Type;
+   begin
+      Term_N := Fibonacci_Cursor.Term_2 + Fibonacci_Cursor.Term_1;
+      Fibonacci_Cursor.Term_2 := Fibonacci_Cursor.Term_1;
+      Fibonacci_Cursor.Term_1 := Term_N;
+      return Term_N;
+   end Fibonacci_Next;
+
+   function Is_Divisor (Number, Divisor : Int_Type) return Boolean is
+     (Number mod Divisor = 0);
+
+   function Is_Even (Number : Int_Type) return Boolean is (Number mod 2 = 0);
+
+   function Is_Odd (Number : Int_Type) return Boolean is (Number mod 2 = 1);
+
+   function Is_Prime (Number : Int_Type) return Boolean is
    begin
       if Number <= 11 then
          declare
@@ -116,12 +154,11 @@ package body Euler_Tools is
          end;
       else
          declare
-            use Ada.Numerics.Elementary_Functions;
-            Square_Root : constant T :=
-              T (Float'Ceiling (Sqrt (Float (Number))));
+            Square_Root : constant Int_Type :=
+              Int_Type (Float'Ceiling (Sqrt (Float (Number))));
 
-            Factor : T       := 2;
-            Inc    : Natural := 3;
+            Factor : Int_Type := 2;
+            Inc    : Natural  := 3;
          begin
             loop
                if Number mod Factor = 0 then
@@ -146,8 +183,8 @@ package body Euler_Tools is
    end Is_Prime;
 
    type Prime_Cursor_Type is record
-      Number : T := 0;
-      Inc    : T := 0;
+      Number : Int_Type := 0;
+      Inc    : Int_Type := 0;
    end record;
    type Prime_Cursor_Access is access Prime_Cursor_Type;
 
@@ -166,17 +203,17 @@ package body Euler_Tools is
       end if;
    end Prime_Next_Try;
 
-   function Prime_First_Internal (PC : Prime_Cursor_Access) return T is
+   function Prime_First_Internal (PC : Prime_Cursor_Access) return Int_Type is
    begin
       PC.Number := 2;
       PC.Inc    := 3;
       return PC.Number;
    end Prime_First_Internal;
 
-   function Prime_First return T is
+   function Prime_First return Int_Type is
      (Prime_First_Internal (Prime_Public_Cursor));
 
-   function Prime_Next_Internal (PC : Prime_Cursor_Access) return T is
+   function Prime_Next_Internal (PC : Prime_Cursor_Access) return Int_Type is
    begin
       if PC.Number < 10 then
          case PC.Number is
@@ -193,16 +230,16 @@ package body Euler_Tools is
          end case;
       else
          declare
-            use Ada.Numerics.Elementary_Functions;
-            Factor      : T;
-            Square_Root : T;
+            Factor      : Int_Type;
+            Square_Root : Int_Type;
             Is_Prime    : Boolean;
          begin
             Test_Nex_Prime :
             loop
                Prime_Next_Try (PC);
                Factor      := 3;
-               Square_Root := T (Float'Ceiling (Sqrt (Float (PC.Number))));
+               Square_Root :=
+                 Int_Type (Float'Ceiling (Sqrt (Float (PC.Number))));
                Is_Prime    := True;
                Test_Prime :
                loop
@@ -220,10 +257,13 @@ package body Euler_Tools is
       return PC.Number;
    end Prime_Next_Internal;
 
-   function Prime_Next return T is (Prime_Next_Internal (Prime_Public_Cursor));
+   function Prime_Next return Int_Type is
+     (Prime_Next_Internal (Prime_Public_Cursor));
 
-   function Prime_Nth_Internal (N : T; PC : Prime_Cursor_Access) return T is
-      Prime : T := Prime_First_Internal (PC);
+   function Prime_Nth_Internal
+     (N : Int_Type; PC : Prime_Cursor_Access) return Int_Type
+   is
+      Prime : Int_Type := Prime_First_Internal (PC);
    begin
       for I in 2 .. N loop
          Prime := Prime_Next_Internal (PC);
@@ -231,23 +271,34 @@ package body Euler_Tools is
       return Prime;
    end Prime_Nth_Internal;
 
-   function Prime_Nth (N : T) return T is
-     (Prime_Nth_Internal (N, Prime_Private_Cursor));
+   function Prime_Nth (Nth : Int_Type) return Int_Type is
+     (Prime_Nth_Internal (Nth, Prime_Private_Cursor));
 
-   function Sum_Multiples (N : T; Upper_Bound : T) return T is
-      Num_Multiples : constant T := (Upper_Bound - 1) / N;
+   function Square_Root (Number : Int_Type) return Int_Type is
+      Result : Int_Type := 0;
+   begin
+      if Number > 0 then
+         Result := Int_Type (Float'Floor (Sqrt (Float (Number))));
+      end if;
+      return Result;
+   end Square_Root;
+
+   function Sum_Multiples
+     (N : Int_Type; Upper_Bound : Int_Type) return Int_Type
+   is
+      Num_Multiples : constant Int_Type := (Upper_Bound - 1) / N;
    begin
       return N * ((Num_Multiples * Num_Multiples + Num_Multiples) / 2);
    end Sum_Multiples;
 
-   function Sum_Sequence (Upper_Bound : T) return T is
+   function Sum_Sequence (Upper_Bound : Int_Type) return Int_Type is
      ((Upper_Bound * (Upper_Bound + 1)) / 2);
 
-   function Sum_Squares (Upper_Bound : T) return T is
+   function Sum_Squares (Upper_Bound : Int_Type) return Int_Type is
      ((Upper_Bound * (Upper_Bound + 1) * (2 * Upper_Bound + 1)) / 6);
 
-   function To_Number (Chr : Character) return T is
-      Result : T := 0;
+   function To_Number (Chr : Character) return Int_Type is
+      Result : Int_Type := 0;
    begin
       if Chr in '0' .. '9' then
          Result := Character'Enum_Rep (Chr) - Character'Enum_Rep ('0');
@@ -255,9 +306,9 @@ package body Euler_Tools is
       return Result;
    end To_Number;
 
-   function To_Number (Str : String) return T is
-      package T_IO is new Ada.Text_IO.Integer_IO (T);
-      Result : T;
+   function To_Number (Str : String) return Int_Type is
+      package T_IO is new Ada.Text_IO.Integer_IO (Int_Type);
+      Result : Int_Type;
       Last   : Positive;
    begin
       T_IO.Get (Str, Result, Last);
@@ -267,7 +318,7 @@ package body Euler_Tools is
       return Result;
    end To_Number;
 
-   function To_String (Number : T) return String is
+   function To_String (Number : Int_Type) return String is
       Img : constant String := Number'Image;
       Str : constant String :=
         (if Number >= 0 then Img (2 .. Img'Last) else Img);
@@ -275,4 +326,4 @@ package body Euler_Tools is
       return Str;
    end To_String;
 
-end Euler_Tools;
+end Euler_Package;
