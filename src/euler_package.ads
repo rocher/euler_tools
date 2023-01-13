@@ -97,4 +97,7 @@ package Euler_Package is
    function To_String (Number : Int_Type) return String;
    --  Returns a String with the value of Number. Removes leading whitespace.
 
+   function To_Words (Number : Int_Type) return String;
+   --  Returns the Number written out in words.
+
 end Euler_Package;
