@@ -35,7 +35,11 @@ package body Euler_Text is
      [Tus ("twenty"), Tus ("thirty"), Tus ("forty"), Tus ("fifty"),
      Tus ("sixty"), Tus ("seventy"), Tus ("eighty"), Tus ("ninety")];
 
-   function Tenths_And_Units (Number : Natural) return Unbounded_String is
+   -----------------------------
+   --  Tenths_And_Units_Text  --
+   -----------------------------
+
+   function Tenths_And_Units_Text (Number : Natural) return Unbounded_String is
    begin
       if Number <= 9 then
          return Name_Units (Number);
@@ -53,7 +57,11 @@ package body Euler_Text is
             return Text;
          end;
       end if;
-   end Tenths_And_Units;
+   end Tenths_And_Units_Text;
+
+   ---------------------
+   --  Hundreds_Text  --
+   ---------------------
 
    function Hundreds_Text (Number : Natural) return Unbounded_String is
       Text : Unbounded_String := Tus ("");
@@ -63,6 +71,10 @@ package body Euler_Text is
       end if;
       return Text;
    end Hundreds_Text;
+
+   ----------------
+   --  To_Words  --
+   ----------------
 
    function To_Words (Number : Natural) return String is
       Text      : Unbounded_String := Tus ("");
@@ -89,7 +101,7 @@ package body Euler_Text is
             Text.Append (" and ");
             Text.Append (Tenths_And_Units (Tens * 10 + Units));
          else
-            Text := Tenths_And_Units (Tens * 10 + Units);
+            Text := Tenths_And_Units_Text (Tens * 10 + Units);
          end if;
       else
          if Text.Length = 0 then
