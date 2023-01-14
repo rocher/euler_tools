@@ -1,3 +1,18 @@
+--  ---------------------------------------------------------------------------
+--
+--  Copyright (c) 2023 Francesc Rocher <francesc.rocher@gnail.com>
+--  SPDX-License-Identifier: CC-BY-NC-SA-4.0
+--  https://creativecommons.org/licenses/by-nc-sa/4.0/
+--
+--  ---------------------------------------------------------------------------
+--   _____      _             _____           _
+--  | ____|   _| | ___ _ __  |_   _|__   ___ | |___   Mathematical functions
+--  |  _|| | | | |/ _ \ '__|   | |/ _ \ / _ \| / __|  and tools to solve
+--  | |__| |_| | |  __/ |      | | (_) | (_) | \__ \  Project Euler problems
+--  |_____\__,_|_|\___|_|      |_|\___/ \___/|_|___/  https://projecteuler.net
+--
+-- ----------------------------------------------------------------------------
+
 with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 
 with Euler_Tools;
@@ -8,23 +23,19 @@ package body Euler_Text is
      To_Unbounded_String;
 
    Name_Units : constant array (0 .. 9) of Unbounded_String :=
-     [Tus ("zero"), Tus ("one"), Tus ("two"), Tus ("three"),
-     Tus ("four"), Tus ("five"), Tus ("six"), Tus ("seven"),
-     Tus ("eight"), Tus ("nine")];
+     [Tus ("zero"), Tus ("one"), Tus ("two"), Tus ("three"), Tus ("four"),
+     Tus ("five"), Tus ("six"), Tus ("seven"), Tus ("eight"), Tus ("nine")];
 
-   Name_Ten_Something :
-     constant array (10 .. 19) of Unbounded_String :=
+   Name_Ten_Something : constant array (10 .. 19) of Unbounded_String :=
      [Tus ("ten"), Tus ("eleven"), Tus ("twelve"), Tus ("thirteen"),
-     Tus ("fourteen"), Tus ("fifteen"), Tus ("sixteen"),
-     Tus ("seventeen"), Tus ("eighteen"), Tus ("nineteen")];
+     Tus ("fourteen"), Tus ("fifteen"), Tus ("sixteen"), Tus ("seventeen"),
+     Tus ("eighteen"), Tus ("nineteen")];
 
    Name_Tens : constant array (2 .. 9) of Unbounded_String :=
      [Tus ("twenty"), Tus ("thirty"), Tus ("forty"), Tus ("fifty"),
      Tus ("sixty"), Tus ("seventy"), Tus ("eighty"), Tus ("ninety")];
 
-   function Tenths_And_Units
-     (Number : Natural) return Unbounded_String
-   is
+   function Tenths_And_Units (Number : Natural) return Unbounded_String is
    begin
       if Number <= 9 then
          return Name_Units (Number);

@@ -1,3 +1,18 @@
+--  ---------------------------------------------------------------------------
+--
+--  Copyright (c) 2023 Francesc Rocher <francesc.rocher@gnail.com>
+--  SPDX-License-Identifier: CC-BY-NC-SA-4.0
+--  https://creativecommons.org/licenses/by-nc-sa/4.0/
+--
+--  ---------------------------------------------------------------------------
+--   _____      _             _____           _
+--  | ____|   _| | ___ _ __  |_   _|__   ___ | |___   Mathematical functions
+--  |  _|| | | | |/ _ \ '__|   | |/ _ \ / _ \| / __|  and tools to solve
+--  | |__| |_| | |  __/ |      | | (_) | (_) | \__ \  Project Euler problems
+--  |_____\__,_|_|\___|_|      |_|\___/ \___/|_|___/  https://projecteuler.net
+--
+-- ----------------------------------------------------------------------------
+
 with Ada.Text_IO;
 with Ada.Numerics.Elementary_Functions; use Ada.Numerics.Elementary_Functions;
 
@@ -5,11 +20,19 @@ package body Euler_Package is
 
    Collatz_Number : Int_Type;
 
+   ---------------------
+   --  Collatz_First  --
+   ---------------------
+
    function Collatz_First (Number : Int_Type) return Int_Type is
    begin
       Collatz_Number := Number;
       return Collatz_Number;
    end Collatz_First;
+
+   --------------------
+   --  Collatz_Next  --
+   --------------------
 
    function Collatz_Next return Int_Type is
    begin
@@ -20,6 +43,10 @@ package body Euler_Package is
       end if;
       return Collatz_Number;
    end Collatz_Next;
+
+   -------------------
+   --  Combination  --
+   -------------------
 
    function Combination (N, K : Int_Type) return Int_Type is
       Result : Int_Type := 0;
@@ -38,6 +65,10 @@ package body Euler_Package is
       return Result;
    end Combination;
 
+   --------------
+   --  Concat  --
+   --------------
+
    function Concat (Left, Right : Int_Type) return Int_Type is
       SLeft  : String   := Left'Image;
       SRight : String   := Right'Image;
@@ -54,6 +85,10 @@ package body Euler_Package is
       end if;
       return Result;
    end Concat;
+
+   ---------------------
+   --  Is_Palindrome  --
+   ---------------------
 
    function Is_Palindrome (Number : Int_Type) return Boolean is
       Img : constant String := Number'Image;
@@ -72,6 +107,10 @@ package body Euler_Package is
       return True;
    end Is_Palindrome;
 
+   -----------------
+   --  Factorial  --
+   -----------------
+
    function Factorial (Number : Int_Type) return Int_Type is
       Result : Int_Type := 1;
       N      : Int_Type := 1;
@@ -85,6 +124,10 @@ package body Euler_Package is
       end if;
       return Result;
    end Factorial;
+
+   ---------------
+   --  Factors  --
+   ---------------
 
    function Factors (Number : Int_Type) return List_Type is
       package Sorting is new List_Package.Generic_Sorting;
@@ -112,6 +155,10 @@ package body Euler_Package is
 
    Fibonacci_Cursor : Fibonacci_Type;
 
+   -----------------------
+   --  Fibonacci_Start  --
+   -----------------------
+
    function Fibonacci_Start return Int_Type is
    begin
       Fibonacci_Cursor.Term_2 := 1;
@@ -119,12 +166,20 @@ package body Euler_Package is
       return Fibonacci_Next;
    end Fibonacci_Start;
 
+   -----------------------
+   --  Fibonacci_Start  --
+   -----------------------
+
    function Fibonacci_Start (A, B : Int_Type) return Int_Type is
    begin
       Fibonacci_Cursor.Term_2 := A;
       Fibonacci_Cursor.Term_1 := B;
       return Fibonacci_Next;
    end Fibonacci_Start;
+
+   ----------------------
+   --  Fibonacci_Next  --
+   ----------------------
 
    function Fibonacci_Next return Int_Type is
       Term_N : Int_Type;
@@ -135,12 +190,35 @@ package body Euler_Package is
       return Term_N;
    end Fibonacci_Next;
 
+   ----------------
+   --  Hundreds  --
+   ----------------
+
+   function Hundreds (Number : Int_Type) return Int_Type is
+     (Number / 100 mod 10);
+
+   ------------------
+   --  Is_Divisor  --
+   ------------------
+
    function Is_Divisor (Number, Divisor : Int_Type) return Boolean is
      (Number mod Divisor = 0);
 
+   ---------------
+   --  Is_Even  --
+   ---------------
+
    function Is_Even (Number : Int_Type) return Boolean is (Number mod 2 = 0);
 
+   --------------
+   --  Is_Odd  --
+   --------------
+
    function Is_Odd (Number : Int_Type) return Boolean is (Number mod 2 = 1);
+
+   ----------------
+   --  Is_Prime  --
+   ----------------
 
    function Is_Prime (Number : Int_Type) return Boolean is
    begin
@@ -210,6 +288,10 @@ package body Euler_Package is
       return PC.Number;
    end Prime_First_Internal;
 
+   -------------------
+   --  Prime_First  --
+   -------------------
+
    function Prime_First return Int_Type is
      (Prime_First_Internal (Prime_Public_Cursor));
 
@@ -257,6 +339,10 @@ package body Euler_Package is
       return PC.Number;
    end Prime_Next_Internal;
 
+   ------------------
+   --  Prime_Next  --
+   ------------------
+
    function Prime_Next return Int_Type is
      (Prime_Next_Internal (Prime_Public_Cursor));
 
@@ -271,8 +357,16 @@ package body Euler_Package is
       return Prime;
    end Prime_Nth_Internal;
 
+   -----------------
+   --  Prime_Nth  --
+   -----------------
+
    function Prime_Nth (Nth : Int_Type) return Int_Type is
      (Prime_Nth_Internal (Nth, Prime_Private_Cursor));
+
+   -------------------
+   --  Square_Root  --
+   -------------------
 
    function Square_Root (Number : Int_Type) return Int_Type is
       Result : Int_Type := 0;
@@ -283,6 +377,10 @@ package body Euler_Package is
       return Result;
    end Square_Root;
 
+   ---------------------
+   --  Sum_Multiples  --
+   ---------------------
+
    function Sum_Multiples
      (N : Int_Type; Upper_Bound : Int_Type) return Int_Type
    is
@@ -291,11 +389,36 @@ package body Euler_Package is
       return N * ((Num_Multiples * Num_Multiples + Num_Multiples) / 2);
    end Sum_Multiples;
 
+   --------------------
+   --  Sum_Sequence  --
+   --------------------
+
    function Sum_Sequence (Upper_Bound : Int_Type) return Int_Type is
      ((Upper_Bound * (Upper_Bound + 1)) / 2);
 
+   -------------------
+   --  Sum_Squares  --
+   -------------------
+
    function Sum_Squares (Upper_Bound : Int_Type) return Int_Type is
      ((Upper_Bound * (Upper_Bound + 1) * (2 * Upper_Bound + 1)) / 6);
+
+   ------------
+   --  Tens  --
+   ------------
+
+   function Tens (Number : Int_Type) return Int_Type is (Number / 10 mod 10);
+
+   -----------------
+   --  Thousands  --
+   -----------------
+
+   function Thousands (Number : Int_Type) return Int_Type is
+     (Number / 1_000 mod 10);
+
+   -----------------
+   --  To_Number  --
+   -----------------
 
    function To_Number (Chr : Character) return Int_Type is
       Result : Int_Type := 0;
@@ -305,6 +428,10 @@ package body Euler_Package is
       end if;
       return Result;
    end To_Number;
+
+   -----------------
+   --  To_Number  --
+   -----------------
 
    function To_Number (Str : String) return Int_Type is
       package T_IO is new Ada.Text_IO.Integer_IO (Int_Type);
@@ -318,6 +445,10 @@ package body Euler_Package is
       return Result;
    end To_Number;
 
+   -----------------
+   --  To_String  --
+   -----------------
+
    function To_String (Number : Int_Type) return String is
       Img : constant String := Number'Image;
       Str : constant String :=
@@ -325,5 +456,11 @@ package body Euler_Package is
    begin
       return Str;
    end To_String;
+
+   -------------
+   --  Units  --
+   -------------
+
+   function Units (Number : Int_Type) return Int_Type is (Number mod 10);
 
 end Euler_Package;

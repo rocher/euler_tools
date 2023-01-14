@@ -1,3 +1,18 @@
+--  ---------------------------------------------------------------------------
+--
+--  Copyright (c) 2023 Francesc Rocher <francesc.rocher@gnail.com>
+--  SPDX-License-Identifier: CC-BY-NC-SA-4.0
+--  https://creativecommons.org/licenses/by-nc-sa/4.0/
+--
+--  ---------------------------------------------------------------------------
+--   _____      _             _____           _
+--  | ____|   _| | ___ _ __  |_   _|__   ___ | |___   Mathematical functions
+--  |  _|| | | | |/ _ \ '__|   | |/ _ \ / _ \| / __|  and tools to solve
+--  | |__| |_| | |  __/ |      | | (_) | (_) | \__ \  Project Euler problems
+--  |_____\__,_|_|\___|_|      |_|\___/ \___/|_|___/  https://projecteuler.net
+--
+-- ----------------------------------------------------------------------------
+
 with Ada.Containers.Doubly_Linked_Lists;
 
 generic
@@ -45,8 +60,8 @@ package Euler_Package is
    function Fibonacci_Next return Int_Type;
    --  Returns the next Fibonacci number.
 
-   function Hundreds (Number : Int_Type) return Int_Type is
-      (Number / 100 mod 10);
+   function Hundreds (Number : Int_Type) return Int_Type;
+   --  Returns the hundreds of Number.
 
    function Is_Divisor (Number, Divisor : Int_Type) return Boolean;
    --  Returns True is Number can by evenly divided by Divisor.
@@ -89,12 +104,10 @@ package Euler_Package is
    function Sum_Squares (Upper_Bound : Int_Type) return Int_Type;
    --  Returns the sum of the squares of all numbers from 1 to Upper_Bound.
 
-   function Tens (Number : Int_Type) return Int_Type is
-      (Number / 10 mod 10);
+   function Tens (Number : Int_Type) return Int_Type;
    --  Returns the tens of Number.
 
-   function Thousands (Number : Int_Type) return Int_Type is
-      (Number / 1000 mod 10);
+   function Thousands (Number : Int_Type) return Int_Type;
    --  Returns the thousands of Number.
 
    function To_Number (Chr : Character) return Int_Type;
@@ -108,8 +121,7 @@ package Euler_Package is
    function To_String (Number : Int_Type) return String;
    --  Returns a String with the value of Number. Removes leading whitespace.
 
-   function Units (Number : Int_Type) return Int_Type is
-      (Number mod 10);
+   function Units (Number : Int_Type) return Int_Type;
    --  Returns the last digit (units) of Number.
 
 end Euler_Package;
