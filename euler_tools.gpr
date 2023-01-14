@@ -33,9 +33,9 @@ project Euler_Tools is
       for Default_Switches ("Ada") use
          Euler_Tools_Config.Ada_Compiler_Switches &
          (
-             "-gnat2022" --  Use Ada 2022 features
-            ,"-gnatW8"   --  Allow UTF-8 characters
-            ,"-gnatX"    --  Allow dot notation
+              "-gnatW8"   --  Wide character encoding method
+            , "-gnatX"    --  Language extensions permitted
+            , "-gnat2022" --  Ada 2022 mode
          );
    end Compiler;
 
