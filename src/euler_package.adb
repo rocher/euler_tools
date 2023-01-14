@@ -232,9 +232,7 @@ package body Euler_Package is
          end;
       else
          declare
-            Square_Root : constant Int_Type :=
-              Int_Type (Float'Ceiling (Sqrt (Float (Number))));
-
+            Root : constant Int_Type := Square_Root (Number);
             Factor : Int_Type := 2;
             Inc    : Natural  := 3;
          begin
@@ -242,7 +240,7 @@ package body Euler_Package is
                if Number mod Factor = 0 then
                   return False;
                end if;
-               exit when Factor >= Square_Root;
+               exit when Factor >= Root;
                if Factor <= 10 then
                   Factor := @ + 1;
                else
