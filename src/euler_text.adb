@@ -99,7 +99,7 @@ package body Euler_Text is
       if Tens + Units > 0 then
          if Text.Length > 0 then
             Text.Append (" and ");
-            Text.Append (Tenths_And_Units (Tens * 10 + Units));
+            Text.Append (Tenths_And_Units_Text (Tens * 10 + Units));
          else
             Text := Tenths_And_Units_Text (Tens * 10 + Units);
          end if;
