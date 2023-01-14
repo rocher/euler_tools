@@ -34,8 +34,8 @@ project Euler_Tools is
          Euler_Tools_Config.Ada_Compiler_Switches &
          (
               "-gnatW8"   --  Wide character encoding method
-            , "-gnatX"    --  Language extensions permitted
             , "-gnat2022" --  Ada 2022 mode
+            , "-gnatX"    --  Language extensions permitted
          );
    end Compiler;
 
