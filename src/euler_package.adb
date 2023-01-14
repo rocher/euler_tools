@@ -326,6 +326,4 @@ package body Euler_Package is
       return Str;
    end To_String;
 
-   function To_Words (Number : Int_Type) return String is separate;
-
 end Euler_Package;

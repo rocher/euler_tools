@@ -20,6 +20,7 @@ project Euler_Tools is
          (
              "-gnat2022" --  Use Ada 2022 features
             ,"-gnatW8"   --  Allow UTF-8 characters
+            ,"-gnatX"    --  Allow dot notation
          );
    end Compiler;
 

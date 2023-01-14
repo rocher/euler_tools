@@ -45,6 +45,9 @@ package Euler_Package is
    function Fibonacci_Next return Int_Type;
    --  Returns the next Fibonacci number.
 
+   function Hundreds (Number : Int_Type) return Int_Type is
+      (Number / 100 mod 10);
+
    function Is_Divisor (Number, Divisor : Int_Type) return Boolean;
    --  Returns True is Number can by evenly divided by Divisor.
 
@@ -86,6 +89,14 @@ package Euler_Package is
    function Sum_Squares (Upper_Bound : Int_Type) return Int_Type;
    --  Returns the sum of the squares of all numbers from 1 to Upper_Bound.
 
+   function Tens (Number : Int_Type) return Int_Type is
+      (Number / 10 mod 10);
+   --  Returns the tens of Number.
+
+   function Thousands (Number : Int_Type) return Int_Type is
+      (Number / 1000 mod 10);
+   --  Returns the thousands of Number.
+
    function To_Number (Chr : Character) return Int_Type;
    --  Returns the value of Chr converted to typ T if Chr in '0' .. '9', 0
    --  otherwise.
@@ -97,7 +108,8 @@ package Euler_Package is
    function To_String (Number : Int_Type) return String;
    --  Returns a String with the value of Number. Removes leading whitespace.
 
-   function To_Words (Number : Int_Type) return String;
-   --  Returns the Number written out in words.
+   function Units (Number : Int_Type) return Int_Type is
+      (Number mod 10);
+   --  Returns the last digit (units) of Number.
 
 end Euler_Package;
