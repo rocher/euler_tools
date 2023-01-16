@@ -95,6 +95,9 @@ package Euler_Package is
    function Square_Root (Number : Int_Type) return Int_Type;
    --  Return the truncated square root of Number if Number > 0, 0 otherwise.
 
+   function Sum (Number_List : List_Type) return Int_Type;
+   --  Return the sum of all numbers of the list.
+
    function Sum_Multiples
      (N : Int_Type; Upper_Bound : Int_Type) return Int_Type;
    --  Returns the sum of all numbers multiples of N less or equal than

@@ -136,7 +136,7 @@ package body Euler_Package is
       package Sorting is new List_Package.Generic_Sorting;
       Square_Root : constant Int_Type :=
         Int_Type (Float'Floor (Sqrt (Float (Number))));
-      Divisors : List_Type;
+      Divisors    : List_Type;
    begin
       Divisors.Append (1);
       for Factor in 2 .. Square_Root loop
@@ -379,6 +379,22 @@ package body Euler_Package is
       end if;
       return Result;
    end Square_Root;
+
+   -----------
+   --  Sum  --
+   -----------
+
+   function Sum (Number_List : List_Type) return Int_Type is
+      Cursor : List_Package.Cursor := Number_List.First;
+      Sum    : Int_Type            := 0;
+   begin
+      loop
+         Sum    := @ + Cursor.Element;
+         Cursor := Cursor.Next;
+         exit when not Cursor.Has_Element;
+      end loop;
+      return Sum;
+   end Sum;
 
    ---------------------
    --  Sum_Multiples  --
