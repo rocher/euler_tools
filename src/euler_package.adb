@@ -165,6 +165,20 @@ package body Euler_Package is
    function Hundreds (Number : Int_Type) return Int_Type is
      (Number / 100 mod 10);
 
+   -------------------
+   --  Is_Abundant  --
+   -------------------
+
+   function Is_Abundant (Number : Int_Type) return Boolean is
+     (Sum (Proper_Divisors (Number)) > Number);
+
+   --------------------
+   --  Is_Deficient  --
+   --------------------
+
+   function Is_Deficient (Number : Int_Type) return Boolean is
+     (Sum (Proper_Divisors (Number)) < Number);
+
    ------------------
    --  Is_Divisor  --
    ------------------

@@ -64,6 +64,14 @@ package Euler_Package is
    function Hundreds (Number : Int_Type) return Int_Type;
    --  Returns the hundreds of Number.
 
+   function Is_Abundant (Number : Int_Type) return Boolean;
+   --  Returns True if the sum of the proper divisors of Number is greater
+   --  than itself: Sum (Proper_Divisors (Number)) > Number
+
+   function Is_Deficient (Number : Int_Type) return Boolean;
+   --  Returns True if the sum of the proper divisors of Number is lesser
+   --  than itself: Sum (Proper_Divisors (Number)) < Number
+
    function Is_Divisor (Number, Divisor : Int_Type) return Boolean;
    --  Returns True is Number can by evenly divided by Divisor.
 
@@ -76,6 +84,10 @@ package Euler_Package is
    function Is_Palindrome (Number : Int_Type) return Boolean;
    --  Returns True if Number is the same read from left to right and right
    --  to left.
+
+   function Is_Perfect (Number : Int_Type) return Boolean;
+   --  Returns True if the sum of the proper divisors of Number is equal to
+   --  itself: Sum (Proper_Divisors (Number)) = Number
 
    function Is_Prime (Number : Int_Type) return Boolean;
    --  Returns True if Number is prime.
