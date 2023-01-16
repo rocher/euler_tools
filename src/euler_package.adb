@@ -129,23 +129,28 @@ package body Euler_Package is
    --  Factors  --
    ---------------
 
-   function Factors (Number : Int_Type) return List_Type is
+   function Divisors
+     (Number : Int_Type; Proper_Divisors_Only : Boolean := False)
+      return List_Type
+   is
       package Sorting is new List_Package.Generic_Sorting;
       Square_Root : constant Int_Type :=
         Int_Type (Float'Floor (Sqrt (Float (Number))));
-      Factor_List : List_Type;
+      Divisors : List_Type;
    begin
-      Factor_List.Append (1);
+      Divisors.Append (1);
       for Factor in 2 .. Square_Root loop
          if Number mod Factor = 0 then
-            Factor_List.Append (Factor);
-            Factor_List.Append (Number / Factor);
+            Divisors.Append (Factor);
+            Divisors.Append (Number / Factor);
          end if;
       end loop;
-      Factor_List.Append (Number);
-      Sorting.Sort (Factor_List);
-      return Factor_List;
-   end Factors;
+      if not Proper_Divisors_Only then
+         Divisors.Append (Number);
+      end if;
+      Sorting.Sort (Divisors);
+      return Divisors;
+   end Divisors;
 
    type Fibonacci_Type is record
       Term_2 : Int_Type;
@@ -232,9 +237,9 @@ package body Euler_Package is
          end;
       else
          declare
-            Root : constant Int_Type := Square_Root (Number);
-            Factor : Int_Type := 2;
-            Inc    : Natural  := 3;
+            Root   : constant Int_Type := Square_Root (Number);
+            Factor : Int_Type          := 2;
+            Inc    : Natural           := 3;
          begin
             loop
                if Number mod Factor = 0 then

@@ -42,11 +42,13 @@ package Euler_Package is
    --  Returns the number obtained by concatenating Left and Right numbers,
    --  when Right is not negative. Returns 0 if Right is negative.
 
+   function Divisors
+     (Number : Int_Type; Proper_Divisors_Only : Boolean := False)
+      return List_Type;
+   --  Returns all factors of Number, including 1 and Number.
+
    function Factorial (Number : Int_Type) return Int_Type;
    --  Return the factorial of Number: 2 * 3 * .. * Number.
-
-   function Factors (Number : Int_Type) return List_Type;
-   --  Returns all factors of Number, including 1 and Number.
 
    function Fibonacci_Start return Int_Type;
    --  Returns the first generated Fibonacci number from the initial terms 1
