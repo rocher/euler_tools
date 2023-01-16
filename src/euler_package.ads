@@ -13,7 +13,7 @@
 --
 -- ----------------------------------------------------------------------------
 
-with Ada.Containers.Doubly_Linked_Lists;
+with Ada.Containers.Ordered_Sets;
 
 generic
    type Int_Type is range <>;
@@ -22,13 +22,12 @@ package Euler_Package is
 
    subtype Integer_Type is Int_Type;
 
-   package List_Package is new Ada.Containers.Doubly_Linked_Lists (Int_Type);
+   package Set_Package is new Ada.Containers.Ordered_Sets (Int_Type);
 
-   subtype List_Type is List_Package.List;
+   subtype Set_Type is Set_Package.Set;
 
-   function All_Divisors (Number : Int_Type) return List_Type;
-   --  Returns the (unsorted) list of all divisors of Number, including 1 and
-   --  Number.
+   function All_Divisors (Number : Int_Type) return Set_Type;
+   --  Returns the set of all divisors of Number, including 1 and Number.
 
    function Collatz_First (Number : Int_Type) return Int_Type;
    --  Sets and returns the first number in the Collatz sequence starting at
@@ -103,15 +102,14 @@ package Euler_Package is
    function Prime_Nth (Nth : Int_Type) return Int_Type;
    --  Returns the Nth prime number.
 
-   function Proper_Divisors (Number : Int_Type) return List_Type;
-   --  Returns the (unsorted) list of proper divisors of Number (excludes
-   --  Number).
+   function Proper_Divisors (Number : Int_Type) return Set_Type;
+   --  Returns the set of proper divisors of Number (excludes Number).
 
    function Square_Root (Number : Int_Type) return Int_Type;
    --  Return the truncated square root of Number if Number > 0, 0 otherwise.
 
-   function Sum (Number_List : List_Type) return Int_Type;
-   --  Return the sum of all numbers of the list.
+   function Sum (Number_Set : Set_Type) return Int_Type;
+   --  Return the sum of all numbers of the set.
 
    function Sum_Multiples
      (N : Int_Type; Upper_Bound : Int_Type) return Int_Type;

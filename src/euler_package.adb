@@ -22,10 +22,10 @@ package body Euler_Package is
    --  All_Divisors  --
    --------------------
 
-   function All_Divisors (Number : Int_Type) return List_Type is
-      Divisors : List_Type := Proper_Divisors (Number);
+   function All_Divisors (Number : Int_Type) return Set_Type is
+      Divisors : Set_Type := Proper_Divisors (Number);
    begin
-      Divisors.Append (Number);
+      Divisors.Include (Number);
       return Divisors;
    end All_Divisors;
 
@@ -376,17 +376,17 @@ package body Euler_Package is
    --  Proper_Divisors  --
    -----------------------
 
-   function Proper_Divisors (Number : Int_Type) return List_Type is
+   function Proper_Divisors (Number : Int_Type) return Set_Type is
       Root     : Int_Type;
-      Divisors : List_Type;
+      Divisors : Set_Type := Set_Package.Empty_Set;
    begin
-      Divisors.Append (1);
+      Divisors.Insert (1);
       if Number > 3 then
          Root := Square_Root (Number);
          for Factor in 2 .. Root loop
             if Number mod Factor = 0 then
-               Divisors.Append (Factor);
-               Divisors.Append (Number / Factor);
+               Divisors.Insert (Factor);
+               Divisors.Include (Number / Factor);
             end if;
          end loop;
       end if;
@@ -410,14 +410,11 @@ package body Euler_Package is
    --  Sum  --
    -----------
 
-   function Sum (Number_List : List_Type) return Int_Type is
-      Cursor : List_Package.Cursor := Number_List.First;
-      Sum    : Int_Type            := 0;
+   function Sum (Number_Set : Set_Type) return Int_Type is
+      Sum : Int_Type := 0;
    begin
-      loop
-         Sum    := @ + Cursor.Element;
-         Cursor := Cursor.Next;
-         exit when not Cursor.Has_Element;
+      for Number of Number_Set loop
+         Sum := @ + Number;
       end loop;
       return Sum;
    end Sum;
