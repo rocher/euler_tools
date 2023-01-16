@@ -26,6 +26,10 @@ package Euler_Package is
 
    subtype List_Type is List_Package.List;
 
+   function All_Divisors (Number : Int_Type) return List_Type;
+   --  Returns the (unsorted) list of all divisors of Number, including 1 and
+   --  Number.
+
    function Collatz_First (Number : Int_Type) return Int_Type;
    --  Sets and returns the first number in the Collatz sequence starting at
    --  Number, which happens to be Number.
@@ -41,11 +45,6 @@ package Euler_Package is
    function Concat (Left, Right : Int_Type) return Int_Type;
    --  Returns the number obtained by concatenating Left and Right numbers,
    --  when Right is not negative. Returns 0 if Right is negative.
-
-   function Divisors
-     (Number : Int_Type; Proper_Divisors_Only : Boolean := False)
-      return List_Type;
-   --  Returns all factors of Number, including 1 and Number.
 
    function Factorial (Number : Int_Type) return Int_Type;
    --  Return the factorial of Number: 2 * 3 * .. * Number.
@@ -91,6 +90,10 @@ package Euler_Package is
 
    function Prime_Nth (Nth : Int_Type) return Int_Type;
    --  Returns the Nth prime number.
+
+   function Proper_Divisors (Number : Int_Type) return List_Type;
+   --  Returns the (unsorted) list of proper divisors of Number (excludes
+   --  Number).
 
    function Square_Root (Number : Int_Type) return Int_Type;
    --  Return the truncated square root of Number if Number > 0, 0 otherwise.

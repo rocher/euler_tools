@@ -18,7 +18,16 @@ with Ada.Numerics.Elementary_Functions; use Ada.Numerics.Elementary_Functions;
 
 package body Euler_Package is
 
-   Collatz_Number : Int_Type;
+   --------------------
+   --  All_Divisors  --
+   --------------------
+
+   function All_Divisors (Number : Int_Type) return List_Type is
+      Divisors : List_Type := Proper_Divisors (Number);
+   begin
+      Divisors.Append (Number);
+      return Divisors;
+   end All_Divisors;
 
    ---------------------
    --  Collatz_First  --
@@ -105,33 +114,6 @@ package body Euler_Package is
       end if;
       return Result;
    end Factorial;
-
-   ---------------
-   --  Factors  --
-   ---------------
-
-   function Divisors
-     (Number : Int_Type; Proper_Divisors_Only : Boolean := False)
-      return List_Type
-   is
-      package Sorting is new List_Package.Generic_Sorting;
-      Square_Root : constant Int_Type :=
-        Int_Type (Float'Floor (Sqrt (Float (Number))));
-      Divisors    : List_Type;
-   begin
-      Divisors.Append (1);
-      for Factor in 2 .. Square_Root loop
-         if Number mod Factor = 0 then
-            Divisors.Append (Factor);
-            Divisors.Append (Number / Factor);
-         end if;
-      end loop;
-      if not Proper_Divisors_Only then
-         Divisors.Append (Number);
-      end if;
-      Sorting.Sort (Divisors);
-      return Divisors;
-   end Divisors;
 
    type Fibonacci_Type is record
       Term_2 : Int_Type;
@@ -375,6 +357,25 @@ package body Euler_Package is
 
    function Prime_Nth (Nth : Int_Type) return Int_Type is
      (Prime_Nth_Internal (Nth, Prime_Private_Cursor));
+
+   -----------------------
+   --  Proper_Divisors  --
+   -----------------------
+
+   function Proper_Divisors (Number : Int_Type) return List_Type is
+      Square_Root : constant Int_Type :=
+        Int_Type (Float'Floor (Sqrt (Float (Number))));
+      Divisors    : List_Type;
+   begin
+      Divisors.Append (1);
+      for Factor in 2 .. Square_Root loop
+         if Number mod Factor = 0 then
+            Divisors.Append (Factor);
+            Divisors.Append (Number / Factor);
+         end if;
+      end loop;
+      return Divisors;
+   end Proper_Divisors;
 
    -------------------
    --  Square_Root  --
