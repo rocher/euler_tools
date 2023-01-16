@@ -7,5 +7,3 @@ maintainers = ["Francesc Rocher <francesc.rocher@gmail.com>"]
 maintainers-logins = ["rocher"]
 [[depends-on]]
 aunit = "^23.0.0"
-[[depends-on]]
-gnatcoll_gmp = "^23.0.0"
