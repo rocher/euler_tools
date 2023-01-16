@@ -377,17 +377,19 @@ package body Euler_Package is
    -----------------------
 
    function Proper_Divisors (Number : Int_Type) return List_Type is
-      Square_Root : constant Int_Type :=
-        Int_Type (Float'Floor (Sqrt (Float (Number))));
-      Divisors    : List_Type;
+      Root     : Int_Type;
+      Divisors : List_Type;
    begin
       Divisors.Append (1);
-      for Factor in 2 .. Square_Root loop
-         if Number mod Factor = 0 then
-            Divisors.Append (Factor);
-            Divisors.Append (Number / Factor);
-         end if;
-      end loop;
+      if Number > 3 then
+         Root := Square_Root (Number);
+         for Factor in 2 .. Root loop
+            if Number mod Factor = 0 then
+               Divisors.Append (Factor);
+               Divisors.Append (Number / Factor);
+            end if;
+         end loop;
+      end if;
       return Divisors;
    end Proper_Divisors;
 
