@@ -16,7 +16,7 @@
 with Ada.Containers.Doubly_Linked_Lists;
 
 generic
-   type Int_Type is range <> or use Integer;
+   type Int_Type is range <>;
 
 package Euler_Package is
 
