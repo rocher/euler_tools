@@ -24,6 +24,8 @@ package body Euler_Package is
    --  Collatz_First  --
    ---------------------
 
+   Collatz_Number : Int_Type;
+
    function Collatz_First (Number : Int_Type) return Int_Type is
    begin
       Collatz_Number := Number;
@@ -85,27 +87,6 @@ package body Euler_Package is
       end if;
       return Result;
    end Concat;
-
-   ---------------------
-   --  Is_Palindrome  --
-   ---------------------
-
-   function Is_Palindrome (Number : Int_Type) return Boolean is
-      Img : constant String := Number'Image;
-      Str : constant String := Img (2 .. Img'Length);
-      I   : Natural         := Str'First;
-      J   : Natural         := Str'Last;
-   begin
-      loop
-         if Str (I) /= Str (J) then
-            return False;
-         end if;
-         exit when I > Str'Length / 2;
-         I := I + 1;
-         J := J - 1;
-      end loop;
-      return True;
-   end Is_Palindrome;
 
    -----------------
    --  Factorial  --
@@ -220,6 +201,34 @@ package body Euler_Package is
    --------------
 
    function Is_Odd (Number : Int_Type) return Boolean is (Number mod 2 = 1);
+
+   ---------------------
+   --  Is_Palindrome  --
+   ---------------------
+
+   function Is_Palindrome (Number : Int_Type) return Boolean is
+      Img : constant String := Number'Image;
+      Str : constant String := Img (2 .. Img'Length);
+      I   : Natural         := Str'First;
+      J   : Natural         := Str'Last;
+   begin
+      loop
+         if Str (I) /= Str (J) then
+            return False;
+         end if;
+         exit when I > Str'Length / 2;
+         I := I + 1;
+         J := J - 1;
+      end loop;
+      return True;
+   end Is_Palindrome;
+
+   ------------------
+   --  Is_Perfect  --
+   ------------------
+
+   function Is_Perfect (Number : Int_Type) return Boolean is
+     (Sum (Proper_Divisors (Number)) = Number);
 
    ----------------
    --  Is_Prime  --
