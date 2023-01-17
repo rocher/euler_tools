@@ -248,16 +248,15 @@ package body Euler_Package is
    ---------------------
 
    function Is_Palindrome (Number : Int_Type) return Boolean is
-      Img : constant String := Number'Image;
-      Str : constant String := Img (2 .. Img'Length);
-      I   : Natural         := Str'First;
-      J   : Natural         := Str'Last;
+      Text : constant String := Trim (Number'Image, Both);
+      I    : Natural         := Text'First;
+      J    : Natural         := Text'Last;
    begin
       loop
-         if Str (I) /= Str (J) then
+         if Text (I) /= Text (J) then
             return False;
          end if;
-         exit when I > Str'Length / 2;
+         exit when I > Text'Length / 2;
          I := I + 1;
          J := J - 1;
       end loop;
