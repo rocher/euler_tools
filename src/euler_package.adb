@@ -148,12 +148,9 @@ package body Euler_Package is
 
    function Factorial (Number : Int_Type) return Int_Type is
       Result : Int_Type := 1;
-      N      : Int_Type := 1;
    begin
-      if Number > 1 then
-         loop
-            exit when N = Number;
-            N      := @ + 1;
+      if Number >= 2 then
+         for N in 2 .. Number loop
             Result := @ * N;
          end loop;
       end if;
