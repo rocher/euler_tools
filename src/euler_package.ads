@@ -42,25 +42,27 @@ package Euler_Package is
    --  Collatz_Next = N/2 if N is even, and Collatz_Next = 3*N+1 if N is odd,
    --  where N is the previous number in the Collatz sequence.
 
-   function Combination (N, K : Int_Type) return Int_Type;
+   function Combination (N, K : Int_Type) return Int_Type with
+     Pre => N > 0 and then K > 0;
    --  Returns the combinatorial number of N over K.
 
-   function Concat (Left, Right : Int_Type) return Int_Type;
-   --  Returns the number obtained by concatenating Left and Right numbers,
-   --  when Right is not negative. Returns 0 if Right is negative.
+   function Concat (Left, Right : Int_Type) return Int_Type with
+     Pre => Right >= 0;
+   --  Returns the number obtained by concatenating Left and Right numbers.
 
    --  procedure Divide (Numerator: Int_Type; Denominator : Int_Type)
 
-   function Element_First (Set : Set_Type) return Int_Type;
-   --  Returns the first element of the ordered Set if the Set if non-empty,
-   --  0 otherwise.
+   function Element_First (Set : Set_Type) return Int_Type with
+     Pre => not Set.Is_Empty;
+   --  Returns the first element of the ordered, non-empty Set.
 
-   function Element_Nth (Set : Set_Type; Nth : Natural) return Int_Type;
-   --  Return the Nth element of the ordered Set if the set has N elements or
-   --  more, 0 otherwise.
+   function Element_Nth (Set : Set_Type; Nth : Natural) return Int_Type with
+     Pre => not Set.Is_Empty;
+   --  Return the Nth element of the ordered, non-empty Set.
 
-   function Factorial (Number : Int_Type) return Int_Type;
-   --  Return the factorial of Number: 2 * 3 * .. * Number.
+   function Factorial (Number : Int_Type) return Int_Type with
+     Pre => Number >= 0;
+   --  Return the factorial of Number: 1* 2 * 3 * .. * Number.
 
    function Fibonacci_Start return Int_Type;
    --  Returns the first generated Fibonacci number from the initial terms 1
@@ -85,7 +87,8 @@ package Euler_Package is
    --  Returns True if the sum of the proper divisors of Number is lesser
    --  than itself: Sum (Proper_Divisors (Number)) < Number
 
-   function Is_Divisor (Number, Divisor : Int_Type) return Boolean;
+   function Is_Divisor (Number, Divisor : Int_Type) return Boolean with
+     Pre => Divisor /= 0;
    --  Returns True is Number can by evenly divided by Divisor.
 
    function Is_Even (Number : Int_Type) return Boolean;
@@ -119,7 +122,8 @@ package Euler_Package is
    function Proper_Divisors (Number : Int_Type) return Set_Type;
    --  Returns the set of proper divisors of Number (excludes Number).
 
-   function Square_Root (Number : Int_Type) return Int_Type;
+   function Square_Root (Number : Int_Type) return Int_Type with
+     Pre => Number >= 0;
    --  Return the truncated square root of Number if Number > 0, 0 otherwise.
 
    function Sum (Set : Set_Type) return Int_Type;
@@ -142,13 +146,14 @@ package Euler_Package is
    function Thousands (Number : Int_Type) return Int_Type;
    --  Returns the thousands of Number.
 
-   function To_Number (Chr : Character) return Int_Type;
+   function To_Number (Chr : Character) return Int_Type with
+     Pre => (Chr in '0' .. '9');
    --  Returns the value of Chr converted to typ T if Chr in '0' .. '9', 0
    --  otherwise.
 
-   function To_Number (Str : String) return Int_Type;
-   --  Returns the value of Str converted to type T is Str(I) in '0' .. '9',
-   --  0 otherwise. Optionally, Str'First can be the sign '-' or '+'.
+   function To_Number (Str : String) return Int_Type with
+     Pre => (for all S of Str => S in '0' .. '9');
+   --  Returns the value of Str converted to Integer_Type.
 
    function To_String (Number : Int_Type) return String;
    --  Returns a String with the value of Number. Removes leading whitespace.
