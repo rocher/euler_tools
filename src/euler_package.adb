@@ -74,7 +74,7 @@ package body Euler_Package is
    function Combination (N, K : Int_Type) return Int_Type is
       Result : Int_Type := 0;
    begin
-      if 0 <= K and then K <= N then
+      if 0 <= K and then K < N then
          if K = 0 or else K = N then
             Result := 1;
          else

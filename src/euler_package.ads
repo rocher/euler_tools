@@ -43,7 +43,7 @@ package Euler_Package is
    --  where N is the previous number in the Collatz sequence.
 
    function Combination (N, K : Int_Type) return Int_Type with
-     Pre => N > 0 and then K > 0;
+     Pre => N > 0 and then K >= 0;
    --  Returns the combinatorial number of N over K.
 
    function Concat (Left, Right : Int_Type) return Int_Type with
