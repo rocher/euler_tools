@@ -29,6 +29,10 @@ package Euler_Package is
    function All_Divisors (Number : Int_Type) return Set_Type;
    --  Returns the set of all divisors of Number, including 1 and Number.
 
+   function Are_Amicable (A, B : Int_Type) return Boolean;
+   --  Return True is A and B are an amicable pair: A and B are amicable if
+   --  Sum (Proper_Divisors (A)) = B  and  Sum (Proper_Divisors (B)) = A.
+
    function Collatz_First (Number : Int_Type) return Int_Type;
    --  Sets and returns the first number in the Collatz sequence starting at
    --  Number, which happens to be Number.
@@ -44,6 +48,8 @@ package Euler_Package is
    function Concat (Left, Right : Int_Type) return Int_Type;
    --  Returns the number obtained by concatenating Left and Right numbers,
    --  when Right is not negative. Returns 0 if Right is negative.
+
+   --  procedure Divide (Numerator: Int_Type; Denominator : Int_Type)
 
    function Element_First (Set : Set_Type) return Int_Type;
    --  Returns the first element of the ordered Set if the Set if non-empty,

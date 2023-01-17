@@ -34,6 +34,13 @@ package body Euler_Package is
       return Divisors;
    end All_Divisors;
 
+   --------------------
+   --  Are_Amicable  --
+   --------------------
+
+   function Are_Amicable (A, B : Int_Type) return Boolean is
+     (Sum (Proper_Divisors (A)) = B and then Sum (Proper_Divisors (B)) = A);
+
    ---------------------
    --  Collatz_First  --
    ---------------------
