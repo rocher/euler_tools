@@ -1,0 +1,7 @@
+{
+   "editor.tabSize": 3,
+   "ada.defaultCharset": "utf-8",
+   "editor.formatOnSave": true,
+   "editor.detectIndentation": false,
+   "rewrap.wrappingColumn": 77
+}

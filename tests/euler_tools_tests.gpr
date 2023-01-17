@@ -1,0 +1,43 @@
+--  ---------------------------------------------------------------------------
+--
+--  Copyright (c) 2023 Francesc Rocher <francesc.rocher@gnail.com>
+--  SPDX-License-Identifier: CC-BY-NC-SA-4.0
+--  https://creativecommons.org/licenses/by-nc-sa/4.0/
+--
+--  ---------------------------------------------------------------------------
+--   _____      _             _____           _       _____         _       
+--  | ____|   _| | ___ _ __  |_   _|__   ___ | |___  |_   _|__  ___| |_ ___ 
+--  |  _|| | | | |/ _ \ '__|   | |/ _ \ / _ \| / __|   | |/ _ \/ __| __/ __|
+--  | |__| |_| | |  __/ |      | | (_) | (_) | \__ \   | |  __/\__ \ |_\__ \
+--  |_____\__,_|_|\___|_|      |_|\___/ \___/|_|___/   |_|\___||___/\__|___/
+--
+-- ----------------------------------------------------------------------------
+
+with "config/euler_tools_tests_config.gpr";
+project Euler_Tools_Tests is
+
+   for Source_Dirs use ("src/", "src/fibonacci/", "config/");
+   for Object_Dir use "obj/" & Euler_Tools_Tests_Config.Build_Profile;
+   for Create_Missing_Dirs use "True";
+   for Exec_Dir use "bin";
+   for Main use ("euler_tools_tests.adb");
+
+   package Compiler is
+     for Default_Switches ("Ada") use
+      Euler_Tools_Tests_Config.Ada_Compiler_Switches &
+         (
+              "-gnatW8"   --  Wide character encoding method
+            , "-gnat2022" --  Ada 2022 mode
+            , "-gnatX"    --  Language extensions permitted
+         );
+   end Compiler;
+
+   package Binder is
+      for Switches ("Ada") use ("-Es"); --  Symbolic traceback
+   end Binder;
+
+   package Install is
+      for Artifacts (".") use ("share");
+   end Install;
+
+end Euler_Tools_Tests;
