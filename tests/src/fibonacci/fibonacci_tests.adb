@@ -14,7 +14,7 @@
 -- ----------------------------------------------------------------------------
 
 with AUnit.Assertions; use AUnit.Assertions;
-with Euler_Tools;
+with Euler_Tools;      use Euler_Tools;
 
 package body Fibonacci_Tests is
 
@@ -31,7 +31,6 @@ package body Fibonacci_Tests is
    end Register_Tests;
 
    procedure Test_Fibonacci_Simple (T : in out Test_Cases.Test_Case'Class) is
-      use Euler_Tools;
       Number : Integer_Type;
    begin
       Number := Fibonacci_Start;
