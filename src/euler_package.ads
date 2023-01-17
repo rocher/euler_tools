@@ -130,15 +130,15 @@ package Euler_Package is
    --  Return the sum of all numbers of the set.
 
    function Sum_Multiples
-     (N : Int_Type; Upper_Bound : Int_Type) return Int_Type;
-   --  Returns the sum of all numbers multiples of N less or equal than
-   --  Upper_Bound: Sum_Multiples (3, 100) = 3 + 6 + 9 + .. + 99.
+     (Number : Int_Type; Upper_Bound : Int_Type) return Int_Type;
+   --  Returns the sum of all numbers multiples of Number less or equal than
+   --  Upper_Bound. e.g. Sum_Multiples (3, 100) = 3 + 6 + 9 + .. + 99.
 
-   function Sum_Sequence (Upper_Bound : Int_Type) return Int_Type;
-   --  Returns the sum of all numbers from 1 to Upper_Bound.
+   function Sum_Sequence (Number : Int_Type) return Int_Type;
+   --  Returns the sum of all numbers from 1 to Number.
 
-   function Sum_Squares (Upper_Bound : Int_Type) return Int_Type;
-   --  Returns the sum of the squares of all numbers from 1 to Upper_Bound.
+   function Sum_Squares (Number : Int_Type) return Int_Type;
+   --  Returns the sum of the squares of all numbers from 1 to Number.
 
    function Tens (Number : Int_Type) return Int_Type;
    --  Returns the tens of Number.

@@ -468,26 +468,26 @@ package body Euler_Package is
    ---------------------
 
    function Sum_Multiples
-     (N : Int_Type; Upper_Bound : Int_Type) return Int_Type
+     (Number : Int_Type; Upper_Bound : Int_Type) return Int_Type
    is
-      Num_Multiples : constant Int_Type := (Upper_Bound - 1) / N;
+      Num_Multiples : constant Int_Type := (Upper_Bound - 1) / Number;
    begin
-      return N * ((Num_Multiples * Num_Multiples + Num_Multiples) / 2);
+      return Number * ((Num_Multiples * Num_Multiples + Num_Multiples) / 2);
    end Sum_Multiples;
 
    --------------------
    --  Sum_Sequence  --
    --------------------
 
-   function Sum_Sequence (Upper_Bound : Int_Type) return Int_Type is
-     ((Upper_Bound * (Upper_Bound + 1)) / 2);
+   function Sum_Sequence (Number : Int_Type) return Int_Type is
+     ((Number * (Number + 1)) / 2);
 
    -------------------
    --  Sum_Squares  --
    -------------------
 
-   function Sum_Squares (Upper_Bound : Int_Type) return Int_Type is
-     ((Upper_Bound * (Upper_Bound + 1) * (2 * Upper_Bound + 1)) / 6);
+   function Sum_Squares (Number : Int_Type) return Int_Type is
+     ((Number * (Number + 1) * (2 * Number + 1)) / 6);
 
    ------------
    --  Tens  --
