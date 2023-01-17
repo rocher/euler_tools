@@ -97,6 +97,39 @@ package body Euler_Package is
       return Result;
    end Concat;
 
+   ---------------------
+   --  Element_First  --
+   ---------------------
+
+   function Element_First (Set : Set_Type) return Int_Type is
+      Element : Int_Type := 0;
+   begin
+      if not Set.Is_Empty then
+         Element := Set.First_Element;
+      end if;
+      return Element;
+   end Element_First;
+
+   -------------------
+   --  Element_Nth  --
+   -------------------
+
+   function Element_Nth (Set : Set_Type; Nth : Natural) return Int_Type is
+      Element : Int_Type := 0;
+      Index   : Natural  := 0;
+   begin
+      if not Set.Is_Empty and then Nth <= Natural (Set.Length) then
+         for Elt of Set loop
+            Index := Index + 1;
+            if Index = Nth then
+               Element := Elt;
+               exit;
+            end if;
+         end loop;
+      end if;
+      return Element;
+   end Element_Nth;
+
    -----------------
    --  Factorial  --
    -----------------
@@ -410,10 +443,10 @@ package body Euler_Package is
    --  Sum  --
    -----------
 
-   function Sum (Number_Set : Set_Type) return Int_Type is
+   function Sum (Set : Set_Type) return Int_Type is
       Sum : Int_Type := 0;
    begin
-      for Number of Number_Set loop
+      for Number of Set loop
          Sum := @ + Number;
       end loop;
       return Sum;

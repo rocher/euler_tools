@@ -45,6 +45,14 @@ package Euler_Package is
    --  Returns the number obtained by concatenating Left and Right numbers,
    --  when Right is not negative. Returns 0 if Right is negative.
 
+   function Element_First (Set : Set_Type) return Int_Type;
+   --  Returns the first element of the ordered Set if the Set if non-empty,
+   --  0 otherwise.
+
+   function Element_Nth (Set : Set_Type; Nth : Natural) return Int_Type;
+   --  Return the Nth element of the ordered Set if the set has N elements or
+   --  more, 0 otherwise.
+
    function Factorial (Number : Int_Type) return Int_Type;
    --  Return the factorial of Number: 2 * 3 * .. * Number.
 
@@ -108,7 +116,7 @@ package Euler_Package is
    function Square_Root (Number : Int_Type) return Int_Type;
    --  Return the truncated square root of Number if Number > 0, 0 otherwise.
 
-   function Sum (Number_Set : Set_Type) return Int_Type;
+   function Sum (Set : Set_Type) return Int_Type;
    --  Return the sum of all numbers of the set.
 
    function Sum_Multiples
