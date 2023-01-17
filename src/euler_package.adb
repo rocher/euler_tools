@@ -14,7 +14,12 @@
 -- ----------------------------------------------------------------------------
 
 with Ada.Text_IO;
-with Ada.Numerics.Elementary_Functions; use Ada.Numerics.Elementary_Functions;
+with Ada.Strings.Fixed;
+with Ada.Numerics.Elementary_Functions;
+
+use Ada.Strings;
+use Ada.Strings.Fixed;
+use Ada.Numerics.Elementary_Functions;
 
 package body Euler_Package is
 
@@ -525,12 +530,7 @@ package body Euler_Package is
    -----------------
 
    function To_String (Number : Int_Type) return String is
-      Img : constant String := Number'Image;
-      Str : constant String :=
-        (if Number >= 0 then Img (2 .. Img'Last) else Img);
-   begin
-      return Str;
-   end To_String;
+     (Trim (Number'Image, Both));
 
    -------------
    --  Units  --
