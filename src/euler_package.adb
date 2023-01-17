@@ -160,6 +160,10 @@ package body Euler_Package is
       return Result;
    end Factorial;
 
+   -----------------------
+   --  Fibonacci_Start  --
+   -----------------------
+
    type Fibonacci_Type is record
       Term_2 : Int_Type;
       Term_1 : Int_Type;
@@ -167,10 +171,6 @@ package body Euler_Package is
    end record;
 
    Fibonacci_Cursor : Fibonacci_Type;
-
-   -----------------------
-   --  Fibonacci_Start  --
-   -----------------------
 
    function Fibonacci_Start return Int_Type is
    begin
@@ -313,6 +313,10 @@ package body Euler_Package is
       return True;
    end Is_Prime;
 
+   -------------------
+   --  Prime_First  --
+   -------------------
+
    type Prime_Cursor_Type is record
       Number : Int_Type := 0;
       Inc    : Int_Type := 0;
@@ -340,10 +344,6 @@ package body Euler_Package is
       PC.Inc    := 3;
       return PC.Number;
    end Prime_First_Internal;
-
-   -------------------
-   --  Prime_First  --
-   -------------------
 
    function Prime_First return Int_Type is
      (Prime_First_Internal (Prime_Public_Cursor));
@@ -399,6 +399,10 @@ package body Euler_Package is
    function Prime_Next return Int_Type is
      (Prime_Next_Internal (Prime_Public_Cursor));
 
+   -----------------
+   --  Prime_Nth  --
+   -----------------
+
    function Prime_Nth_Internal
      (N : Int_Type; PC : Prime_Cursor_Access) return Int_Type
    is
@@ -409,10 +413,6 @@ package body Euler_Package is
       end loop;
       return Prime;
    end Prime_Nth_Internal;
-
-   -----------------
-   --  Prime_Nth  --
-   -----------------
 
    function Prime_Nth (Nth : Int_Type) return Int_Type is
      (Prime_Nth_Internal (Nth, Prime_Private_Cursor));
