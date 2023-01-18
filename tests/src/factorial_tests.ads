@@ -13,26 +13,18 @@
 --
 -- ----------------------------------------------------------------------------
 
-with Factorial_Tests; use Factorial_Tests;
-with Fibonacci_Tests; use Fibonacci_Tests;
-with Prime_Tests;     use Prime_Tests;
+with AUnit;            use AUnit;
+with AUnit.Test_Cases; use AUnit.Test_Cases;
 
-package body Euler_Test_Suite is
+package Factorial_Tests is
+   type Factorial_Test_Case is new Test_Case with null record;
 
-   use AUnit.Test_Suites;
+   overriding function Name (T : Factorial_Test_Case) return Message_String;
 
-   Result : aliased Test_Suite;
+   overriding procedure Register_Tests (T : in out Factorial_Test_Case);
 
-   Factorial_Test : aliased Factorial_Test_Case;
-   Fibonacci_Test : aliased Fibonacci_Test_Case;
-   Prime_Test     : aliased Prime_Test_Case;
+   procedure Test_Factorial (T : in out Test_Case'Class);
+   procedure Test_Factorial_Int3 (T : in out Test_Case'Class);
+   procedure Test_Combination (T : in out Test_Case'Class);
 
-   function Suite return Access_Test_Suite is
-   begin
-      Add_Test (Result'Access, Factorial_Test'Access);
-      Add_Test (Result'Access, Fibonacci_Test'Access);
-      Add_Test (Result'Access, Prime_Test'Access);
-      return Result'Access;
-   end Suite;
-
-end Euler_Test_Suite;
+end Factorial_Tests;
