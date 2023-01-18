@@ -13,23 +13,16 @@
 --
 -- ----------------------------------------------------------------------------
 
-with Fibonacci_Tests; use Fibonacci_Tests;
-with Prime_Tests;     use Prime_Tests;
+with AUnit;            use AUnit;
+with AUnit.Test_Cases; use AUnit.Test_Cases;
 
-package body Euler_Test_Suite is
+package Fibonacci_Tests is
+   type Fibonacci_Test_Case is new Test_Case with null record;
 
-   use AUnit.Test_Suites;
+   overriding function Name (T : Fibonacci_Test_Case) return Message_String;
 
-   Result : aliased Test_Suite;
+   overriding procedure Register_Tests (T : in out Fibonacci_Test_Case);
 
-   Fibonacci_Test_1 : aliased Fibonacci_Test_Case;
-   Prime_Test_1     : aliased Prime_Test_Case;
+   procedure Test_Fibonacci (T : in out Test_Case'Class);
 
-   function Suite return Access_Test_Suite is
-   begin
-      Add_Test (Result'Access, Fibonacci_Test_1'Access);
-      Add_Test (Result'Access, Prime_Test_1'Access);
-      return Result'Access;
-   end Suite;
-
-end Euler_Test_Suite;
+end Fibonacci_Tests;

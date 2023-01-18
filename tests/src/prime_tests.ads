@@ -16,13 +16,15 @@
 with AUnit;            use AUnit;
 with AUnit.Test_Cases; use AUnit.Test_Cases;
 
-package Fibonacci_Tests is
-   type Fibonacci_Test is new Test_Case with null record;
+package Prime_Tests is
+   type Prime_Test_Case is new Test_Case with null record;
 
-   overriding function Name (T : Fibonacci_Test) return Message_String;
+   overriding function Name (T : Prime_Test_Case) return Message_String;
 
-   overriding procedure Register_Tests (T : in out Fibonacci_Test);
+   overriding procedure Register_Tests (T : in out Prime_Test_Case);
 
-   procedure Test_Fibonacci_Simple (T : in out Test_Case'Class);
+   procedure Test_Is_Prime (T : in out Test_Case'Class);
+   procedure Test_Prime_Generator (T : in out Test_Case'Class);
+   procedure Test_Prime_Nth (T : in out Test_Case'Class);
 
-end Fibonacci_Tests;
+end Prime_Tests;

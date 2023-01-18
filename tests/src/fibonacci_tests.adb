@@ -18,19 +18,19 @@ with Euler_Tools;      use Euler_Tools;
 
 package body Fibonacci_Tests is
 
-   overriding function Name (T : Fibonacci_Test) return Test_String is
+   overriding function Name (T : Fibonacci_Test_Case) return Test_String is
    begin
-      return Format ("Fibonacci Tests");
+      return Format ("Fibonacci Tests     ");
    end Name;
 
-   overriding procedure Register_Tests (T : in out Fibonacci_Test) is
+   overriding procedure Register_Tests (T : in out Fibonacci_Test_Case) is
       use AUnit.Test_Cases.Registration;
    begin
       Register_Routine
-        (T, Test_Fibonacci_Simple'Access, "Test Fibonacci Simple");
+        (T, Test_Fibonacci'Access, "Fibonacci_Start, Fibonacci_Next");
    end Register_Tests;
 
-   procedure Test_Fibonacci_Simple (T : in out Test_Cases.Test_Case'Class) is
+   procedure Test_Fibonacci (T : in out Test_Cases.Test_Case'Class) is
       Number : Integer_Type;
    begin
       Number := Fibonacci_Start;
@@ -46,6 +46,6 @@ package body Fibonacci_Tests is
          Number := Fibonacci_Next;
       end loop;
       Assert (Number = 144, "Invalid tenth generated Fibonacci number");
-   end Test_Fibonacci_Simple;
+   end Test_Fibonacci;
 
 end Fibonacci_Tests;
