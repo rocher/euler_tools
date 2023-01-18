@@ -72,18 +72,15 @@ package body Euler_Package is
    -------------------
 
    function Combination (N, K : Int_Type) return Int_Type is
-      Result : Int_Type := 0;
+      Result : Int_Type := 1;
    begin
-      if 0 <= K and then K < N then
-         if K = 0 or else K = N then
-            Result := 1;
-         else
-            Result := 1;
-            for I in reverse N - K + 1 .. N loop
-               Result := @ * I;
-            end loop;
-            Result := @ / Factorial (K);
-         end if;
+      if K = 0 or else K = N then
+         Result := 1;
+      else
+         for I in reverse N - K + 1 .. N loop
+            Result := @ * I;
+         end loop;
+         Result := @ / Factorial (K);
       end if;
       return Result;
    end Combination;
