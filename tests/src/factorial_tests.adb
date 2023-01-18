@@ -32,14 +32,18 @@ package body Factorial_Tests is
       Register_Routine (T, Test_Factorial'Access, "Factorial");
       Register_Routine (T, Test_Factorial_Int3'Access, "Factorial (Int3)");
       Register_Routine (T, Test_Combination'Access, "Combination");
-   end Register_Tests;
 
-   procedure Factorial_13 is
-      use Euler_Tools;
-      Result : constant Integer_Type := Factorial (13);
-   begin
-      null;
-   end Factorial_13;
+      if Euler_Tools.Integer_Type'Size = 32 then
+         Register_Routine
+           (T, Test_Factorial_Error'Access, "Factorial (Constraint Error)");
+      end if;
+
+      if Euler_Int3_Tools.Integer_Type'Size = 128 then
+         Register_Routine
+           (T, Test_Factorial_Int3_Error'Access,
+            "Factorial (Int3, Constraint Error)");
+      end if;
+   end Register_Tests;
 
    procedure Test_Factorial (T : in out Test_Cases.Test_Case'Class) is
       use Euler_Tools;
@@ -57,16 +61,9 @@ package body Factorial_Tests is
       Assert (Factorial (10) = 3_628_800, "10! is equal to 3_628_800");
       Assert (Factorial (11) = 39_916_800, "11! is equal to 39_916_800");
       Assert (Factorial (12) = 479_001_600, "12! is equal to 479_001_600");
-      Assert_Exception
-        (Factorial_13'Access, "13! should raise CONSTRAINT ERROR");
+      Assert
+        (Factorial (12) = 12 * Factorial (11), "12! is equal to 12 * 11!");
    end Test_Factorial;
-
-   procedure Factorial_34 is
-      use Euler_Tools;
-      Result : constant Integer_Type := Factorial (34);
-   begin
-      null;
-   end Factorial_34;
 
    procedure Test_Factorial_Int3 (T : in out Test_Cases.Test_Case'Class) is
       use Euler_Int3_Tools;
@@ -93,8 +90,8 @@ package body Factorial_Tests is
       Assert
         (Factorial (33) = 8_683_317_618_811_886_495_518_194_401_280_000_000,
          "33! is equal to 8_683_317_618_811_886_495_518_194_401_280_000_000");
-      Assert_Exception
-        (Factorial_34'Access, "34! should raise CONSTRAINT ERROR");
+      Assert
+        (Factorial (33) = 33 * Factorial (32), "33! is equal to 33 * 32!");
    end Test_Factorial_Int3;
 
    procedure Test_Combination (T : in out Test_Cases.Test_Case'Class) is
@@ -132,5 +129,30 @@ package body Factorial_Tests is
          Factorial (12) / (Factorial (12 - 12) * Factorial (12)),
          "12 over 12 is equal to 1");
    end Test_Combination;
+
+   procedure Factorial_13 is
+      use Euler_Tools;
+   begin
+      Assert (Factorial (13) = 13 * Factorial (12), "CONSTRAINT ERROR");
+   end Factorial_13;
+
+   procedure Test_Factorial_Error (T : in out Test_Cases.Test_Case'Class) is
+   begin
+      Assert_Exception
+        (Factorial_13'Access, "13! should raise CONSTRAINT ERROR");
+   end Test_Factorial_Error;
+
+   procedure Factorial_34 is
+      use Euler_Int3_Tools;
+   begin
+      Assert (Factorial (34) = 34 * Factorial (33), "CONSTRAINT ERROR");
+   end Factorial_34;
+
+   procedure Test_Factorial_Int3_Error (T : in out Test_Cases.Test_Case'Class)
+   is
+   begin
+      Assert_Exception
+        (Factorial_34'Access, "34! should raise CONSTRAINT ERROR");
+   end Test_Factorial_Int3_Error;
 
 end Factorial_Tests;

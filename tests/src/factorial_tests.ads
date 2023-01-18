@@ -27,4 +27,7 @@ package Factorial_Tests is
    procedure Test_Factorial_Int3 (T : in out Test_Case'Class);
    procedure Test_Combination (T : in out Test_Case'Class);
 
+   procedure Test_Factorial_Error (T : in out Test_Case'Class);
+   procedure Test_Factorial_Int3_Error (T : in out Test_Case'Class);
+
 end Factorial_Tests;
