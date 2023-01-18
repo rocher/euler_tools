@@ -29,6 +29,7 @@ project Euler_Tools_Tests is
               "-gnatW8"   --  Wide character encoding method
             , "-gnat2022" --  Ada 2022 mode
             , "-gnatX"    --  Language extensions permitted
+            , "-gnatwU"   --  turn off warnings for unused entity
          );
    end Compiler;
 
