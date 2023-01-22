@@ -418,7 +418,9 @@ package body Euler_Package is
       Root     : Int_Type;
       Divisors : Set_Type := Set_Package.Empty_Set;
    begin
-      Divisors.Insert (1);
+      if Number > 1 then
+         Divisors.Insert (1);
+      end if;
       if Number > 3 then
          Root := Square_Root (Number);
          for Factor in 2 .. Root loop

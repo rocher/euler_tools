@@ -120,7 +120,8 @@ package Euler_Package is
    --  Returns the Nth prime number.
 
    function Proper_Divisors (Number : Int_Type) return Set_Type;
-   --  Returns the set of proper divisors of Number (excludes Number).
+   --  Returns the set of proper divisors of Number (that is, excluding
+   --  Number). If Number is equal to 1, then returns the empty set.
 
    function Square_Root (Number : Int_Type) return Int_Type with
      Pre => Number >= 0;
