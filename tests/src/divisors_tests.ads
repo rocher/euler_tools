@@ -31,4 +31,6 @@ package Divisors_Tests is
    procedure Test_Is_Perfect (T : in out Test_Case'Class);
    procedure Test_Proper_Divisors (T : in out Test_Case'Class);
 
+   procedure Test_Int3_Is_Perfect (T : in out Test_Case'Class);
+
 end Divisors_Tests;
