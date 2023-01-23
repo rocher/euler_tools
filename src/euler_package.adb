@@ -90,21 +90,7 @@ package body Euler_Package is
    --------------
 
    function Concat (Left, Right : Int_Type) return Int_Type is
-      SLeft  : String   := Left'Image;
-      SRight : String   := Right'Image;
-      Result : Int_Type := 0;
-   begin
-      if Right >= 0 then
-         if SLeft (SLeft'First) = ' ' then
-            SLeft := SLeft (SLeft'First + 1 .. SLeft'Last);
-         else
-            SLeft := SLeft (SLeft'First .. SLeft'Last);
-         end if;
-         SRight := SRight (SRight'First + 1 .. SRight'Last);
-         Result := To_Number (SLeft & SRight);
-      end if;
-      return Result;
-   end Concat;
+     (To_Number (Trim (Left'Image, Both) & Trim (Right'Image, Both)));
 
    ---------------------
    --  Element_First  --
