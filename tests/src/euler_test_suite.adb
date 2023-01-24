@@ -18,6 +18,7 @@ with Factorial_Tests; use Factorial_Tests;
 with Fibonacci_Tests; use Fibonacci_Tests;
 with Numeric_Tests;   use Numeric_Tests;
 with Prime_Tests;     use Prime_Tests;
+with Set_Tests;       use Set_Tests;
 
 package body Euler_Test_Suite is
 
@@ -30,6 +31,7 @@ package body Euler_Test_Suite is
    Fibonacci_Test : aliased Fibonacci_Test_Case;
    Numeric_Tests  : aliased Numeric_Test_Case;
    Prime_Test     : aliased Prime_Test_Case;
+   Set_Test       : aliased Set_Test_Case;
 
    function Suite return Access_Test_Suite is
    begin
@@ -38,6 +40,7 @@ package body Euler_Test_Suite is
       Add_Test (Result'Access, Fibonacci_Test'Access);
       Add_Test (Result'Access, Numeric_Tests'Access);
       Add_Test (Result'Access, Prime_Test'Access);
+      Add_Test (Result'Access, Set_Test'Access);
       return Result'Access;
    end Suite;
 
