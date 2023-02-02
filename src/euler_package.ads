@@ -26,6 +26,8 @@ package Euler_Package is
    package Set_Package is new Ada.Containers.Ordered_Sets (Int_Type);
    subtype Set_Type is Set_Package.Set;
 
+   subtype Numeral_Type is Natural range 0 .. 9;
+
    package Vector_Package is new Ada.Containers.Vectors
      (Index_Type => Positive, Element_Type => Numeral_Type);
 
@@ -36,7 +38,6 @@ package Euler_Package is
 
    CN_Empty : constant Crumbled_Natural := Vector_Package.Empty_Vector;
    CN_Zero  : constant Crumbled_Natural := [0];
-
 
    function All_Divisors (Number : Int_Type) return Set_Type;
    --  Returns the set of all divisors of Number, including 1 and Number.
