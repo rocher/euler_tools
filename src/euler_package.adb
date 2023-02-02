@@ -41,6 +41,50 @@ package body Euler_Package is
    function Are_Amicable (A, B : Int_Type) return Boolean is
      (Sum (Proper_Divisors (A)) = B and then Sum (Proper_Divisors (B)) = A);
 
+   -----------------
+   --  CN_Assign  --
+   -----------------
+
+   procedure CN_Assign (Left : in out Crumbled_Natural; Right : Int_Type) is
+   begin
+      Left := Vector_Package.Empty_Vector;
+
+      for X of To_String (Right) loop
+         Left.Append (Numeral_Type (To_Number (X)));
+      end loop;
+   end CN_Assign;
+
+   -----------------
+   --  CN_Assign  --
+   -----------------
+
+   procedure CN_Assign (Left : in out Int_Type; Right : Crumbled_Natural) is
+      Power : Positive := 1;
+   begin
+      Left := 0;
+
+      for X of Right loop
+         Left := Left * 10**Power + Int_Type (X);
+      end loop;
+   end CN_Assign;
+
+   -----------------
+   --  CN_Assign  --
+   -----------------
+
+   procedure CN_Assign
+     (Left                   : in out Int_Type; Right : Crumbled_Natural;
+      Digit_start, Digit_End :        Positive)
+   is
+      Power : Positive := 1;
+   begin
+      Left := 0;
+
+      for I in Digit_start .. Digit_End loop
+         Left := Left * 10**Power + Int_Type (Right.Element (I));
+      end loop;
+   end CN_Assign;
+
    ---------------------
    --  Collatz_First  --
    ---------------------

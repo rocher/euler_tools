@@ -14,6 +14,7 @@
 -- ----------------------------------------------------------------------------
 
 with Ada.Containers.Ordered_Sets;
+with Ada.Containers.Vectors;
 
 generic
    type Int_Type is range <>;
@@ -23,8 +24,19 @@ package Euler_Package is
    subtype Integer_Type is Int_Type;
 
    package Set_Package is new Ada.Containers.Ordered_Sets (Int_Type);
-
    subtype Set_Type is Set_Package.Set;
+
+   package Vector_Package is new Ada.Containers.Vectors
+     (Index_Type => Positive, Element_Type => Numeral_Type);
+
+   subtype Crumbled_Natural is Vector_Package.Vector;
+   --  Crumbled_Natural type is a representation or an arbitrary long Natural
+   --  type, regardless of the particular type instantiated in the generic
+   --  package.
+
+   CN_Empty : constant Crumbled_Natural := Vector_Package.Empty_Vector;
+   CN_Zero  : constant Crumbled_Natural := [0];
+
 
    function All_Divisors (Number : Int_Type) return Set_Type;
    --  Returns the set of all divisors of Number, including 1 and Number.
@@ -36,6 +48,21 @@ package Euler_Package is
    function Collatz_First (Number : Int_Type) return Int_Type;
    --  Sets and returns the first number in the Collatz sequence starting at
    --  Number, which happens to be Number.
+
+   procedure CN_Assign (Left : in out Crumbled_Natural; Right : Int_Type);
+   --  Assigns the value of Right number to the Crumbled_Naturals of the
+   --  Left.
+
+   procedure CN_Assign (Left : in out Int_Type; Right : Crumbled_Natural);
+   --  Assigns the value of the Crumbled_Natural in the Right to the Left
+   --  number.
+
+   procedure CN_Assign
+     (Left                   : in out Int_Type; Right : Crumbled_Natural;
+      Digit_Start, Digit_End :        Positive) with
+     Pre => Digit_Start <= Digit_End;
+   --  Assigns the value of the Crumbled_Natural in the Right to the Left
+   --  number using digits from Digit_Start to Digit_End.
 
    function Collatz_Next return Int_Type;
    --  Returns the next number in the Collatz sequence, defined by:
