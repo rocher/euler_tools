@@ -23,9 +23,7 @@ with Text_IO; use Text_IO;
 package body Divisors_Tests is
 
    overriding function Name (T : Divisors_Test_Case) return Test_String is
-   begin
-      return Format ("Divisors Tests      ");
-   end Name;
+     (Format ("Divisors Tests           "));
 
    overriding procedure Register_Tests (T : in out Divisors_Test_Case) is
       use AUnit.Test_Cases.Registration;

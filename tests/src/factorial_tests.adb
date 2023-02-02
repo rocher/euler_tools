@@ -22,9 +22,7 @@ with Euler_Int3_Tools;
 package body Factorial_Tests is
 
    overriding function Name (T : Factorial_Test_Case) return Test_String is
-   begin
-      return Format ("Factorial Tests     ");
-   end Name;
+     (Format ("Factorial Tests          "));
 
    overriding procedure Register_Tests (T : in out Factorial_Test_Case) is
       use AUnit.Test_Cases.Registration;

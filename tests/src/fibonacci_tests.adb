@@ -19,9 +19,7 @@ with Euler_Tools;      use Euler_Tools;
 package body Fibonacci_Tests is
 
    overriding function Name (T : Fibonacci_Test_Case) return Test_String is
-   begin
-      return Format ("Fibonacci Tests     ");
-   end Name;
+     (Format ("Fibonacci Tests          "));
 
    overriding procedure Register_Tests (T : in out Fibonacci_Test_Case) is
       use AUnit.Test_Cases.Registration;

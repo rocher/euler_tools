@@ -19,9 +19,7 @@ with Euler_Tools;      use Euler_Tools;
 package body Prime_Tests is
 
    overriding function Name (T : Prime_Test_Case) return Test_String is
-   begin
-      return Format ("Prime Tests         ");
-   end Name;
+     (Format ("Prime Tests              "));
 
    overriding procedure Register_Tests (T : in out Prime_Test_Case) is
       use AUnit.Test_Cases.Registration;
