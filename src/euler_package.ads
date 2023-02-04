@@ -13,6 +13,7 @@
 --
 -- ----------------------------------------------------------------------------
 
+with Ada.Containers.Doubly_Linked_Lists;
 with Ada.Containers.Ordered_Sets;
 with Ada.Containers.Vectors;
 
@@ -22,6 +23,10 @@ generic
 package Euler_Package is
 
    subtype Integer_Type is Int_Type;
+
+   package List_Package is new Ada.Containers.Doubly_Linked_Lists (Int_Type);
+   subtype List_Type is List_Package.List;
+   Empty_List : constant List_Type := List_Package.Empty_List;
 
    package Set_Package is new Ada.Containers.Ordered_Sets (Int_Type);
    subtype Set_Type is Set_Package.Set;
@@ -38,6 +43,16 @@ package Euler_Package is
 
    CN_Empty : constant Crumbled_Natural := Numeral_Package.Empty_Vector;
    CN_Zero  : constant Crumbled_Natural := [0];
+
+   type Detailed_Division_Type is record
+      Dividend   : Int_Type;
+      Divisor    : Int_Type;
+      Quotient   : Int_Type;
+      Decimals   : Crumbled_Natural;
+      Cycle      : Natural;
+      Remainder  : Int_Type;
+      Remainders : List_Of_Integers;
+   end record;
 
    function All_Divisors (Number : Int_Type) return Set_Type;
    --  Returns the set of all divisors of Number, including 1 and Number.
@@ -79,6 +94,14 @@ package Euler_Package is
    --  Returns the number obtained by concatenating Left and Right numbers.
 
    --  procedure Divide (Numerator: Int_Type; Denominator : Int_Type)
+
+   function Detailed_Division
+     (Dividend, Divisor : Int_Type; Decimals : Natural)
+      return Detailed_Division_Type with
+     Pre => Divisor /= 0;
+   --  Returns the "detailed division" of Dividend / Divisor with a maximum
+   --  number of Decimals in the Quotient. It mimics the manual operation of
+   --  dividing both numbers up to a certain number of decimals.
 
    function Element_First (Set : Set_Type) return Int_Type with
      Pre => not Set.Is_Empty;

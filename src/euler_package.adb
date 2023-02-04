@@ -136,6 +136,14 @@ package body Euler_Package is
    function Concat (Left, Right : Int_Type) return Int_Type is
      (To_Number (Trim (Left'Image, Both) & Trim (Right'Image, Both)));
 
+   -----------
+   --  Div  --
+   -----------
+
+   function Detailed_Division
+     (Dividend, Divisor : Int_Type; Decimals : Natural)
+      return Detailed_Division_Type is separate;
+
    ---------------------
    --  Element_First  --
    ---------------------
