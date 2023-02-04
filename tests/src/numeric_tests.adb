@@ -31,6 +31,7 @@ package body Numeric_Tests is
       Register_Routine (T, Test_Is_Palindrome'Access, "Is_Palindrome");
       Register_Routine (T, Test_Left'Access, "Left");
       Register_Routine (T, Test_Right'Access, "Right");
+      Register_Routine (T, Test_Sub_Number'Access, "Sub_Number");
       Register_Routine (T, Test_Tens'Access, "Tens");
       Register_Routine (T, Test_Thousands'Access, "Thousands");
       Register_Routine
@@ -147,6 +148,49 @@ package body Numeric_Tests is
       Assert (Right (123, 4) = 123, "Invalid Right number");
       Assert (Right (123, 5) = 123, "Invalid Right number");
    end Test_Right;
+
+   procedure Test_Sub_Number (T : in out Test_Cases.Test_Case'Class) is
+   begin
+      Assert (Sub_Number (0, 1, 1) = 0, "Invalid Sub_Number number");
+
+      Assert (Sub_Number (9, 1, 1) = 9, "Invalid Sub_Number number");
+      Assert (Sub_Number (9, 1, 2) = 9, "Invalid Sub_Number number");
+      Assert (Sub_Number (9, 1, 3) = 9, "Invalid Sub_Number number");
+
+      Assert (Sub_Number (9, 2, 1) = 0, "Invalid Sub_Number number");
+      Assert (Sub_Number (9, 3, 1) = 0, "Invalid Sub_Number number");
+
+      Assert (Sub_Number (123_456, 1, 1) = 1, "Invalid Sub_Number number");
+      Assert (Sub_Number (123_456, 1, 2) = 12, "Invalid Sub_Number number");
+      Assert (Sub_Number (123_456, 1, 3) = 123, "Invalid Sub_Number number");
+      Assert (Sub_Number (123_456, 1, 4) = 1_234, "Invalid Sub_Number number");
+      Assert
+        (Sub_Number (123_456, 1, 5) = 12_345, "Invalid Sub_Number number");
+      Assert
+        (Sub_Number (123_456, 1, 6) = 123_456, "Invalid Sub_Number number");
+      Assert
+        (Sub_Number (123_456, 1, 7) = 123_456, "Invalid Sub_Number number");
+      Assert
+        (Sub_Number (123_456, 1, 8) = 123_456, "Invalid Sub_Number number");
+
+      Assert (Sub_Number (123_456, 2, 1) = 2, "Invalid Sub_Number number");
+      Assert (Sub_Number (123_456, 2, 2) = 23, "Invalid Sub_Number number");
+      Assert (Sub_Number (123_456, 2, 3) = 234, "Invalid Sub_Number number");
+      Assert (Sub_Number (123_456, 2, 4) = 2_345, "Invalid Sub_Number number");
+      Assert
+        (Sub_Number (123_456, 2, 5) = 23_456, "Invalid Sub_Number number");
+      Assert
+        (Sub_Number (123_456, 2, 6) = 23_456, "Invalid Sub_Number number");
+      Assert
+        (Sub_Number (123_456, 2, 7) = 23_456, "Invalid Sub_Number number");
+
+      Assert (Sub_Number (123_456, 3, 1) = 3, "Invalid Sub_Number number");
+      Assert (Sub_Number (123_456, 3, 2) = 34, "Invalid Sub_Number number");
+      Assert (Sub_Number (123_456, 3, 3) = 345, "Invalid Sub_Number number");
+      Assert (Sub_Number (123_456, 3, 4) = 3_456, "Invalid Sub_Number number");
+      Assert (Sub_Number (123_456, 3, 5) = 3_456, "Invalid Sub_Number number");
+      Assert (Sub_Number (123_456, 3, 6) = 3_456, "Invalid Sub_Number number");
+   end Test_Sub_Number;
 
    procedure Test_Tens (T : in out Test_Cases.Test_Case'Class) is
    begin

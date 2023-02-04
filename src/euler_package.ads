@@ -188,6 +188,13 @@ package Euler_Package is
      Pre => Number >= 0;
    --  Return the truncated square root of Number if Number > 0, 0 otherwise.
 
+   function Sub_Number
+     (Number : Int_Type; Start, Length : Positive) return Int_Type;
+   --  Return the number formed with the digits of Number from Start position
+   --  up to the specified Length (mimics the Sub_String function). Returns 0
+   --  if Start is greater than the Number length. Returns less that Length
+   --  digits if there are no enough digits in Number from the Start.
+
    function Sum (Set : Set_Type) return Int_Type;
    --  Return the sum of all numbers of the set.
 

@@ -522,6 +522,24 @@ package body Euler_Package is
       return Result;
    end Square_Root;
 
+   ------------------
+   --  Sub_Number  --
+   ------------------
+
+   function Sub_Number
+     (Number : Int_Type; Start, Length : Positive) return Int_Type
+   is
+      Text      : String   := To_String (Number);
+      Pos_Start : Natural  := Natural'Min (Start, Text'Length);
+      Pos_End   : Natural  := Natural'Min (Start + Length - 1, Text'Length);
+      Result    : Int_Type := 0;
+   begin
+      if Start <= Text'Length then
+         Result := To_Number (Text (Pos_Start .. Pos_End));
+      end if;
+      return Result;
+   end Sub_Number;
+
    -----------
    --  Sum  --
    -----------
