@@ -23,6 +23,7 @@ package Set_Tests is
 
    overriding procedure Register_Tests (T : in out Set_Test_Case);
 
+   procedure Test_Type_Size (T : in out Test_Case'Class);
    procedure Test_Element_First (T : in out Test_Case'Class);
    procedure Test_Element_Nth (T : in out Test_Case'Class);
    procedure Test_Sum (T : in out Test_Case'Class);

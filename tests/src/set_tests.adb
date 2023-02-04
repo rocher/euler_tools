@@ -16,6 +16,10 @@
 with AUnit.Assertions; use AUnit.Assertions;
 with Euler_Tools;      use Euler_Tools;
 
+use Euler_Tools.Set_Package;
+
+with Text_IO;
+
 package body Set_Tests is
 
    overriding function Name (T : Set_Test_Case) return Test_String is
@@ -24,13 +28,19 @@ package body Set_Tests is
    overriding procedure Register_Tests (T : in out Set_Test_Case) is
       use AUnit.Test_Cases.Registration;
    begin
+      Register_Routine (T, Test_Type_Size'Access, "Type size");
       Register_Routine (T, Test_Element_First'Access, "Element_First");
       Register_Routine (T, Test_Element_Nth'Access, "Element_Nth");
       Register_Routine (T, Test_Sum'Access, "Sum (Set)");
    end Register_Tests;
 
+   procedure Test_Type_Size (T : in out Test_Cases.Test_Case'Class) is
+   begin
+      Text_IO.Put_Line ("   Empty_Set'Size =" & Empty_Set'Size'Image);
+   end Test_Type_Size;
+
    procedure Test_Element_First (T : in out Test_Cases.Test_Case'Class) is
-      use Set_Package;
+
       Set : Set_Type := Empty_Set;
    begin
       Assert (Element_First (Set) = 0, "Invalid first element");
@@ -52,7 +62,6 @@ package body Set_Tests is
    end Test_Element_First;
 
    procedure Test_Element_Nth (T : in out Test_Cases.Test_Case'Class) is
-      use Set_Package;
       Set : Set_Type := Empty_Set;
    begin
       Set.Insert (10);
@@ -78,7 +87,6 @@ package body Set_Tests is
    end Test_Element_Nth;
 
    procedure Test_Sum (T : in out Test_Cases.Test_Case'Class) is
-      use Set_Package;
       Set : Set_Type := Empty_Set;
    begin
       Assert (Sum (Set) = 0, "Invalid sum of elements");

@@ -18,7 +18,7 @@ with AUnit.Assertions; use AUnit.Assertions;
 with Euler_Tools; use Euler_Tools;
 use Euler_Tools.Numeral_Package;
 
-with Text_IO; use Text_IO;
+with Text_IO;
 
 package body Crumbled_Natural_Tests is
 
@@ -30,10 +30,19 @@ package body Crumbled_Natural_Tests is
    is
       use AUnit.Test_Cases.Registration;
    begin
+      Register_Routine (T, Test_CN_Type_Size'Access, "Type size");
       Register_Routine (T, Test_CN_Assign1'Access, "CN_Assign (CN, Int)");
       Register_Routine (T, Test_CN_Assign2'Access, "CN_Assign (Int, CN)");
       Register_Routine (T, Test_CN_Assign3'Access, "CN_Assign (Int, CN, <>)");
    end Register_Tests;
+
+   procedure Test_CN_Type_Size (T : in out Test_Case'Class) is
+      Number : Crumbled_Natural := CN_Empty;
+   begin
+      Text_IO.Put_Line ("   Numeral_Type'Size =" & Numeral_Type'Size'Image);
+      Text_IO.Put_Line ("   CN_Empty'Size =" & CN_Empty'Size'Image);
+      Text_IO.Put_Line ("   CN_Zero'Size =" & CN_Zero'Size'Image);
+   end Test_CN_Type_Size;
 
    procedure Test_CN_Assign1 (T : in out Test_Case'Class) is
       Number : Crumbled_Natural := CN_Empty;

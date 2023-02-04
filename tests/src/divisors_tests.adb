@@ -18,8 +18,6 @@ with AUnit.Assertions; use AUnit.Assertions;
 with Euler_Tools;
 with Euler_Int3_Tools;
 
-with Text_IO; use Text_IO;
-
 package body Divisors_Tests is
 
    overriding function Name (T : Divisors_Test_Case) return Test_String is
@@ -40,8 +38,8 @@ package body Divisors_Tests is
 
    procedure Test_All_Divisors (T : in out Test_Case'Class) is
       use Euler_Tools;
-      use Euler_Tools.Set_Package;
-      Divisors_Set : Set := Empty_Set;
+      use Set_Package;
+      Divisors_Set : Set_Type := Empty_Set;
    begin
       Divisors_Set.Insert (1);
       Assert (All_Divisors (1) = Divisors_Set, "Incorrect divisors of 1");
@@ -269,7 +267,7 @@ package body Divisors_Tests is
 
    procedure Test_Proper_Divisors (T : in out Test_Case'Class) is
       use Euler_Tools;
-      use Euler_Tools.Set_Package;
+      use Set_Package;
       Divisors_Set : Set := Empty_Set;
    begin
       Assert

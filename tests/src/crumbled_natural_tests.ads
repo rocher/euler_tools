@@ -24,6 +24,7 @@ package Crumbled_Natural_Tests is
 
    overriding procedure Register_Tests (T : in out Crumbled_Natural_Test_Case);
 
+   procedure Test_CN_Type_Size (T : in out Test_Case'Class);
    procedure Test_CN_Assign1 (T : in out Test_Case'Class);
    procedure Test_CN_Assign2 (T : in out Test_Case'Class);
    procedure Test_CN_Assign3 (T : in out Test_Case'Class);
