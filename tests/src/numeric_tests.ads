@@ -29,6 +29,7 @@ package Numeric_Tests is
    procedure Test_Is_Odd (T : in out Test_Case'Class);
    procedure Test_Is_Palindrome (T : in out Test_Case'Class);
    procedure Test_Left (T : in out Test_Case'Class);
+   procedure Test_Length (T : in out Test_Case'Class);
    procedure Test_Right (T : in out Test_Case'Class);
    procedure Test_Sub_Number (T : in out Test_Case'Class);
    procedure Test_Tens (T : in out Test_Case'Class);

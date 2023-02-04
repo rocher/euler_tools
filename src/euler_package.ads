@@ -161,6 +161,9 @@ package Euler_Package is
    function Left (Number : Int_Type; Positions : Positive) return Int_Type;
    --  Returns the number formed by the leftmost digit Positions of Number.
 
+   function Length (Number : Integer_Type) return Positive;
+   --  Returns the total number of digits in Number.
+
    function Prime_First return Int_Type;
    --  Returns the first prime number (2) and resets the internal prime
    --  number generator.

@@ -355,6 +355,13 @@ package body Euler_Package is
       return To_Number (Text (1 .. Pos_End));
    end Left;
 
+   --------------
+   --  Length  --
+   --------------
+
+   function Length (Number : Int_Type) return Positive is
+     (To_String (Number)'Length);
+
    -------------------
    --  Prime_First  --
    -------------------

@@ -30,6 +30,7 @@ package body Numeric_Tests is
       Register_Routine (T, Test_Is_Odd'Access, "Is_Odd");
       Register_Routine (T, Test_Is_Palindrome'Access, "Is_Palindrome");
       Register_Routine (T, Test_Left'Access, "Left");
+      Register_Routine (T, Test_Length'Access, "Length");
       Register_Routine (T, Test_Right'Access, "Right");
       Register_Routine (T, Test_Sub_Number'Access, "Sub_Number");
       Register_Routine (T, Test_Tens'Access, "Tens");
@@ -138,6 +139,18 @@ package body Numeric_Tests is
       Assert (Left (123, 4) = 123, "Invalid Left number");
       Assert (Left (123, 5) = 123, "Invalid Left number");
    end Test_Left;
+
+   procedure Test_Length (T : in out Test_Cases.Test_Case'Class) is
+   begin
+      Assert (Length (0) = 1, "Invalid Length of number");
+      Assert (Length (1) = 1, "Invalid Length of number");
+      Assert (Length (2) = 1, "Invalid Length of number");
+      Assert (Length (12) = 2, "Invalid Length of number");
+      Assert (Length (0_012) = 2, "Invalid Length of number");
+      Assert (Length (0_123) = 3, "Invalid Length of number");
+      Assert (Length (01_234) = 4, "Invalid Length of number");
+      Assert (Length (12_345) = 5, "Invalid Length of number");
+   end Test_Length;
 
    procedure Test_Right (T : in out Test_Cases.Test_Case'Class) is
    begin
