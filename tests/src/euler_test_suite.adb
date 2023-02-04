@@ -14,6 +14,7 @@
 -- ----------------------------------------------------------------------------
 
 with Crumbled_Natural_Tests; use Crumbled_Natural_Tests;
+with Decimal_Division_Tests; use Decimal_Division_Tests;
 with Divisors_Tests;         use Divisors_Tests;
 with Factorial_Tests;        use Factorial_Tests;
 with Fibonacci_Tests;        use Fibonacci_Tests;
@@ -28,6 +29,7 @@ package body Euler_Test_Suite is
    Result : aliased Test_Suite;
 
    Crumbled_Natural_Test : aliased Crumbled_Natural_Test_Case;
+   Decimal_Division_Test : aliased Decimal_Division_Test_Case;
    Divisors_Test         : aliased Divisors_Test_Case;
    Factorial_Test        : aliased Factorial_Test_Case;
    Fibonacci_Test        : aliased Fibonacci_Test_Case;
@@ -38,6 +40,7 @@ package body Euler_Test_Suite is
    function Suite return Access_Test_Suite is
    begin
       Add_Test (Result'Access, Crumbled_Natural_Test'Access);
+      Add_Test (Result'Access, Decimal_Division_Test'Access);
       Add_Test (Result'Access, Divisors_Test'Access);
       Add_Test (Result'Access, Factorial_Test'Access);
       Add_Test (Result'Access, Fibonacci_Test'Access);

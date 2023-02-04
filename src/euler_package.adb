@@ -140,9 +140,9 @@ package body Euler_Package is
    --  Div  --
    -----------
 
-   function Detailed_Division
+   function Decimal_Division
      (Dividend, Divisor : Int_Type; Decimals : Natural)
-      return Detailed_Division_Type is separate;
+      return Decimal_Division_Type is separate;
 
    ---------------------
    --  Element_First  --
@@ -354,6 +354,13 @@ package body Euler_Package is
    begin
       return To_Number (Text (1 .. Pos_End));
    end Left;
+
+   --------------
+   --  Length  --
+   --------------
+
+   function Length (Number : Crumbled_Natural) return Natural is
+     (Natural (Number.Length));
 
    --------------
    --  Length  --

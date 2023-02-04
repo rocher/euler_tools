@@ -26,10 +26,11 @@ package Euler_Package is
 
    package List_Package is new Ada.Containers.Doubly_Linked_Lists (Int_Type);
    subtype List_Type is List_Package.List;
-   Empty_List : constant List_Type := List_Package.Empty_List;
+   use List_Package;
 
    package Set_Package is new Ada.Containers.Ordered_Sets (Int_Type);
    subtype Set_Type is Set_Package.Set;
+   use Set_Package;
 
    subtype Numeral_Type is Natural range 0 .. 9;
 
@@ -44,13 +45,13 @@ package Euler_Package is
    CN_Empty : constant Crumbled_Natural := Numeral_Package.Empty_Vector;
    CN_Zero  : constant Crumbled_Natural := [0];
 
-   type Detailed_Division_Type is record
+   type Decimal_Division_Type is record
       Dividend   : Int_Type;
       Divisor    : Int_Type;
       Quotient   : Int_Type;
-      Decimals   : Crumbled_Natural := CN_Empty;
+      Decimals   : Crumbled_Natural;
       Cycle      : Natural;
-      Remainders : List_Type        := Empty_List;
+      Remainders : List_Type;
    end record;
 
    function All_Divisors (Number : Int_Type) return Set_Type;
@@ -94,11 +95,11 @@ package Euler_Package is
 
    --  procedure Divide (Numerator: Int_Type; Denominator : Int_Type)
 
-   function Detailed_Division
+   function Decimal_Division
      (Dividend, Divisor : Int_Type; Decimals : Natural)
-      return Detailed_Division_Type with
+      return Decimal_Division_Type with
      Pre => Divisor /= 0;
-   --  Returns the "detailed division" of Dividend / Divisor with a maximum
+   --  Returns the division of Dividend / Divisor with a maximum
    --  number of Decimals in the Quotient. It mimics the manual operation of
    --  dividing both numbers up to a certain number of decimals.
 
@@ -160,6 +161,9 @@ package Euler_Package is
 
    function Left (Number : Int_Type; Positions : Positive) return Int_Type;
    --  Returns the number formed by the leftmost digit Positions of Number.
+
+   function Length (Number : Crumbled_Natural) return Natural;
+   --  Returns the Length of the Crumbled_Natural Number;
 
    function Length (Number : Integer_Type) return Positive;
    --  Returns the total number of digits in Number.
