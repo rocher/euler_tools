@@ -350,6 +350,19 @@ package body Euler_Package is
       return True;
    end Is_Prime;
 
+   ------------
+   --  Left  --
+   ------------
+
+   function Left
+     (Number : Int_Type; Positions : Positive) return Int_Type
+   is
+      Text    : String  := To_String (Number);
+      Pos_End : Natural := Natural'Min (Positions, Text'Length);
+   begin
+      return To_Number (Text (1 .. Pos_End));
+   end Left;
+
    -------------------
    --  Prime_First  --
    -------------------
@@ -481,6 +494,20 @@ package body Euler_Package is
       end if;
       return Divisors;
    end Proper_Divisors;
+
+   ------------
+   --  Right  --
+   ------------
+
+   function Right
+     (Number : Int_Type; Positions : Positive) return Int_Type
+   is
+      Text      : String  := To_String (Number);
+      Minimum   : Natural := Natural'Min (Positions, Text'Length);
+      Pos_Start : Natural := Natural (Text'Length) + 1 - Minimum;
+   begin
+      return To_Number (Text (Pos_Start .. Text'Length));
+   end Right;
 
    -------------------
    --  Square_Root  --

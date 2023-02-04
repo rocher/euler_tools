@@ -161,6 +161,10 @@ package Euler_Package is
    function Is_Prime (Number : Int_Type) return Boolean;
    --  Returns True if Number is prime.
 
+   function Left
+     (Number : Int_Type; Positions : Positive) return Int_Type;
+   --  Returns the number formed by the leftmost digit Positions of Number.
+
    function Prime_First return Int_Type;
    --  Returns the first prime number (2) and resets the internal prime
    --  number generator.
@@ -175,6 +179,10 @@ package Euler_Package is
    function Proper_Divisors (Number : Int_Type) return Set_Type;
    --  Returns the set of proper divisors of Number (that is, excluding
    --  Number). If Number is equal to 1, then returns the empty set.
+
+   function Right
+     (Number : Int_Type; Positions : Positive) return Int_Type;
+   --  Return the number formed by the rightmost digit Positions of Number.
 
    function Square_Root (Number : Int_Type) return Int_Type with
      Pre => Number >= 0;

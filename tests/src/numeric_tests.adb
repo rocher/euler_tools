@@ -29,6 +29,8 @@ package body Numeric_Tests is
       Register_Routine (T, Test_Is_Even'Access, "Is_Even");
       Register_Routine (T, Test_Is_Odd'Access, "Is_Odd");
       Register_Routine (T, Test_Is_Palindrome'Access, "Is_Palindrome");
+      Register_Routine (T, Test_Left'Access, "Left");
+      Register_Routine (T, Test_Right'Access, "Right");
       Register_Routine (T, Test_Tens'Access, "Tens");
       Register_Routine (T, Test_Thousands'Access, "Thousands");
       Register_Routine
@@ -125,6 +127,26 @@ package body Numeric_Tests is
       Assert (not Is_Palindrome (126_721), "Invalid palindrome test");
       Assert (not Is_Palindrome (12_698_621), "Invalid palindrome test");
    end Test_Is_Palindrome;
+
+   procedure Test_Left (T : in out Test_Cases.Test_Case'Class) is
+   begin
+      Assert (Left (0, 1) = 0, "Invalid Left number");
+      Assert (Left (123, 1) = 1, "Invalid Left number");
+      Assert (Left (123, 2) = 12, "Invalid Left number");
+      Assert (Left (123, 3) = 123, "Invalid Left number");
+      Assert (Left (123, 4) = 123, "Invalid Left number");
+      Assert (Left (123, 5) = 123, "Invalid Left number");
+   end Test_Left;
+
+   procedure Test_Right (T : in out Test_Cases.Test_Case'Class) is
+   begin
+      Assert (Right (0, 1) = 0, "Invalid Right number");
+      Assert (Right (123, 1) = 3, "Invalid Right number");
+      Assert (Right (123, 2) = 23, "Invalid Right number");
+      Assert (Right (123, 3) = 123, "Invalid Right number");
+      Assert (Right (123, 4) = 123, "Invalid Right number");
+      Assert (Right (123, 5) = 123, "Invalid Right number");
+   end Test_Right;
 
    procedure Test_Tens (T : in out Test_Cases.Test_Case'Class) is
    begin
