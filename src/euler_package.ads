@@ -28,15 +28,15 @@ package Euler_Package is
 
    subtype Numeral_Type is Natural range 0 .. 9;
 
-   package Vector_Package is new Ada.Containers.Vectors
+   package Numeral_Package is new Ada.Containers.Vectors
      (Index_Type => Positive, Element_Type => Numeral_Type);
 
-   subtype Crumbled_Natural is Vector_Package.Vector;
+   subtype Crumbled_Natural is Numeral_Package.Vector;
    --  Crumbled_Natural type is a representation or an arbitrary long Natural
    --  type, regardless of the particular type instantiated in the generic
    --  package.
 
-   CN_Empty : constant Crumbled_Natural := Vector_Package.Empty_Vector;
+   CN_Empty : constant Crumbled_Natural := Numeral_Package.Empty_Vector;
    CN_Zero  : constant Crumbled_Natural := [0];
 
    function All_Divisors (Number : Int_Type) return Set_Type;

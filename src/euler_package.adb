@@ -47,7 +47,7 @@ package body Euler_Package is
 
    procedure CN_Assign (Left : in out Crumbled_Natural; Right : Int_Type) is
    begin
-      Left := Vector_Package.Empty_Vector;
+      Left := Numeral_Package.Empty_Vector;
 
       for X of To_String (Right) loop
          Left.Append (Numeral_Type (To_Number (X)));

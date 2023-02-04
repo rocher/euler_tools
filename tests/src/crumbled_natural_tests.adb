@@ -16,7 +16,7 @@
 with AUnit.Assertions; use AUnit.Assertions;
 
 with Euler_Tools; use Euler_Tools;
-use Euler_Tools.Vector_Package;
+use Euler_Tools.Numeral_Package;
 
 with Text_IO; use Text_IO;
 
