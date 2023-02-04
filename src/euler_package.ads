@@ -64,13 +64,11 @@ package Euler_Package is
    --  Sets and returns the first number in the Collatz sequence starting at
    --  Number, which happens to be Number.
 
-   procedure CN_Assign
-     (Left : in out Crumbled_Natural; Right : Int_Type);
+   procedure CN_Assign (Left : in out Crumbled_Natural; Right : Int_Type);
    --  Assigns the value of Right number to the Crumbled_Naturals of the
    --  Left.
 
-   procedure CN_Assign
-     (Left : in out Int_Type; Right : Crumbled_Natural);
+   procedure CN_Assign (Left : in out Int_Type; Right : Crumbled_Natural);
    --  Assigns the value of the Crumbled_Natural in the Right to the Left
    --  number.
 
@@ -108,8 +106,7 @@ package Euler_Package is
      Pre => not Set.Is_Empty;
    --  Returns the first element of the ordered, non-empty Set.
 
-   function Element_Nth
-     (Set : Set_Type; Nth : Natural) return Int_Type with
+   function Element_Nth (Set : Set_Type; Nth : Natural) return Int_Type with
      Pre => not Set.Is_Empty;
    --  Return the Nth element of the ordered, non-empty Set.
 
@@ -161,8 +158,7 @@ package Euler_Package is
    function Is_Prime (Number : Int_Type) return Boolean;
    --  Returns True if Number is prime.
 
-   function Left
-     (Number : Int_Type; Positions : Positive) return Int_Type;
+   function Left (Number : Int_Type; Positions : Positive) return Int_Type;
    --  Returns the number formed by the leftmost digit Positions of Number.
 
    function Prime_First return Int_Type;
@@ -180,8 +176,7 @@ package Euler_Package is
    --  Returns the set of proper divisors of Number (that is, excluding
    --  Number). If Number is equal to 1, then returns the empty set.
 
-   function Right
-     (Number : Int_Type; Positions : Positive) return Int_Type;
+   function Right (Number : Int_Type; Positions : Positive) return Int_Type;
    --  Return the number formed by the rightmost digit Positions of Number.
 
    function Square_Root (Number : Int_Type) return Int_Type with

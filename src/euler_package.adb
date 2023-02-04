@@ -39,15 +39,13 @@ package body Euler_Package is
    --------------------
 
    function Are_Amicable (A, B : Int_Type) return Boolean is
-     (Sum (Proper_Divisors (A)) = B
-      and then Sum (Proper_Divisors (B)) = A);
+     (Sum (Proper_Divisors (A)) = B and then Sum (Proper_Divisors (B)) = A);
 
    -----------------
    --  CN_Assign  --
    -----------------
 
-   procedure CN_Assign (Left : in out Crumbled_Natural; Right : Int_Type)
-   is
+   procedure CN_Assign (Left : in out Crumbled_Natural; Right : Int_Type) is
    begin
       Left := Numeral_Package.Empty_Vector;
 
@@ -60,8 +58,7 @@ package body Euler_Package is
    --  CN_Assign  --
    -----------------
 
-   procedure CN_Assign (Left : in out Int_Type; Right : Crumbled_Natural)
-   is
+   procedure CN_Assign (Left : in out Int_Type; Right : Crumbled_Natural) is
       Power : Positive := 1;
    begin
       Left := 0;
@@ -164,8 +161,7 @@ package body Euler_Package is
    --  Element_Nth  --
    -------------------
 
-   function Element_Nth (Set : Set_Type; Nth : Natural) return Int_Type
-   is
+   function Element_Nth (Set : Set_Type; Nth : Natural) return Int_Type is
       Element : Int_Type := 0;
       Index   : Natural  := 0;
    begin
@@ -271,15 +267,13 @@ package body Euler_Package is
    --  Is_Even  --
    ---------------
 
-   function Is_Even (Number : Int_Type) return Boolean is
-     (Number mod 2 = 0);
+   function Is_Even (Number : Int_Type) return Boolean is (Number mod 2 = 0);
 
    --------------
    --  Is_Odd  --
    --------------
 
-   function Is_Odd (Number : Int_Type) return Boolean is
-     (Number mod 2 = 1);
+   function Is_Odd (Number : Int_Type) return Boolean is (Number mod 2 = 1);
 
    ---------------------
    --  Is_Palindrome  --
@@ -354,9 +348,7 @@ package body Euler_Package is
    --  Left  --
    ------------
 
-   function Left
-     (Number : Int_Type; Positions : Positive) return Int_Type
-   is
+   function Left (Number : Int_Type; Positions : Positive) return Int_Type is
       Text    : String  := To_String (Number);
       Pos_End : Natural := Natural'Min (Positions, Text'Length);
    begin
@@ -375,8 +367,7 @@ package body Euler_Package is
 
    Prime_Private_Cursor : constant Prime_Cursor_Access :=
      new Prime_Cursor_Type;
-   Prime_Public_Cursor  : constant Prime_Cursor_Access :=
-     new Prime_Cursor_Type;
+   Prime_Public_Cursor : constant Prime_Cursor_Access := new Prime_Cursor_Type;
 
    procedure Prime_Next_Try (PC : Prime_Cursor_Access) is
    begin
@@ -389,9 +380,7 @@ package body Euler_Package is
       end if;
    end Prime_Next_Try;
 
-   function Prime_First_Internal
-     (PC : Prime_Cursor_Access) return Int_Type
-   is
+   function Prime_First_Internal (PC : Prime_Cursor_Access) return Int_Type is
    begin
       PC.Number := 2;
       PC.Inc    := 3;
@@ -401,9 +390,7 @@ package body Euler_Package is
    function Prime_First return Int_Type is
      (Prime_First_Internal (Prime_Public_Cursor));
 
-   function Prime_Next_Internal
-     (PC : Prime_Cursor_Access) return Int_Type
-   is
+   function Prime_Next_Internal (PC : Prime_Cursor_Access) return Int_Type is
    begin
       if PC.Number < 10 then
          case PC.Number is
@@ -499,9 +486,7 @@ package body Euler_Package is
    --  Right  --
    ------------
 
-   function Right
-     (Number : Int_Type; Positions : Positive) return Int_Type
-   is
+   function Right (Number : Int_Type; Positions : Positive) return Int_Type is
       Text      : String  := To_String (Number);
       Minimum   : Natural := Natural'Min (Positions, Text'Length);
       Pos_Start : Natural := Natural (Text'Length) + 1 - Minimum;
@@ -562,8 +547,7 @@ package body Euler_Package is
    is
       Num_Multiples : constant Int_Type := (Upper_Bound - 1) / Number;
    begin
-      return
-        Number * ((Num_Multiples * Num_Multiples + Num_Multiples) / 2);
+      return Number * ((Num_Multiples * Num_Multiples + Num_Multiples) / 2);
    end Sum_Multiples;
 
    --------------------
@@ -584,8 +568,7 @@ package body Euler_Package is
    --  Tens  --
    ------------
 
-   function Tens (Number : Int_Type) return Int_Type is
-     (Number / 10 mod 10);
+   function Tens (Number : Int_Type) return Int_Type is (Number / 10 mod 10);
 
    -----------------
    --  Thousands  --
