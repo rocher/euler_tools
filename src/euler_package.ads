@@ -48,10 +48,9 @@ package Euler_Package is
       Dividend   : Int_Type;
       Divisor    : Int_Type;
       Quotient   : Int_Type;
-      Decimals   : Crumbled_Natural;
+      Decimals   : Crumbled_Natural := CN_Empty;
       Cycle      : Natural;
-      Remainder  : Int_Type;
-      Remainders : List_Of_Integers;
+      Remainders : List_Type        := Empty_List;
    end record;
 
    function All_Divisors (Number : Int_Type) return Set_Type;

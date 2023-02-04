@@ -74,6 +74,17 @@ function Detailed_Division
    return Detailed_Division_Type
 is
    DDiv : Detailed_Division_Type;
+
+   function Select_Sub_Dividend (DDiv : Detailed_Division) return Int_Type is
+      Sub_Dividend : Int_Type := 0;
+   begin
+      loop
+         Sub_Dividend := 0;
+         exit when Sub_Dividend >= DDiv.Divisor;
+      end loop;
+      return 0;
+   end Select_Sub_Dividend;
+
 begin
    return DDiv;
 end Detailed_Division;
