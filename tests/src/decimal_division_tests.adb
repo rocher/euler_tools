@@ -18,7 +18,7 @@ with AUnit.Assertions; use AUnit.Assertions;
 with Euler_Tools; use Euler_Tools;
 use Euler_Tools.Numeral_Package;
 
---  with Text_IO;
+with Text_IO;
 
 package body Decimal_Division_Tests is
 
@@ -30,7 +30,10 @@ package body Decimal_Division_Tests is
    is
       use AUnit.Test_Cases.Registration;
    begin
-      Register_Routine (T, Test_Decimal_Division'Access, "Type size");
+      Register_Routine (T, Test_Decimal_Division'Access, "Decimal_Division");
+      Register_Routine
+        (T, Test_Decimal_Division_Increase'Access,
+         "Decimal_Division_Increase");
    end Register_Tests;
 
    procedure Test_Decimal_Division (T : in out Test_Case'Class) is
@@ -250,5 +253,69 @@ package body Decimal_Division_Tests is
       Assert (DDiv = RDiv, "Invalid Decimal division");
 
    end Test_Decimal_Division;
+
+   procedure Test_Decimal_Division_Increase (T : in out Test_Case'Class) is
+      DDiv, RDiv : Decimal_Division_Type;
+   begin
+      DDiv := Decimal_Division (63_322, 195, 0);
+      RDiv := (63_322, 195, 324, [], 0, [142]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+      Decimal_Division_Increase (DDiv, 1);
+      RDiv := (63_322, 195, 324, [7], 0, [142, 55]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+      Decimal_Division_Increase (DDiv, 2);
+      RDiv := (63_322, 195, 324, [7, 2], 0, [142, 55, 160]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+      Decimal_Division_Increase (DDiv, 3);
+      RDiv := (63_322, 195, 324, [7, 2, 8], 0, [142, 55, 160, 40]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+      Decimal_Division_Increase (DDiv, 4);
+      RDiv := (63_322, 195, 324, [7, 2, 8, 2], 0, [142, 55, 160, 40, 10]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+      Decimal_Division_Increase (DDiv, 5);
+      RDiv :=
+        (63_322, 195, 324, [7, 2, 8, 2, 0], 0, [142, 55, 160, 40, 10, 100]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+      Decimal_Division_Increase (DDiv, 6);
+      RDiv :=
+        (63_322, 195, 324, [7, 2, 8, 2, 0, 5], 0,
+         [142, 55, 160, 40, 10, 100, 25]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+      Decimal_Division_Increase (DDiv, 7);
+      RDiv :=
+        (63_322, 195, 324, [7, 2, 8, 2, 0, 5, 1], 2,
+         [142, 55, 160, 40, 10, 100, 25, 55]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+      Decimal_Division_Increase (DDiv, 8);
+      RDiv :=
+        (63_322, 195, 324, [7, 2, 8, 2, 0, 5, 1], 2,
+         [142, 55, 160, 40, 10, 100, 25, 55]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+      Decimal_Division_Increase (DDiv, 9);
+      RDiv :=
+        (63_322, 195, 324, [7, 2, 8, 2, 0, 5, 1], 2,
+         [142, 55, 160, 40, 10, 100, 25, 55]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+   end Test_Decimal_Division_Increase;
 
 end Decimal_Division_Tests;

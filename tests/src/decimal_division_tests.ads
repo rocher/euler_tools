@@ -22,9 +22,9 @@ package Decimal_Division_Tests is
    overriding function Name
      (T : Decimal_Division_Test_Case) return Message_String;
 
-   overriding procedure Register_Tests
-     (T : in out Decimal_Division_Test_Case);
+   overriding procedure Register_Tests (T : in out Decimal_Division_Test_Case);
 
    procedure Test_Decimal_Division (T : in out Test_Case'Class);
+   procedure Test_Decimal_Division_Increase (T : in out Test_Case'Class);
 
 end Decimal_Division_Tests;

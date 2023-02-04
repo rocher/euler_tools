@@ -103,6 +103,13 @@ package Euler_Package is
    --  number of Decimals in the Quotient. It mimics the manual operation of
    --  dividing both numbers up to a certain number of decimals.
 
+   procedure Decimal_Division_Increase
+     (DDiv : in out Decimal_Division_Type; Decimals : Natural) with
+     Pre => Decimals > Length (DDiv.Decimals);
+   --  Returns the division of Dividend / Divisor with a maximum
+   --  number of Decimals in the Quotient. It mimics the manual operation of
+   --  dividing both numbers up to a certain number of decimals.
+
    function Element_First (Set : Set_Type) return Int_Type with
      Pre => not Set.Is_Empty;
    --  Returns the first element of the ordered, non-empty Set.
