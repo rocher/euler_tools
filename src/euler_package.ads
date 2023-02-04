@@ -64,11 +64,13 @@ package Euler_Package is
    --  Sets and returns the first number in the Collatz sequence starting at
    --  Number, which happens to be Number.
 
-   procedure CN_Assign (Left : in out Crumbled_Natural; Right : Int_Type);
+   procedure CN_Assign
+     (Left : in out Crumbled_Natural; Right : Int_Type);
    --  Assigns the value of Right number to the Crumbled_Naturals of the
    --  Left.
 
-   procedure CN_Assign (Left : in out Int_Type; Right : Crumbled_Natural);
+   procedure CN_Assign
+     (Left : in out Int_Type; Right : Crumbled_Natural);
    --  Assigns the value of the Crumbled_Natural in the Right to the Left
    --  number.
 
@@ -106,7 +108,8 @@ package Euler_Package is
      Pre => not Set.Is_Empty;
    --  Returns the first element of the ordered, non-empty Set.
 
-   function Element_Nth (Set : Set_Type; Nth : Natural) return Int_Type with
+   function Element_Nth
+     (Set : Set_Type; Nth : Natural) return Int_Type with
      Pre => not Set.Is_Empty;
    --  Return the Nth element of the ordered, non-empty Set.
 
