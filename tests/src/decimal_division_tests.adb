@@ -316,6 +316,30 @@ package body Decimal_Division_Tests is
       --  Text_IO.Put_Line (DDiv'Image);
       Assert (DDiv = RDiv, "Invalid Decimal division");
 
+      DDiv := Decimal_Division (127, 31, 0);
+      RDiv := (127, 31, 4, [], 0, [3]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+      Decimal_Division_Increase (DDiv, 3);
+      RDiv := (127, 31, 4, [0, 9, 6], 0, [3, 30, 21, 24]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+      Decimal_Division_Increase (DDiv, 10);
+      RDiv :=
+        (127, 31, 4, [0, 9, 6, 7, 7, 4, 1, 9, 3, 5], 0,
+         [3, 30, 21, 24, 23, 13, 6, 29, 11, 17, 15]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
+      Decimal_Division_Increase (DDiv, 20);
+      RDiv :=
+        (127, 31, 4, [0, 9, 6, 7, 7, 4, 1, 9, 3, 5, 4, 8, 3, 8, 7], 1,
+         [3, 30, 21, 24, 23, 13, 6, 29, 11, 17, 15, 26, 12, 27, 22, 3]);
+      --  Text_IO.Put_Line (DDiv'Image);
+      Assert (DDiv = RDiv, "Invalid Decimal division");
+
    end Test_Decimal_Division_Increase;
 
 end Decimal_Division_Tests;
