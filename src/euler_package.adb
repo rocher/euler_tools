@@ -373,8 +373,21 @@ package body Euler_Package is
    --  Length  --
    --------------
 
-   function Length (Number : Int_Type) return Positive is
-     (To_String (Number)'Length);
+   function Length (Number : Int_Type) return Natural is
+     (Natural (To_String (Number)'Length));
+
+   --------------
+   --  Length  --
+   --------------
+
+   function Length (List : List_Type) return Natural is
+     (Natural (List.Length));
+
+   --------------
+   --  Length  --
+   --------------
+
+   function Length (Set : Set_Type) return Natural is (Natural (Set.Length));
 
    -------------------
    --  Prime_First  --

@@ -172,8 +172,14 @@ package Euler_Package is
    function Length (Number : Crumbled_Natural) return Natural;
    --  Returns the Length of the Crumbled_Natural Number;
 
-   function Length (Number : Integer_Type) return Positive;
+   function Length (Number : Integer_Type) return Natural;
    --  Returns the total number of digits in Number.
+
+   function Length (List : List_Type) return Natural;
+   --  Returns the number of elements in the List.
+
+   function Length (Set : Set_Type) return Natural;
+   --  Returns the number of elements in Set.
 
    function Prime_First return Int_Type;
    --  Returns the first prime number (2) and resets the internal prime
