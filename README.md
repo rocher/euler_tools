@@ -30,7 +30,8 @@ optimized, or specifications change according to some criteria. But to make
 things clear, the set of unit tests included in the library can be used to understand a function specification.
 
 New Ada 2022 features are expected to be supported by compilers soon. Some
-features are really interesting to Euler Tools, like parallel loops.
+features are really interesting to Euler Tools, like parallel blocks, and it
+will be used as they are available.
 
 Ada pre- and post-conditions are used in some function specifications. The
 plan is to improve and generalize its use. SPARK is also planned to be used.
