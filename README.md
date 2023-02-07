@@ -20,6 +20,22 @@ the squared root of a number. Thus, three functions are used from Euler
 Tools: `Square_Root`, `Is_Divisor` and `Is_Prime`.
 
 ---
+## Current Status and Future Plans
+
+Euler Tools is currently in its very early stage. It is planned to be
+published as an [Alire](https://alire.ada.dev) package soon.
+
+New functions are being added very often, some are re-implemented, some
+optimized, or specifications change according to some criteria. But to make
+things clear, the set of unit tests included in the library can be used to understand a function specification.
+
+New Ada 2022 features are expected to be supported by compilers soon. Some
+features are really interesting to Euler Tools, like parallel loops.
+
+Ada pre- and post-conditions are used in some function specifications. The
+plan is to improve and generalize its use. SPARK is also planned to be used.
+
+---
 ## Design
 
 ### Euler Package
