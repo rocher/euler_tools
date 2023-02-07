@@ -317,9 +317,9 @@ package body Euler_Package is
    begin
       if Number <= 11 then
          declare
-            First_Primes : constant array (2 .. 11) of Boolean :=
-              [True, True, False, True, False, True, False, False, False,
-              True];
+            First_Primes : constant array (1 .. 11) of Boolean :=
+              [False, True, True, False, True, False, True, False, False,
+              False, True];
          begin
             return First_Primes (Natural (Number));
          end;
