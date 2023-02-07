@@ -5,9 +5,9 @@
 > *Assortment of Ada functions to solve [Project
 > Euler](https://projecteuler.net) problems.*
 
-Euler Tools is an Ada library of functions that contains _usual_ mathematical
-functions and _non-usual_ numeric functions, like concatenation of numbers,
-palindrome checking or the length (number of digits) of a number.
+Euler Tools is an Ada 2022 library of functions that contains _usual_
+mathematical functions and _non-usual_ numeric functions, like concatenation
+of numbers, palindrome checking or the length (number of digits) of a number.
 
 New functions are added to the library from each solved problem: common
 functionality that can be abstracted, and possibly reused in other problems,
