@@ -28,7 +28,7 @@ Main component of Euler Tools is a _generic_ package, `Euler_Package (<>)`,
 that can be instantiated with any integer type, from `Integer` to
 `Long_Long_Long_Integer`. 
 
-Some instantiation are provided as a separate packages called:
+Some instantiations are provided as separate packages:
 
    *  `package Euler_Tools is new Euler_Package (Integer)`
    *  `package Euler_Int1_Tools is new Euler_Package (Long_Integer)`
@@ -51,7 +51,7 @@ Each platform provides different representation of type, ranging from 32 or
    procedure Problem_42 is
       Answer : Integer_Type := Factorial (12);
    begin
-      Text_IO.Put_Line ("Answer:" & Answer'Image);
+      Put_Line ("Answer:" & Answer'Image);
    end Problem_42;
  ```
 
@@ -65,7 +65,7 @@ Each platform provides different representation of type, ranging from 32 or
    procedure Problem_42 is
       Answer : Integer_Type := Factorial (33);
    begin
-      Text_IO.Put_Line ("Answer:" & Answer'Image);
+      Put_Line ("Answer:" & Answer'Image);
    end Problem_42;
 ```
 
