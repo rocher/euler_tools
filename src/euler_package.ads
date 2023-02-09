@@ -181,6 +181,9 @@ package Euler_Package is
    function Length (Set : Set_Type) return Natural;
    --  Returns the number of elements in Set.
 
+   function Prime_Factors (Number : Int_Type) return List_Type;
+   --  Returns the list of prime factors of Number.
+
    function Prime_First return Int_Type;
    --  Returns the first prime number (2) and resets the internal prime
    --  number generator.

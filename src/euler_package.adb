@@ -389,9 +389,9 @@ package body Euler_Package is
 
    function Length (Set : Set_Type) return Natural is (Natural (Set.Length));
 
-   -------------------
-   --  Prime_First  --
-   -------------------
+   -----------------------------------------------------------------------
+   --  PRIME NUMBERS MANAGEMENT  - Private types, objects and functions --
+   -----------------------------------------------------------------------
 
    type Prime_Cursor_Type is record
       Number : Int_Type := 0;
@@ -420,9 +420,6 @@ package body Euler_Package is
       PC.Inc    := 3;
       return PC.Number;
    end Prime_First_Internal;
-
-   function Prime_First return Int_Type is
-     (Prime_First_Internal (Prime_Public_Cursor));
 
    function Prime_Next_Internal (PC : Prime_Cursor_Access) return Int_Type is
    begin
@@ -468,17 +465,6 @@ package body Euler_Package is
       return PC.Number;
    end Prime_Next_Internal;
 
-   ------------------
-   --  Prime_Next  --
-   ------------------
-
-   function Prime_Next return Int_Type is
-     (Prime_Next_Internal (Prime_Public_Cursor));
-
-   -----------------
-   --  Prime_Nth  --
-   -----------------
-
    function Prime_Nth_Internal
      (N : Int_Type; PC : Prime_Cursor_Access) return Int_Type
    is
@@ -489,6 +475,46 @@ package body Euler_Package is
       end loop;
       return Prime;
    end Prime_Nth_Internal;
+
+   ---------------------
+   --  Prime_Factors  --
+   ---------------------
+
+   function Prime_Factors (Number : Int_Type) return List_Type is
+      use List_Package;
+      List     : List_Type := Empty_List;
+      Prime    : Int_Type  := Prime_First_Internal (Prime_Private_Cursor);
+      Dividend : Int_Type  := Number;
+   begin
+      loop
+         if Is_Divisor (Dividend, Prime) then
+            List.Append (Prime);
+            Dividend := @ / Prime;
+         else
+            Prime := Prime_Next_Internal (Prime_Private_Cursor);
+         end if;
+         exit when Prime > Dividend;
+      end loop;
+      return List;
+   end Prime_Factors;
+
+   -------------------
+   --  Prime_First  --
+   -------------------
+
+   function Prime_First return Int_Type is
+     (Prime_First_Internal (Prime_Public_Cursor));
+
+   ------------------
+   --  Prime_Next  --
+   ------------------
+
+   function Prime_Next return Int_Type is
+     (Prime_Next_Internal (Prime_Public_Cursor));
+
+   -----------------
+   --  Prime_Nth  --
+   -----------------
 
    function Prime_Nth (Nth : Int_Type) return Int_Type is
      (Prime_Nth_Internal (Nth, Prime_Private_Cursor));

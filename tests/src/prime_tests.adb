@@ -25,6 +25,7 @@ package body Prime_Tests is
       use AUnit.Test_Cases.Registration;
    begin
       Register_Routine (T, Test_Is_Prime'Access, "Is_Prime");
+      Register_Routine (T, Test_Prime_Factors'Access, "Prime_Factors");
       Register_Routine
         (T, Test_Prime_Generator'Access, "Prime_First, Prime_Next");
       Register_Routine (T, Test_Prime_Nth'Access, "Prime_Nth");
@@ -52,6 +53,37 @@ package body Prime_Tests is
       Assert (Is_Prime (19), "19 is a prime number");
       Assert (not Is_Prime (20), "20 is not a prime number");
    end Test_Is_Prime;
+
+   procedure Test_Prime_Factors (T : in out Test_Cases.Test_Case'Class) is
+      use List_Package;
+   begin
+      Assert (Prime_Factors (2) = [2], "Invalid list of prime factors");
+      Assert (Prime_Factors (3) = [3], "Invalid list of prime factors");
+      Assert (Prime_Factors (5) = [5], "Invalid list of prime factors");
+      Assert (Prime_Factors (7) = [7], "Invalid list of prime factors");
+      Assert (Prime_Factors (11) = [11], "Invalid list of prime factors");
+      Assert (Prime_Factors (23) = [23], "Invalid list of prime factors");
+
+      Assert (Prime_Factors (4) = [2, 2], "Invalid list of prime factors");
+      Assert (Prime_Factors (6) = [2, 3], "Invalid list of prime factors");
+      Assert (Prime_Factors (8) = [2, 2, 2], "Invalid list of prime factors");
+      Assert (Prime_Factors (9) = [3, 3], "Invalid list of prime factors");
+      Assert (Prime_Factors (10) = [2, 5], "Invalid list of prime factors");
+      Assert (Prime_Factors (12) = [2, 2, 3], "Invalid list of prime factors");
+      Assert (Prime_Factors (14) = [2, 7], "Invalid list of prime factors");
+
+      Assert
+        (Prime_Factors (2 * 3 * 3 * 5 * 5 * 7) = [2, 3, 3, 5, 5, 7],
+         "Invalid list of prime factors");
+      Assert
+        (Prime_Factors (2 * 2 * 3 * 3 * 3 * 3 * 3 * 7 * 11 * 23) =
+         [2, 2, 3, 3, 3, 3, 3, 7, 11, 23],
+         "Invalid list of prime factors");
+      Assert
+        (Prime_Factors (3 * 7 * 11 * 23 * 23 * 41 * 41) =
+         [3, 7, 11, 23, 23, 41, 41],
+         "Invalid list of prime factors");
+   end Test_Prime_Factors;
 
    procedure Test_Prime_Generator (T : in out Test_Cases.Test_Case'Class) is
       Number : Integer_Type;

@@ -24,6 +24,7 @@ package Prime_Tests is
    overriding procedure Register_Tests (T : in out Prime_Test_Case);
 
    procedure Test_Is_Prime (T : in out Test_Case'Class);
+   procedure Test_Prime_Factors (T : in out Test_Case'Class);
    procedure Test_Prime_Generator (T : in out Test_Case'Class);
    procedure Test_Prime_Nth (T : in out Test_Case'Class);
 
