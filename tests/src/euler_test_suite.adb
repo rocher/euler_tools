@@ -18,6 +18,7 @@ with Decimal_Division_Tests; use Decimal_Division_Tests;
 with Divisors_Tests;         use Divisors_Tests;
 with Factorial_Tests;        use Factorial_Tests;
 with Fibonacci_Tests;        use Fibonacci_Tests;
+with Lists_Tests;            use Lists_Tests;
 with Numeric_Tests;          use Numeric_Tests;
 with Prime_Tests;            use Prime_Tests;
 with Set_Tests;              use Set_Tests;
@@ -33,6 +34,7 @@ package body Euler_Test_Suite is
    Divisors_Test         : aliased Divisors_Test_Case;
    Factorial_Test        : aliased Factorial_Test_Case;
    Fibonacci_Test        : aliased Fibonacci_Test_Case;
+   List_Test             : aliased Lists_Test_Case;
    Numeric_Tests         : aliased Numeric_Test_Case;
    Prime_Test            : aliased Prime_Test_Case;
    Set_Test              : aliased Set_Test_Case;
@@ -44,6 +46,7 @@ package body Euler_Test_Suite is
       Add_Test (Result'Access, Divisors_Test'Access);
       Add_Test (Result'Access, Factorial_Test'Access);
       Add_Test (Result'Access, Fibonacci_Test'Access);
+      Add_Test (Result'Access, List_Test'Access);
       Add_Test (Result'Access, Numeric_Tests'Access);
       Add_Test (Result'Access, Prime_Test'Access);
       Add_Test (Result'Access, Set_Test'Access);

@@ -118,6 +118,10 @@ package Euler_Package is
      Pre => not Set.Is_Empty;
    --  Return the Nth element of the ordered, non-empty Set.
 
+   function Equals (List : List_Type) return Boolean with
+     Pre => not List.Is_Empty;
+   --  Returns True if all element of the list are equal.
+
    function Factorial (Number : Int_Type) return Int_Type with
      Pre => Number >= 0;
    --  Return the factorial of Number: 1* 2 * 3 * .. * Number.
