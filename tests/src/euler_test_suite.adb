@@ -18,7 +18,7 @@ with Decimal_Division_Tests; use Decimal_Division_Tests;
 with Divisors_Tests;         use Divisors_Tests;
 with Factorial_Tests;        use Factorial_Tests;
 with Fibonacci_Tests;        use Fibonacci_Tests;
-with Lists_Tests;            use Lists_Tests;
+with List_Tests;             use List_Tests;
 with Numeric_Tests;          use Numeric_Tests;
 with Prime_Tests;            use Prime_Tests;
 with Set_Tests;              use Set_Tests;

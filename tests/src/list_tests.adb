@@ -16,10 +16,10 @@
 with AUnit.Assertions; use AUnit.Assertions;
 with Euler_Tools;      use Euler_Tools;
 
-package body Lists_Tests is
+package body List_Tests is
 
    overriding function Name (T : Lists_Test_Case) return Test_String is
-     (Format ("Lists Tests              "));
+     (Format ("List Tests               "));
 
    overriding procedure Register_Tests (T : in out Lists_Test_Case) is
       use AUnit.Test_Cases.Registration;
@@ -65,4 +65,4 @@ package body Lists_Tests is
       Assert (Sum ([2, 5, 5, 5, 89, 123]) = 229, "Invalid Sum result");
    end Test_Sum;
 
-end Lists_Tests;
+end List_Tests;

@@ -31,7 +31,7 @@ package body Set_Tests is
       Register_Routine (T, Test_Type_Size'Access, "Type size");
       Register_Routine (T, Test_Element_First'Access, "Element_First");
       Register_Routine (T, Test_Element_Nth'Access, "Element_Nth");
-      Register_Routine (T, Test_Sum'Access, "Sum (Set)");
+      Register_Routine (T, Test_Sum'Access, "Sum");
    end Register_Tests;
 
    procedure Test_Type_Size (T : in out Test_Cases.Test_Case'Class) is

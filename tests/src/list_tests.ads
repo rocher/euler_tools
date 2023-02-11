@@ -16,7 +16,7 @@
 with AUnit;            use AUnit;
 with AUnit.Test_Cases; use AUnit.Test_Cases;
 
-package Lists_Tests is
+package List_Tests is
    type Lists_Test_Case is new Test_Case with null record;
 
    overriding function Name (T : Lists_Test_Case) return Message_String;
@@ -27,4 +27,4 @@ package Lists_Tests is
    procedure Test_Product (T : in out Test_Case'Class);
    procedure Test_Sum (T : in out Test_Case'Class);
 
-end Lists_Tests;
+end List_Tests;
