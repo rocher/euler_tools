@@ -534,6 +534,19 @@ package body Euler_Package is
    function Prime_Nth (Nth : Int_Type) return Int_Type is
      (Prime_Nth_Internal (Nth, Prime_Private_Cursor));
 
+   ---------------
+   --  Product  --
+   ---------------
+
+   function Product (List : List_Type) return Int_Type is
+      Result : Int_Type := 1;
+   begin
+      for Number of List loop
+         Result := @ * Number;
+      end loop;
+      return Result;
+   end Product;
+
    -----------------------
    --  Proper_Divisors  --
    -----------------------
@@ -599,6 +612,19 @@ package body Euler_Package is
       end if;
       return Result;
    end Sub_Number;
+
+   -----------
+   --  Sum  --
+   -----------
+
+   function Sum (List : List_Type) return Int_Type is
+      Result : Int_Type := 0;
+   begin
+      for Number of List loop
+         Result := @ + Number;
+      end loop;
+      return Result;
+   end Sum;
 
    -----------
    --  Sum  --

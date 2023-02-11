@@ -25,6 +25,8 @@ package body Lists_Tests is
       use AUnit.Test_Cases.Registration;
    begin
       Register_Routine (T, Test_Equals'Access, "Equals");
+      Register_Routine (T, Test_Product'Access, "Product");
+      Register_Routine (T, Test_Sum'Access, "Sum");
    end Register_Tests;
 
    procedure Test_Equals (T : in out Test_Cases.Test_Case'Class) is
@@ -36,5 +38,31 @@ package body Lists_Tests is
       Assert
         (not Equals ([1, 1, 1, 1, 1, 2, 1, 1, 1]), "Invalid Equals result");
    end Test_Equals;
+
+   procedure Test_Product (T : in out Test_Cases.Test_Case'Class) is
+   begin
+      Assert (Product ([0]) = 0, "Invalid Product result");
+      Assert (Product ([1]) = 1, "Invalid Product result");
+      Assert (Product ([0, 1]) = 0, "Invalid Product result");
+      Assert (Product ([1, 1, 1]) = 1, "Invalid Product result");
+      Assert (Product ([1, 2, 3]) = 6, "Invalid Product result");
+      Assert (Product ([4, 4, 4, 4]) = 256, "Invalid Product result");
+      Assert (Product ([1, 2, 1, 1, 1]) = 2, "Invalid Product result");
+      Assert
+        (Product ([2, 5, 5, 5, 89, 123]) = 2_736_750,
+         "Invalid Product result");
+   end Test_Product;
+
+   procedure Test_Sum (T : in out Test_Cases.Test_Case'Class) is
+   begin
+      Assert (Sum ([0]) = 0, "Invalid Sum result");
+      Assert (Sum ([1]) = 1, "Invalid Sum result");
+      Assert (Sum ([0, 1]) = 1, "Invalid Sum result");
+      Assert (Sum ([1, 1, 1]) = 3, "Invalid Sum result");
+      Assert (Sum ([1, 2, 3]) = 6, "Invalid Sum result");
+      Assert (Sum ([4, 4, 4, 4]) = 16, "Invalid Sum result");
+      Assert (Sum ([1, 2, 1, 1, 1]) = 6, "Invalid Sum result");
+      Assert (Sum ([2, 5, 5, 5, 89, 123]) = 229, "Invalid Sum result");
+   end Test_Sum;
 
 end Lists_Tests;

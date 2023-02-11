@@ -199,6 +199,10 @@ package Euler_Package is
    function Prime_Nth (Nth : Int_Type) return Int_Type;
    --  Returns the Nth prime number.
 
+   function Product (List : List_Type) return Int_Type with
+     Pre => not List.Is_Empty;
+   --  Returns the product of all numbers in List.
+
    function Proper_Divisors (Number : Int_Type) return Set_Type;
    --  Returns the set of proper divisors of Number (that is, excluding
    --  Number). If Number is equal to 1, then returns the empty set.
@@ -216,6 +220,10 @@ package Euler_Package is
    --  up to the specified Length (mimics the Sub_String function). Returns 0
    --  if Start is greater than the Number length. Returns less that Length
    --  digits if there are no enough digits in Number from the Start.
+
+   function Sum (List : List_Type) return Int_Type with
+     Pre => not List.Is_Empty;
+   --  Returns the sum of all number of the List.
 
    function Sum (Set : Set_Type) return Int_Type;
    --  Return the sum of all numbers of the set.

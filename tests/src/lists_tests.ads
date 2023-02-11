@@ -24,5 +24,7 @@ package Lists_Tests is
    overriding procedure Register_Tests (T : in out Lists_Test_Case);
 
    procedure Test_Equals (T : in out Test_Case'Class);
+   procedure Test_Product (T : in out Test_Case'Class);
+   procedure Test_Sum (T : in out Test_Case'Class);
 
 end Lists_Tests;
