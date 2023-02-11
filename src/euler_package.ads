@@ -57,13 +57,10 @@ package Euler_Package is
    function All_Divisors (Number : Int_Type) return Set_Type;
    --  Returns the set of all divisors of Number, including 1 and Number.
 
-   function Are_Amicable (A, B : Int_Type) return Boolean;
+   function Are_Amicable (A, B : Int_Type) return Boolean with
+     Pre => A > 0 and B > 0;
    --  Return True is A and B are an amicable pair: A and B are amicable if
    --  Sum (Proper_Divisors (A)) = B  and  Sum (Proper_Divisors (B)) = A.
-
-   function Collatz_First (Number : Int_Type) return Int_Type;
-   --  Sets and returns the first number in the Collatz sequence starting at
-   --  Number, which happens to be Number.
 
    procedure CN_Assign (Left : in out Crumbled_Natural; Right : Int_Type);
    --  Assigns the value of Right number to the Crumbled_Naturals of the
@@ -80,6 +77,11 @@ package Euler_Package is
    --  Assigns the value of the Crumbled_Natural in the Right to the Left
    --  number using digits from Digit_Start to Digit_End.
 
+   function Collatz_First (Number : Int_Type) return Int_Type with
+     Pre => Number > 1;
+   --  Sets and returns the first number in the Collatz sequence starting at
+   --  Number, which happens to be Number.
+
    function Collatz_Next return Int_Type;
    --  Returns the next number in the Collatz sequence, defined by:
    --  Collatz_Next = N/2 if N is even, and Collatz_Next = 3*N+1 if N is odd,
@@ -92,8 +94,6 @@ package Euler_Package is
    function Concat (Left, Right : Int_Type) return Int_Type with
      Pre => Right >= 0;
    --  Returns the number obtained by concatenating Left and Right numbers.
-
-   --  procedure Divide (Numerator: Int_Type; Denominator : Int_Type)
 
    function Decimal_Division
      (Dividend, Divisor : Int_Type; Decimals : Natural)
