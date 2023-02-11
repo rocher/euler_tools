@@ -210,6 +210,9 @@ package Euler_Package is
    function Right (Number : Int_Type; Positions : Positive) return Int_Type;
    --  Return the number formed by the rightmost digit Positions of Number.
 
+   procedure Sort (List : in out List_Type);
+   --  Sorts the List of numbers in place.
+
    function Square_Root (Number : Int_Type) return Int_Type with
      Pre => Number >= 0;
    --  Return the truncated square root of Number if Number > 0, 0 otherwise.

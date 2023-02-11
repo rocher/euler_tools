@@ -582,6 +582,16 @@ package body Euler_Package is
       return To_Number (Text (Pos_Start .. Text'Length));
    end Right;
 
+   ------------
+   --  Sort  --
+   ------------
+
+   procedure Sort (List : in out List_Type) is
+      package Sort_Package is new List_Package.Generic_Sorting;
+   begin
+      Sort_Package.Sort (List);
+   end Sort;
+
    -------------------
    --  Square_Root  --
    -------------------
