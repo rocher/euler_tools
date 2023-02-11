@@ -188,16 +188,16 @@ package body Euler_Package is
    --  Equals  --
    --------------
 
-   function Equals (List: List_Type) return Boolean is
+   function Equals (List : List_Type) return Boolean is
       First : Int_Type := List.First_Element;
-      Equal: Boolean := True;
+      Equal : Boolean  := True;
    begin
       for Element of List loop
          Equal := @ and then (Element = First);
          exit when not Equal;
       end loop;
       return Equal;
-   end;
+   end Equals;
 
    -----------------
    --  Factorial  --
