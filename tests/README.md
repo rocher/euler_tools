@@ -53,4 +53,7 @@
    - **Precondition**: $A > 0$ and $B > 0$.
    - Unit tests: [divisors_tests.adb](src/divisors_tests.adb)
    - Ref: [Amicable numbers](https://en.wikipedia.org/wiki/Amicable_numbers)
+   - Example:
+     $$\sum Proper\\_Divisors (220) = \sum \{1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110\} = 284$$
+     $$\sum Proper\\_Divisors (284) = \sum \{1, 2, 4, 71, 142\} = 220$$
 
