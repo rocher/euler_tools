@@ -1,4 +1,5 @@
 ![Ada for Project Euler](Ada_for_Project_Euler.png)
+<img src="https://user-images.githubusercontent.com/Ada_for_Project_Euler.png" width="200" />
 
 - [Euler Tools](#euler-tools)
   - [Current Status and Future Plans](#current-status-and-future-plans)
@@ -54,7 +55,7 @@ plan is to improve and generalize its use. SPARK is also planned to be used.
 
 Main component of Euler Tools is a _generic_ package, `Euler_Package (<>)`,
 that can be instantiated with any integer type, from `Integer` to
-`Long_Long_Long_Integer`. 
+`Long_Long_Long_Integer`.
 
 Some instantiations are provided as separate packages:
 
@@ -62,7 +63,7 @@ Some instantiations are provided as separate packages:
    *  `package Euler_Int1_Tools is new Euler_Package (Long_Integer)`
    *  `package Euler_Int2_Tools is new Euler_Package (Long_Long_Integer)`
    *  `package Euler_Int3_Tools is new Euler_Package (Long_Long_Long_Integer)`
-  
+
 Each platform provides different representation of type, ranging from 32 or
 64 bits for `Integer`, or 128 bits for `Long_Long_Long_Integer`.
 
