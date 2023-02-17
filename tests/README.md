@@ -6,18 +6,18 @@
 
 ## Unit tests
 
-| function/procedure               | file                                                     |
-| -------------------------------- | -------------------------------------------------------- |
-| `All_Divisors (N)`               | [divisors tests](src/divisors_tests.adb)                 |
-| `Are_Amicable (A, B)`            | [divisors tests](src/divisors_tests.adb)                 |
-| `CN_Assign (CN, Integer)`        | [crumbled naturals test](src/crumbled_natural_tests.adb) |
-| `CN_Assign (Integer, CN)`        | [crumbled naturals test](src/crumbled_natural_tests.adb) |
-| `CN_Assign (Integer, CN, range)` | [crumbled naturals test](src/crumbled_natural_tests.adb) |
-| `Collatz_First`                  |                                                          |
-| `Collatz_Next`                   |                                                          |
-| `Combination (N, K)`             | [factorial tests](src/factorial_tests.adb)               |
-| `Concat (A, B)`                  | [numeric tests](src/numeric_tests.adb)                   |
-
+| function / procedure           | file                                                     |
+| ------------------------------ | -------------------------------------------------------- |
+| All_Divisors (N)               | [divisors tests](src/divisors_tests.adb)                 |
+| Are_Amicable (A, B)            | [divisors tests](src/divisors_tests.adb)                 |
+| CN_Assign (CN, Integer)        | [crumbled naturals test](src/crumbled_natural_tests.adb) |
+| CN_Assign (Integer, CN)        | [crumbled naturals test](src/crumbled_natural_tests.adb) |
+| CN_Assign (Integer, CN, range) | [crumbled naturals test](src/crumbled_natural_tests.adb) |
+| Collatz_First                  |                                                          |
+| Collatz_Next                   |                                                          |
+| Combination (N, K)             | [factorial tests](src/factorial_tests.adb)               |
+| Concat (A, B)                  | [numeric tests](src/numeric_tests.adb)                   |
+ 
    function Concat (Left, Right : Int_Type) return Int_Type with
    function Decimal_Division
    procedure Decimal_Division_Increase
@@ -66,4 +66,3 @@
    function To_Number (Str : String) return Int_Type with
    function To_String (Number : Int_Type) return String;
    function Units (Number : Int_Type) return Int_Type;
-
