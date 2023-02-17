@@ -37,9 +37,9 @@
 
 #### function All_Divisors (Number : Int_Type) return Set_Type;
    - Returns the set of all divisors of `Number`, including 1 and `Number`.
-   - **Unit tests**: [divisors_test.adb](src/divisors_tests.adb)
-   -  **Example**:
-      ```Ada
+   - Unit tests: [divisors_tests.adb](src/divisors_tests.adb)
+   -  Example:
+      ```ada
          Divisors : Set_Type := All_Divisors (10);
          --  Divisors = [1, 2, 5, 10];
       ```
@@ -51,4 +51,6 @@
      and
      $$\sum Proper\\_Divisors (B) = A$$
    - **Precondition**: $A > 0$ and $B > 0$.
+   - Unit tests: [divisors_tests.adb](src/divisors_tests.adb)
+   - Ref: [Amicable numbers](https://en.wikipedia.org/wiki/Amicable_numbers)
 
