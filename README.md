@@ -3,6 +3,7 @@
 - [Euler Tools](#euler-tools)
     - [Euler\_Tools v1.0.0](#euler_tools-v100)
   - [Current Status and Future Plans](#current-status-and-future-plans)
+- [Installation](#installation)
   - [Design](#design)
     - [Euler Package](#euler-package)
     - [Other Packages](#other-packages)
@@ -35,8 +36,7 @@ Tools: `Square_Root`, `Is_Divisor` and `Is_Prime`.
 ---
 ## Current Status and Future Plans
 
-Euler Tools is currently in its very early stage. It is planned to be
-published as an [Alire](https://alire.ada.dev) package soon.
+Euler Tools is currently in its very early stage.
 
 New functions are being added very often, some are re-implemented, some
 optimized, or specifications change according to some criteria. But to make
@@ -48,6 +48,23 @@ will be used as they are available.
 
 Ada pre- and post-conditions are used in some function specifications. The
 plan is to improve and generalize its use. SPARK is also planned to be used.
+
+---
+# Installation
+
+Use [Alire](https://alire.ada.dev) to get and compile the the library:
+```sh
+alr get euler_tools
+cd euler_tools*
+alr build
+```
+
+To compile and run the unit tests:
+```sh
+cd tests
+alr build
+./bin/euler_tools_tests
+```
 
 ---
 ## Design
