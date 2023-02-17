@@ -8,7 +8,7 @@
 
    - `Euler_Tools`: Euler package instantiated with `Integer` type. In a
      'x86_64' computer it is 64 bits long, resulting in `Naturals` in the
-     range $[0, 2^{64}-1]$`.
+     range $[0, 2^{64}-1]$.
 
    - `Euler_Tools_Int1`: Euler package instantiated with `Long_Integer`. This
      is implementation-dependent and, probably, the same length as `Integer`.
@@ -54,6 +54,6 @@
    - Unit tests: [divisors_tests.adb](src/divisors_tests.adb)
    - Ref: [Amicable numbers](https://en.wikipedia.org/wiki/Amicable_numbers)
    - Example:
-     $$\sum Proper\\_Divisors (220) = \sum \{1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110\} = 284$$
-     $$\sum Proper\\_Divisors (284) = \sum \{1, 2, 4, 71, 142\} = 220$$
+     $$\sum Proper\\_Divisors (220) = \sum \\{1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110\} = 284$$
+     $$\sum Proper\\_Divisors (284) = \sum \brace{1, 2, 4, 71, 142} = 220$$
 
