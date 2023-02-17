@@ -35,7 +35,7 @@
 
 ## Functions
 
-* `function All_Divisors (Number : Int_Type) return Set_Type;`
+### `function All_Divisors (Number : Int_Type) return Set_Type;`
    - Returns the set of all divisors of `Number`, including 1 and `Number`.
    - **Unit tests**: [divisors_test.adb](src/divisors_test.adb)
    -  **Example**:
@@ -44,7 +44,7 @@
          --  Divisors = [1, 2, 5, 10];
       ```
 
-   - `function Are_Amicable (A, B : Int_Type) return Boolean;`
+### `function Are_Amicable (A, B : Int_Type) return Boolean;`
      - Return True is $A$ and $B$ are an *amicable pair*: $A$ and $B$ are
        amicable if
        $$\sum Proper\\_Divisors (A) = B$$
