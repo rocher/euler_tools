@@ -1,5 +1,16 @@
 ![Ada for Project Euler](Ada_for_Project_Euler.png)
 
+- [Euler Tools](#euler-tools)
+  - [Current Status and Future Plans](#current-status-and-future-plans)
+  - [Design](#design)
+    - [Euler Package](#euler-package)
+    - [Other Packages](#other-packages)
+    - [Additional Types](#additional-types)
+  - [Euler Examples](#euler-examples)
+    - [Contributions](#contributions)
+
+---
+
 # Euler Tools
 
 > *Assortment of Ada functions to solve [Project
