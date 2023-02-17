@@ -72,32 +72,6 @@ function Decimal_Division
    return Decimal_Division_Type
 is
    DDiv : Decimal_Division_Type;
-
-   --  NOTE: For a really detailed (graphical?) implementation
-   --  function Select_Sub_Dividend
-   --    (DDiv : in out Decimal_Division_Type) return Int_Type
-   --  is
-   --     Sub_Dividend : Int_Type;
-   --  begin
-   --     if DDiv.Remainders.Is_Empty then
-   --        Sub_Dividend := 0;
-   --     else
-   --        Sub_Dividend := DDiv.Remainders.Last_Element;
-   --     end if;
-
-   --     if DDiv.Index < Length (DDiv.Dividend) then
-   --        loop
-   --           DDiv.Index   := @ + 1;
-   --           Sub_Dividend :=
-   --             Concat (Sub_Dividend, Sub_Number (DDiv.Divisor, DDiv.Index, 1));
-   --           exit when Sub_Dividend >= DDiv.Divisor
-   --             or else DDiv.Index = Length (DDiv.Divisor);
-   --        end loop;
-   --     end if;
-
-   --     return Sub_Dividend;
-   --  end Select_Sub_Dividend;
-
 begin
    DDiv.Dividend   := Dividend;
    DDiv.Divisor    := Divisor;
@@ -109,17 +83,6 @@ begin
    --  Integer division
    DDiv.Quotient := DDiv.Dividend / DDiv.Divisor;
    DDiv.Remainders.Append (DDiv.Dividend rem DDiv.Divisor);
-
-   --  NOTE: For a decimal implementation
-   --  if DDiv.Dividend >= DDiv.Divisor then
-   --     loop
-   --        Sub_Dividend := Select_Sub_Dividend (DDiv);
-   --        exit when Sub_Dividend < DDiv.Divisor;
-
-   --        Sub_Quotient := Sub_Dividend / DDiv.Divisor;
-   --        DDiv.Remainders.Append (Sub_Dividend - Sub_Quotient * DDiv.Divisor);
-   --     end loop;
-   --  end if;
 
    --  Decimal division
    Decimal_Division_Increase (DDiv, Decimals);

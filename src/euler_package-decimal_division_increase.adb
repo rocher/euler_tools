@@ -32,8 +32,6 @@ begin
 
          --  cycle detection
          declare
-            use List_Package;
-
             Index      : Natural             := Length (DDiv.Decimals);
             Rem_Cursor : List_Package.Cursor := DDiv.Remainders.Last;
          begin
