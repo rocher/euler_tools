@@ -57,7 +57,7 @@ package Euler_Package is
    --  Returns the set of all divisors of Number, including 1 and Number.
 
    function Are_Amicable (A, B : Int_Type) return Boolean with
-     Pre => A > 0 and B > 0;
+     Pre => A > 0 and then B > 0;
    --  Return True is A and B are an amicable pair: A and B are amicable if
    --  Sum (Proper_Divisors (A)) = B  and  Sum (Proper_Divisors (B)) = A.
 
@@ -72,7 +72,7 @@ package Euler_Package is
    procedure CN_Assign
      (Left                   : in out Int_Type; Right : Crumbled_Natural;
       Digit_Start, Digit_End :        Positive) with
-     Pre => Digit_Start <= Digit_End;
+     Pre => Digit_Start <= Digit_End and then Digit_End <= Length (Right);
    --  Assigns the value of the Crumbled_Natural in the Right to the Left
    --  number using digits from Digit_Start to Digit_End.
 
