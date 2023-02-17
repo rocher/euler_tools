@@ -1,5 +1,5 @@
 ![Ada for Project Euler](Ada_for_Project_Euler.png)
-<img src="https://user-images.githubusercontent.com/Ada_for_Project_Euler.png" width="200" />
+<img src="Ada_for_Project_Euler.png" width="200" />
 
 - [Euler Tools](#euler-tools)
   - [Current Status and Future Plans](#current-status-and-future-plans)
