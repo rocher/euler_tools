@@ -1,4 +1,3 @@
-![Ada for Project Euler](Ada_for_Project_Euler.png)
 <img src="Ada_for_Project_Euler.png" width="200" />
 
 - [Euler Tools](#euler-tools)
