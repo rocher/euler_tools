@@ -1,6 +1,6 @@
 name = "euler_tools"
 description = "Mathematical functions and tools to solve Project Euler problems."
-version = "0.1.2-dev"
+version = "1.0.0"
 
 authors = ["Francesc Rocher"]
 maintainers = ["Francesc Rocher <francesc.rocher@gmail.com>"]

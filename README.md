@@ -1,6 +1,7 @@
 <img src="Ada_for_Project_Euler.png" width="200" />
 
 - [Euler Tools](#euler-tools)
+    - [Euler\_Tools v1.0.0](#euler_tools-v100)
   - [Current Status and Future Plans](#current-status-and-future-plans)
   - [Design](#design)
     - [Euler Package](#euler-package)
@@ -12,6 +13,7 @@
 ---
 
 # Euler Tools
+### Euler_Tools v1.0.0
 
 > *Assortment of Ada functions to solve [Project
 > Euler](https://projecteuler.net) problems.*
