@@ -58,12 +58,10 @@ package body Euler_Package is
    -----------------
 
    procedure CN_Assign (Left : in out Int_Type; Right : Crumbled_Natural) is
-      Power : Positive := 1;
    begin
       Left := 0;
-
       for X of Right loop
-         Left := Left * 10**Power + Int_Type (X);
+         Left := Left * 10 + Int_Type (X);
       end loop;
    end CN_Assign;
 
@@ -73,14 +71,12 @@ package body Euler_Package is
 
    procedure CN_Assign
      (Left                   : in out Int_Type; Right : Crumbled_Natural;
-      Digit_start, Digit_End :        Positive)
+      Digit_Start, Digit_End :        Positive)
    is
-      Power : Positive := 1;
    begin
       Left := 0;
-
-      for I in Digit_start .. Digit_End loop
-         Left := Left * 10**Power + Int_Type (Right.Element (I));
+      for I in Digit_Start .. Digit_End loop
+         Left := Left * 10 + Int_Type (Right.Element (I));
       end loop;
    end CN_Assign;
 
@@ -188,8 +184,8 @@ package body Euler_Package is
    --------------
 
    function Equals (List : List_Type) return Boolean is
-      First : Int_Type := List.First_Element;
-      Equal : Boolean  := True;
+      First : constant Int_Type := List.First_Element;
+      Equal : Boolean           := True;
    begin
       for Element of List loop
          Equal := @ and then (Element = First);
@@ -370,8 +366,8 @@ package body Euler_Package is
    ------------
 
    function Left (Number : Int_Type; Positions : Positive) return Int_Type is
-      Text    : String  := To_String (Number);
-      Pos_End : Natural := Natural'Min (Positions, Text'Length);
+      Text    : constant String  := To_String (Number);
+      Pos_End : constant Natural := Natural'Min (Positions, Text'Length);
    begin
       return To_Number (Text (1 .. Pos_End));
    end Left;
@@ -495,7 +491,6 @@ package body Euler_Package is
    ---------------------
 
    function Prime_Factors (Number : Int_Type) return List_Type is
-      use List_Package;
       List     : List_Type := Empty_List;
       Prime    : Int_Type  := Prime_First_Internal (Prime_Private_Cursor);
       Dividend : Int_Type  := Number;
@@ -574,9 +569,9 @@ package body Euler_Package is
    ------------
 
    function Right (Number : Int_Type; Positions : Positive) return Int_Type is
-      Text      : String  := To_String (Number);
-      Minimum   : Natural := Natural'Min (Positions, Text'Length);
-      Pos_Start : Natural := Natural (Text'Length) + 1 - Minimum;
+      Text      : constant String  := To_String (Number);
+      Minimum   : constant Natural := Natural'Min (Positions, Text'Length);
+      Pos_Start : constant Natural := Natural (Text'Length) + 1 - Minimum;
    begin
       return To_Number (Text (Pos_Start .. Text'Length));
    end Right;
@@ -611,10 +606,12 @@ package body Euler_Package is
    function Sub_Number
      (Number : Int_Type; Start, Length : Positive) return Int_Type
    is
-      Text      : String   := To_String (Number);
-      Pos_Start : Natural  := Natural'Min (Start, Text'Length);
-      Pos_End   : Natural  := Natural'Min (Start + Length - 1, Text'Length);
-      Result    : Int_Type := 0;
+      Text      : constant String  := To_String (Number);
+      Pos_Start : constant Natural := Natural'Min (Start, Text'Length);
+      Pos_End   : constant Natural :=
+        Natural'Min (Start + Length - 1, Text'Length);
+
+      Result : Int_Type := 0;
    begin
       if Start <= Text'Length then
          Result := To_Number (Text (Pos_Start .. Pos_End));
