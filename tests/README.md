@@ -35,7 +35,7 @@
 
 ## Functions
 
-#### function All_Divisors (Number : Int_Type) return Set_Type;
+### function All_Divisors (Number : Int_Type) return Set_Type;
    - Returns the set of all divisors of `Number`, including 1 and `Number`.
    - **Unit tests**: [divisors_test.adb](src/divisors_test.adb)
    -  **Example**:
