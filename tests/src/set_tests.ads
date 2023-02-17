@@ -1,7 +1,7 @@
 --  ---------------------------------------------------------------------------
 --
 --  Copyright (c) 2023 Francesc Rocher <francesc.rocher@gnail.com>
---  SPDX-License-Identifier: CC-BY-NC-SA-4.0
+--  SPDX-License-Identifier: MIT
 --  https://creativecommons.org/licenses/by-nc-sa/4.0/
 --
 --  ---------------------------------------------------------------------------
