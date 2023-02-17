@@ -46,10 +46,7 @@
 
    - `function Are_Amicable (A, B : Int_Type) return Boolean;`
      - Return True is $A$ and $B$ are an *amicable pair*: $A$ and $B$ are
-       amicable if 
-       ```latex
-         $\sum (Proper\\_Divisors (A)) = B$ and
-         $\sum (Proper\\_Divisors (B)) = A$.
-      ```
+       amicable if $\sum (Proper\\_Divisors (A)) = B$ and
+       $\sum (Proper\\_Divisors (B)) = A$.
      - **Precondition**: $A > 0$ and $B > 0$.
 
