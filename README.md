@@ -3,7 +3,7 @@
 - [Euler Tools](#euler-tools)
     - [Euler\_Tools v1.0.0](#euler_tools-v100)
   - [Current Status and Future Plans](#current-status-and-future-plans)
-- [Installation](#installation)
+  - [Installation](#installation)
   - [Design](#design)
     - [Euler Package](#euler-package)
     - [Other Packages](#other-packages)
@@ -50,7 +50,7 @@ Ada pre- and post-conditions are used in some function specifications. The
 plan is to improve and generalize its use. SPARK is also planned to be used.
 
 ---
-# Installation
+## Installation
 
 Use [Alire](https://alire.ada.dev) to get and compile the the library:
 ```sh
