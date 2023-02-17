@@ -15,7 +15,7 @@
 with AUnit.Assertions; use AUnit.Assertions;
 
 with Euler_Tools;
-with Euler_Int3_Tools;
+with Euler_Tools_Int3;
 
 package body Divisors_Tests is
 
@@ -324,7 +324,7 @@ package body Divisors_Tests is
    end Test_Proper_Divisors;
 
    procedure Test_Int3_Is_Perfect (T : in out Test_Case'Class) is
-      use Euler_Int3_Tools;
+      use Euler_Tools_Int3;
    begin
       Assert (Is_Perfect (8_589_869_056), "8_589_869_056 is a perfect number");
 

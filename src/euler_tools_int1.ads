@@ -14,4 +14,4 @@
 
 with Euler_Package;
 
-package Euler_Int2_Tools is new Euler_Package (Long_Long_Integer);
+package Euler_Tools_Int1 is new Euler_Package (Long_Integer);

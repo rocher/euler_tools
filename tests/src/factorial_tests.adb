@@ -16,7 +16,7 @@
 
 with AUnit.Assertions; use AUnit.Assertions;
 with Euler_Tools;
-with Euler_Int3_Tools;
+with Euler_Tools_Int3;
 
 package body Factorial_Tests is
 
@@ -35,7 +35,7 @@ package body Factorial_Tests is
            (T, Test_Factorial_Error'Access, "Factorial (Constraint Error)");
       end if;
 
-      if Euler_Int3_Tools.Integer_Type'Size = 128 then
+      if Euler_Tools_Int3.Integer_Type'Size = 128 then
          Register_Routine
            (T, Test_Factorial_Int3_Error'Access,
             "Factorial (Int3, Constraint Error)");
@@ -63,7 +63,7 @@ package body Factorial_Tests is
    end Test_Factorial;
 
    procedure Test_Factorial_Int3 (T : in out Test_Cases.Test_Case'Class) is
-      use Euler_Int3_Tools;
+      use Euler_Tools_Int3;
    begin
       Assert (Factorial (0) = 1, "0! is equal to 1");
       Assert (Factorial (1) = 1, "1! is equal to 1");
@@ -140,7 +140,7 @@ package body Factorial_Tests is
    end Test_Factorial_Error;
 
    procedure Factorial_34 is
-      use Euler_Int3_Tools;
+      use Euler_Tools_Int3;
    begin
       Assert (Factorial (34) = 34 * Factorial (33), "CONSTRAINT ERROR");
    end Factorial_34;
