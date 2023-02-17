@@ -37,7 +37,7 @@
 
 #### function All_Divisors (Number : Int_Type) return Set_Type;
    - Returns the set of all divisors of `Number`, including 1 and `Number`.
-   - **Unit tests**: [divisors_test.adb](src/divisors_test.adb)
+   - **Unit tests**: [divisors_test.adb](src/divisors_tests.adb)
    -  **Example**:
       ```Ada
          Divisors : Set_Type := All_Divisors (10);
