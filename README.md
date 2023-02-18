@@ -5,7 +5,6 @@
 <img src="Ada_for_Project_Euler.png" width="200" />
 
 # Euler Tools
-### Euler_Tools v1.0.0
 
 > *Assortment of Ada functions to solve [Project
 > Euler](https://projecteuler.net) problems.*
@@ -43,12 +42,16 @@ plan is to improve and generalize its use. SPARK is also planned to be used.
 ---
 ## Installation
 
+### Build
+
 Use [Alire](https://alire.ada.dev) to get and compile the library:
 ```sh
 alr get euler_tools
 cd euler_tools*
 alr build
 ```
+
+### Unit tests
 
 To compile and run the unit tests:
 ```sh

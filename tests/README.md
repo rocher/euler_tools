@@ -1,18 +1,23 @@
+![unit-test](https://github.com/rocher/euler_tools/actions/workflows/unit-test.yml/badge.svg)
+[![GitHub release](https://img.shields.io/github/release/rocher/euler_tools.svg)](https://github.com/rocher/euler_tools/releases/latest)
+[![License](https://img.shields.io/github/license/rocher/euler_tools.svg?color=blue)](https://github.com/rocher/euler_tools/blob/master/LICENSE)
+
 <img src="../Ada_for_Project_Euler.png" width="200" />
 
 
 # Euler Tools
-### Euler Tools v1.0.0
+
+Traceability matrix of library functions / unit tests.
 
 | function / procedure                                                                                          | Unit test                                                |
-|---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
+| ------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
 | function All_Divisors (Number : Int_Type) return Set_Type;                                                    | [divisors tests](src/divisors_tests.adb)                 |
 | function Are_Amicable (A, B : Int_Type) return Boolean;                                                       | [divisors tests](src/divisors_tests.adb)                 |
 | procedure CN_Assign (Left : in out Crumbled_Natural; Right : Int_Type);                                       | [crumbled naturals test](src/crumbled_natural_tests.adb) |
 | procedure CN_Assign (Left : in out Int_Type; Right : Crumbled_Natural);                                       | [crumbled naturals test](src/crumbled_natural_tests.adb) |
 | procedure CN_Assign   (Left : in out Int_Type; Right : Crumbled_Natural;  Digit_Start, Digit_End : Positive); | [crumbled naturals test](src/crumbled_natural_tests.adb) |
-| function Collatz_First (Number : Int_Type) return Int_Type;                                                   |                                                          |
-| function Collatz_Next return Int_Type;                                                                        |                                                          |
+| function Collatz_First (Number : Int_Type) return Int_Type;                                                   | pending                                                  |
+| function Collatz_Next return Int_Type;                                                                        | pending                                                  |
 | function Combination (N, K : Int_Type) return Int_Type;                                                       | [factorial tests](src/factorial_tests.adb)               |
 | function Concat (Left, Right : Int_Type) return Int_Type;                                                     | [numeric tests](src/numeric_tests.adb)                   |
 | function Decimal_Division  (Dividend, Divisor : Int_Type; Decimals : Natural)  return Decimal_Division_Type;  | [decimal division tests](src/decimal_division_tests.adb) |
@@ -50,9 +55,9 @@
 | function Sub_Number   (Number : Int_Type; Start, Length : Positive) return Int_Type;                          | [numeric tests](src/numeric_tests.adb)                   |
 | function Sum (List : List_Type) return Int_Type;                                                              | [list tests](src/list_tests.adb)                         |
 | function Sum (Set : Set_Type) return Int_Type;                                                                | [set tests](src/set_tests.adb)                           |
-| function Sum_Multiples     (Number : Int_Type; Upper_Bound : Int_Type) return Int_Type;                       |                                                          |
-| function Sum_Sequence (Number : Int_Type) return Int_Type;                                                    |                                                          |
-| function Sum_Squares (Number : Int_Type) return Int_Type;                                                     |                                                          |
+| function Sum_Multiples (Number : Int_Type; Upper_Bound : Int_Type) return Int_Type;                           | pending                                                  |
+| function Sum_Sequence (Number : Int_Type) return Int_Type;                                                    | pending                                                  |
+| function Sum_Squares (Number : Int_Type) return Int_Type;                                                     | pending                                                  |
 | function Tens (Number : Int_Type) return Int_Type;                                                            | [numeric tests](src/numeric_tests.adb)                   |
 | function Thousands (Number : Int_Type) return Int_Type;                                                       | [numeric tests](src/numeric_tests.adb)                   |
 | function To_Number (Chr : Character) return Int_Type;                                                         | [numeric tests](src/numeric_tests.adb)                   |
