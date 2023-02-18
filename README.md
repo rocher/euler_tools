@@ -1,3 +1,5 @@
+![build](https://github.com/github/docs/actions/workflows/build.yml/badge.svg)
+
 <img src="Ada_for_Project_Euler.png" width="200" />
 
 # Euler Tools
