@@ -1,6 +1,6 @@
 name = "euler_tools_tests"
-description = "Shiny new project"
-version = "0.1.0-dev"
+description = "Euler Tools - Unit tests"
+version = "1.0"
 
 authors = ["Francesc Rocher"]
 maintainers = ["Francesc Rocher <francesc.rocher@gmail.com>"]
@@ -10,6 +10,6 @@ executables = ["euler_tools_tests"]
 [[depends-on]]
 aunit = "^23.0.0"
 [[depends-on]]
-euler_tools = "~0.1.2-dev"
+euler_tools = "~1.0.0"
 [[pins]]
 euler_tools = { path='..' }
