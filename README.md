@@ -1,4 +1,4 @@
-![alire-build-linux](https://github.com/rocher/euler_tools/actions/workflows/alire-build-linux.yml/badge.svg)
+![unit-test](https://github.com/rocher/euler_tools/actions/workflows/unit-test.yml/badge.svg)
 [![License](https://img.shields.io/github/license/rocher/euler_tools.svg?color=blue)](https://github.com/rocher/euler_tools/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/rocher/euler_tools.svg)](https://github.com/rocher/euler_tools/releases/latest)
 
