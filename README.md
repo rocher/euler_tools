@@ -1,4 +1,4 @@
-![build](https://github.com/rocher/euler_tools/actions/workflows/build.yml/badge.svg)
+![alire-build-linux](https://github.com/rocher/euler_tools/actions/workflows/alire-build-linux.yml/badge.svg)
 
 <img src="Ada_for_Project_Euler.png" width="200" />
 
