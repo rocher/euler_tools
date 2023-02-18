@@ -1,0 +1,32 @@
+name: Unit test
+
+on:
+  push:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    name: Euler Tools Unit Tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Euler Tools
+      uses: actions/checkout@v3
+
+    - name: Get Alire v1.2.2
+      uses: alire-project/setup-alire@v2
+
+    - name: Build Euler Tools
+      run: alr build
+
+    - name: Build unit tests
+      run: |
+        cd tests
+        alr build
+
+    - name: Run Euler Tools unit tests
+      run: |
+        cd tests
+        ./bin/euler_tools_tests | tee log.txt
+        grep -e 'FAIL[^:]*' -A3 log.xt
