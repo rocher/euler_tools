@@ -6,65 +6,56 @@
 
 | function / procedure                                                                                          | Unit test                                                |
 |---------------------------------------------------------------------------------------------------------------|----------------------------------------------------------|
-| All_Divisors (N)                                                                                              | [divisors tests](src/divisors_tests.adb)                 |
-| Are_Amicable (A, B)                                                                                           | [divisors tests](src/divisors_tests.adb)                 |
-| CN_Assign (CN, Integer)                                                                                       | [crumbled naturals test](src/crumbled_natural_tests.adb) |
-| CN_Assign (Integer, CN)                                                                                       | [crumbled naturals test](src/crumbled_natural_tests.adb) |
-| CN_Assign (Integer, CN, range)                                                                                | [crumbled naturals test](src/crumbled_natural_tests.adb) |
-| Collatz_First                                                                                                 |                                                          |
-| Collatz_Next                                                                                                  |                                                          |
-| Combination (N, K)                                                                                            | [factorial tests](src/factorial_tests.adb)               |
-| Concat (A, B)                                                                                                 | [numeric tests](src/numeric_tests.adb)                   |
-| function All_Divisors (Number : Int_Type) return Set_Type;                                                    |                                                          |
-| function Are_Amicable (A, B : Int_Type) return Boolean;                                                       |                                                          |
-| procedure CN_Assign (Left : in out Crumbled_Natural; Right : Int_Type);                                       |                                                          |
-| procedure CN_Assign (Left : in out Int_Type; Right : Crumbled_Natural);                                       |                                                          |
-| procedure CN_Assign   (Left : in out Int_Type; Right : Crumbled_Natural;  Digit_Start, Digit_End : Positive); |                                                          |
+| function All_Divisors (Number : Int_Type) return Set_Type;                                                    | [divisors tests](src/divisors_tests.adb)                 |
+| function Are_Amicable (A, B : Int_Type) return Boolean;                                                       | [divisors tests](src/divisors_tests.adb)                 |
+| procedure CN_Assign (Left : in out Crumbled_Natural; Right : Int_Type);                                       | [crumbled naturals test](src/crumbled_natural_tests.adb) |
+| procedure CN_Assign (Left : in out Int_Type; Right : Crumbled_Natural);                                       | [crumbled naturals test](src/crumbled_natural_tests.adb) |
+| procedure CN_Assign   (Left : in out Int_Type; Right : Crumbled_Natural;  Digit_Start, Digit_End : Positive); | [crumbled naturals test](src/crumbled_natural_tests.adb) |
 | function Collatz_First (Number : Int_Type) return Int_Type;                                                   |                                                          |
 | function Collatz_Next return Int_Type;                                                                        |                                                          |
-| function Combination (N, K : Int_Type) return Int_Type;                                                       |                                                          |
-| function Concat (Left, Right : Int_Type) return Int_Type;                                                     |                                                          |
-| function Decimal_Division  (Dividend, Divisor : Int_Type; Decimals : Natural)  return Decimal_Division_Type;  |                                                          |
-| procedure Decimal_Division_Increase  (DDiv : in out Decimal_Division_Type; Decimals : Natural);               |                                                          |
-| function Element_First (Set : Set_Type) return Int_Type;                                                      |                                                          |
-| function Element_Nth (Set : Set_Type; Nth : Natural) return Int_Type;                                         |                                                          |
-| function Equals (List : List_Type) return Boolean;                                                            |                                                          |
-| function Factorial (Number : Int_Type) return Int_Type;                                                       |                                                          |
-| function Fibonacci_Start return Int_Type;                                                                     |                                                          |
-| function Fibonacci_Start (A, B : Int_Type) return Int_Type;                                                   |                                                          |
-| function Fibonacci_Next return Int_Type;                                                                      |                                                          |
-| function Hundreds (Number : Int_Type) return Int_Type;                                                        |                                                          |
-| function Is_Abundant (Number : Int_Type) return Boolean;                                                      |                                                          |
-| function Is_Deficient (Number : Int_Type) return Boolean;                                                     |                                                          |
-| function Is_Divisor (Number, Divisor : Int_Type) return Boolean;                                              |                                                          |
-| function Is_Even (Number : Int_Type) return Boolean;                                                          |                                                          |
-| function Is_Odd (Number : Int_Type) return Boolean;                                                           |                                                          |
-| function Is_Palindrome (Number : Int_Type) return Boolean;                                                    |                                                          |
-| function Is_Perfect (Number : Int_Type) return Boolean;                                                       |                                                          |
-| function Is_Prime (Number : Int_Type) return Boolean;                                                         |                                                          |
-| function Left (Number : Int_Type; Positions : Positive) return Int_Type;                                      |                                                          |
-| function Length (Number : Crumbled_Natural) return Natural;                                                   |                                                          |
-| function Length (Number : Integer_Type) return Natural;                                                       |                                                          |
-| function Length (List : List_Type) return Natural;                                                            |                                                          |
-| function Length (Set : Set_Type) return Natural;                                                              |                                                          |
-| function Prime_Factors (Number : Int_Type) return List_Type;                                                  |                                                          |
-| function Prime_First return Int_Type;                                                                         |                                                          |
-| function Prime_Next return Int_Type;                                                                          |                                                          |
-| function Prime_Nth (Nth : Int_Type) return Int_Type;                                                          |                                                          |
-| function Product (List : List_Type) return Int_Type;                                                          |                                                          |
-| function Proper_Divisors (Number : Int_Type) return Set_Type;                                                 |                                                          |
-| function Right (Number : Int_Type; Positions : Positive) return Int_Type;                                     |                                                          |
-| procedure Sort (List : in out List_Type);                                                                     |                                                          |
-| function Square_Root (Number : Int_Type) return Int_Type;                                                     |                                                          |
-| function Sub_Number   (Number : Int_Type; Start, Length : Positive) return Int_Type;                          |                                                          |
-| function Sum (List : List_Type) return Int_Type;                                                              |                                                          |
-| function Sum (Set : Set_Type) return Int_Type;                                                                |                                                          |
+| function Combination (N, K : Int_Type) return Int_Type;                                                       | [factorial tests](src/factorial_tests.adb)               |
+| function Concat (Left, Right : Int_Type) return Int_Type;                                                     | [numeric tests](src/numeric_test.adb)                    |
+| function Decimal_Division  (Dividend, Divisor : Int_Type; Decimals : Natural)  return Decimal_Division_Type;  | [decimal division tests](src/decimal_division_tests.adb) |
+| procedure Decimal_Division_Increase  (DDiv : in out Decimal_Division_Type; Decimals : Natural);               | [decimal division tests](src/decimal_division_tests.adb) |
+| function Element_First (Set : Set_Type) return Int_Type;                                                      | [set tests](src/set_tests.adb)                           |
+| function Element_Nth (Set : Set_Type; Nth : Natural) return Int_Type;                                         | [set tests](src/set_tests.adb)                           |
+| function Equals (List : List_Type) return Boolean;                                                            | [lists tests](src/lists_tests.adb)                       |
+| function Factorial (Number : Int_Type) return Int_Type;                                                       | [factorial tests](src/factorial_tests.adb)               |
+| function Fibonacci_Start return Int_Type;                                                                     | [Fibonacci tests](src/fibonacci_tests.adb)               |
+| function Fibonacci_Start (A, B : Int_Type) return Int_Type;                                                   | [Fibonacci tests](src/fibonacci_tests.adb)               |
+| function Fibonacci_Next return Int_Type;                                                                      | [Fibonacci tests](src/fibonacci_tests.adb)               |
+| function Hundreds (Number : Int_Type) return Int_Type;                                                        | [numeric tests](src/numeric_test.adb)                    |
+| function Is_Abundant (Number : Int_Type) return Boolean;                                                      | [divisors tests](src/divisors_tests.adb)                 |
+| function Is_Deficient (Number : Int_Type) return Boolean;                                                     | [divisors tests](src/divisors_tests.adb)                 |
+| function Is_Divisor (Number, Divisor : Int_Type) return Boolean;                                              | [divisors tests](src/divisors_tests.adb)                 |
+| function Is_Even (Number : Int_Type) return Boolean;                                                          | [numeric tests](src/numeric_test.adb)                    |
+| function Is_Odd (Number : Int_Type) return Boolean;                                                           | [numeric tests](src/numeric_test.adb)                    |
+| function Is_Palindrome (Number : Int_Type) return Boolean;                                                    | [numeric tests](src/numeric_test.adb)                    |
+| function Is_Perfect (Number : Int_Type) return Boolean;                                                       | [divisors tests](src/divisors_tests.adb)                 |
+| function Is_Prime (Number : Int_Type) return Boolean;                                                         | [prime tests](src/prime_tests.adb)                       |
+| function Left (Number : Int_Type; Positions : Positive) return Int_Type;                                      | [numeric tests](src/numeric_test.adb)                    |
+| function Length (Number : Crumbled_Natural) return Natural;                                                   | *length of*  `Ada.Containers.Vector`                     |
+| function Length (Number : Integer_Type) return Natural;                                                       | [numeric tests](src/numeric_test.adb)                    |
+| function Length (List : List_Type) return Natural;                                                            | *length of* `Ada.Containers.Doubly_Linked_Lists`         |
+| function Length (Set : Set_Type) return Natural;                                                              | *length of* `Ada.Containers.Ordered_Sets`                |
+| function Prime_Factors (Number : Int_Type) return List_Type;                                                  | [prime tests](src/prime_tests.adb)                       |
+| function Prime_First return Int_Type;                                                                         | [prime tests](src/prime_tests.adb)                       |
+| function Prime_Next return Int_Type;                                                                          | [prime tests](src/prime_tests.adb)                       |
+| function Prime_Nth (Nth : Int_Type) return Int_Type;                                                          | [prime tests](src/prime_tests.adb)                       |
+| function Product (List : List_Type) return Int_Type;                                                          | [lists tests](src/lists_tests.adb)                       |
+| function Proper_Divisors (Number : Int_Type) return Set_Type;                                                 | [divisors tests](src/divisors_tests.adb)                 |
+| function Right (Number : Int_Type; Positions : Positive) return Int_Type;                                     | [numeric tests](src/numeric_test.adb)                    |
+| procedure Sort (List : in out List_Type);                                                                     | *sort algorithm in Doubly_Linked_Lists*                  |
+| function Square_Root (Number : Int_Type) return Int_Type;                                                     | *square root of* `Float`                                 |
+| function Sub_Number   (Number : Int_Type; Start, Length : Positive) return Int_Type;                          | [numeric tests](src/numeric_test.adb)                    |
+| function Sum (List : List_Type) return Int_Type;                                                              | [lists tests](src/lists_tests.adb)                       |
+| function Sum (Set : Set_Type) return Int_Type;                                                                | [set tests](src/set_tests.adb)                           |
 | function Sum_Multiples     (Number : Int_Type; Upper_Bound : Int_Type) return Int_Type;                       |                                                          |
 | function Sum_Sequence (Number : Int_Type) return Int_Type;                                                    |                                                          |
 | function Sum_Squares (Number : Int_Type) return Int_Type;                                                     |                                                          |
-| function Tens (Number : Int_Type) return Int_Type;                                                            |                                                          |
-| function Thousands (Number : Int_Type) return Int_Type;                                                       |                                                          |
-| function To_Number (Chr : Character) return Int_Type;                                                         |                                                          |
-| function To_Number (Str : String) return Int_Type;                                                            |                                                          |
-| function To_String (Number : Int_Type) return String;                                                         |                                                          |
-| function Units (Number : Int_Type) return Int_Type;                                                           |                                                          |
+| function Tens (Number : Int_Type) return Int_Type;                                                            | [numeric tests](src/numeric_test.adb)                    |
+| function Thousands (Number : Int_Type) return Int_Type;                                                       | [numeric tests](src/numeric_test.adb)                    |
+| function To_Number (Chr : Character) return Int_Type;                                                         | [numeric tests](src/numeric_test.adb)                    |
+| function To_Number (Str : String) return Int_Type;                                                            | [numeric tests](src/numeric_test.adb)                    |
+| function To_String (Number : Int_Type) return String;                                                         | [numeric tests](src/numeric_test.adb)                    |
+| function Units (Number : Int_Type) return Int_Type;                                                           | [numeric tests](src/numeric_test.adb)                    |
