@@ -13,3 +13,5 @@ aunit = "^23.0.0"
 euler_tools = "~1.0.0"
 [[pins]]
 euler_tools = { path='..' }
+[[depends-on]]
+gnat = ">=12.0.0"
