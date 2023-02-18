@@ -92,7 +92,7 @@ package body Numeric_Tests is
    begin
       Assert (Is_Odd (1), "Invalid odd test");
       Assert (Is_Odd (3), "Invalid odd test");
-      Assert (Is_Odd (5), "Invalid odd test");
+      Assert (Is_Odd (6), "Invalid odd test");
       Assert (Is_Odd (7), "Invalid odd test");
       Assert (Is_Odd (9), "Invalid odd test");
 
