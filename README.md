@@ -1,6 +1,6 @@
 ![alire-build-linux](https://github.com/rocher/euler_tools/actions/workflows/alire-build-linux.yml/badge.svg)
-[![License](https://img.shields.io/github/license/onox/euler_tools.svg?color=blue)](https://github.com/onox/euler_tools/blob/master/LICENSE)
-[![GitHub release](https://img.shields.io/github/release/onox/euler_tools.svg)](https://github.com/onox/euler_tools/releases/latest)
+[![License](https://img.shields.io/github/license/rocher/euler_tools.svg?color=blue)](https://github.com/rocher/euler_tools/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/rocher/euler_tools.svg)](https://github.com/rocher/euler_tools/releases/latest)
 
 <img src="Ada_for_Project_Euler.png" width="200" />
 
