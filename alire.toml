@@ -5,3 +5,6 @@ version = "1.0.0"
 authors = ["Francesc Rocher"]
 maintainers = ["Francesc Rocher <francesc.rocher@gmail.com>"]
 maintainers-logins = ["rocher"]
+licenses = "MIT"
+tags = ["project-euler", "mathematics"]
+website = "https://github.com/rocher/euler_tools"
