@@ -2,7 +2,11 @@ name: Unit test
 
 on:
   push:
+    paths:
+      - '**.ad?'
   pull_request:
+    paths:
+      - '**.ad?'
 
 jobs:
   build:
