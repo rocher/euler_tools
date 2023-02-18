@@ -41,7 +41,7 @@ plan is to improve and generalize its use. SPARK is also planned to be used.
 ---
 ## Installation
 
-Use [Alire](https://alire.ada.dev) to get and compile the the library:
+Use [Alire](https://alire.ada.dev) to get and compile the library:
 ```sh
 alr get euler_tools
 cd euler_tools*
