@@ -21,7 +21,9 @@ jobs:
         sudo apt-get install wget unzip -y &&
         wget https://github.com/alire-project/alire/releases/download/v1.2.2/alr-1.2.2-bin-x86_64-linux.zip &&
         mkdir ~/alire &&
-        unzip -d ~/alire/ alr-1.2.2-bin-x86_64-linux.zip
+        unzip -d ~/alire/ alr-1.2.2-bin-x86_64-linux.zip &&
+        ~/alire/bin/alr toolchain --select --local gnat_native &&
+        ~/alire/bin/alr toolchain --select --local gprbuild
 
     - name: Build
       run: >
