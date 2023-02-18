@@ -3,12 +3,14 @@ name: Unit test
 on:
   push:
   pull_request:
-    branches: [ "main" ]
 
 jobs:
   build:
     name: Euler Tools Unit Tests
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
 
     steps:
     - name: Checkout Euler Tools
@@ -29,4 +31,5 @@ jobs:
       run: |
         cd tests
         ./bin/euler_tools_tests | tee log.txt
-        grep -e 'FAIL[^:]*' -A3 log.xt
+        ls -la
+        exit $(grep -c FAIL log.txt)
