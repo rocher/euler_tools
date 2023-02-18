@@ -1,6 +1,6 @@
 ![unit-test](https://github.com/rocher/euler_tools/actions/workflows/unit-test.yml/badge.svg)
-[![License](https://img.shields.io/github/license/rocher/euler_tools.svg?color=blue)](https://github.com/rocher/euler_tools/blob/master/LICENSE)
 [![GitHub release](https://img.shields.io/github/release/rocher/euler_tools.svg)](https://github.com/rocher/euler_tools/releases/latest)
+[![License](https://img.shields.io/github/license/rocher/euler_tools.svg?color=blue)](https://github.com/rocher/euler_tools/blob/master/LICENSE)
 
 <img src="Ada_for_Project_Euler.png" width="200" />
 
@@ -155,3 +155,7 @@ Please feel free to
      send us the link to you work and we'll it include in this section.
    * Send contributions, ideas and suggestions to improve Euler Tools
      functions or implementations.
+
+---
+## License
+MIT (c) 2023 Francesc Rocher
