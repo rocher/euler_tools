@@ -1,3 +1,4 @@
+[![Alire](https://img.shields.io/endpoint?url=https://alire.ada.dev/badges/euler_tools.json)](https://alire.ada.dev/crates/euler_tools.html)
 ![unit-test](https://github.com/rocher/euler_tools/actions/workflows/unit-test.yml/badge.svg)
 [![GitHub release](https://img.shields.io/github/release/rocher/euler_tools.svg)](https://github.com/rocher/euler_tools/releases/latest)
 [![License](https://img.shields.io/github/license/rocher/euler_tools.svg?color=blue)](https://github.com/rocher/euler_tools/blob/master/LICENSE)
