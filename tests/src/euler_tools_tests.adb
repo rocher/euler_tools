@@ -24,9 +24,10 @@ with Euler_Tools_Tests_Config; use Euler_Tools_Tests_Config;
 
 procedure Euler_Tools_Tests is
 
-   procedure Run is new AUnit.Run.Test_Runner_With_Results (Euler_Test_Suite.Suite);
+   procedure Run is new AUnit.Run.Test_Runner_With_Results
+     (Euler_Test_Suite.Suite);
    Reporter : AUnit.Reporter.Text.Text_Reporter;
-   Results : AUnit.Test_Results.Result;
+   Results  : AUnit.Test_Results.Result;
 
 begin
 
