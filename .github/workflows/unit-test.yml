@@ -11,7 +11,13 @@ on:
 jobs:
   build:
     name: Euler Tools Unit Tests
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
     defaults:
       run:
         shell: bash
@@ -24,16 +30,14 @@ jobs:
       uses: alire-project/setup-alire@v2
 
     - name: Build Euler Tools
-      run: alr build
+      run: alr build --release
 
     - name: Build unit tests
       run: |
         cd tests
-        alr build
+        alr build --release
 
     - name: Run Euler Tools unit tests
       run: |
         cd tests
-        ./bin/euler_tools_tests | tee log.txt
-        ls -la
-        exit $(grep -c FAIL log.txt)
+        ./bin/euler_tools_tests
