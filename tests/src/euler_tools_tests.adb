@@ -12,18 +12,31 @@
 --
 -- ----------------------------------------------------------------------------
 
+with Ada.Command_Line;
+with Ada.Containers;
+
 with AUnit.Run;
 with AUnit.Reporter.Text;
+with AUnit.Test_Results;
 
 with Euler_Test_Suite;
+with Euler_Tools_Tests_Config; use Euler_Tools_Tests_Config;
 
 procedure Euler_Tools_Tests is
 
-   procedure Run is new AUnit.Run.Test_Runner (Euler_Test_Suite.Suite);
+   procedure Run is new AUnit.Run.Test_Runner_With_Results (Euler_Test_Suite.Suite);
    Reporter : AUnit.Reporter.Text.Text_Reporter;
+   Results : AUnit.Test_Results.Result;
 
 begin
 
-   Run (Reporter);
+   if Build_Profile = development then
+      Reporter.Set_Use_ANSI_Colors (True);
+   end if;
+   Run (Reporter, Results);
+
+   if not Results.Successful then
+      Ada.Command_Line.Set_Exit_Status (1);
+   end if;
 
 end Euler_Tools_Tests;
