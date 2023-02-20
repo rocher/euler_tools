@@ -1,0 +1,31 @@
+{
+   "ada.defaultCharset": "utf-8",
+   "ada.projectFile": "euler_tools.gpr",
+   "editor.tabSize": 3,
+   "editor.formatOnSave": true,
+   "editor.detectIndentation": false,
+   "rewrap.wrappingColumn": 77,
+   "cSpell.words": [
+      "Collatz"
+   ],
+   "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#0d736f",
+      "activityBar.background": "#0d736f",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#ea70ef",
+      "activityBarBadge.foreground": "#15202b",
+      "commandCenter.border": "#e7e7e799",
+      "sash.hoverBorder": "#0d736f",
+      "statusBar.background": "#084543",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#0d736f",
+      "statusBarItem.remoteBackground": "#084543",
+      "statusBarItem.remoteForeground": "#e7e7e7",
+      "titleBar.activeBackground": "#084543",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#08454399",
+      "titleBar.inactiveForeground": "#e7e7e799"
+   },
+   "peacock.color": "#084543"
+}

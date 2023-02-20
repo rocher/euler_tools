@@ -1,0 +1,88 @@
+{
+   // See https://go.microsoft.com/fwlink/?LinkId=733558
+   // for the documentation about the tasks.json format
+   "version": "2.0.0",
+   "tasks": [
+      {
+         "label": "Euler Tools: Build library",
+         "type": "shell",
+         "command": "alr build --development",
+         "group": {
+            "kind": "build",
+            "isDefault": true
+         },
+         "problemMatcher": [
+            "$ada"
+         ],
+         "presentation": {
+            "echo": true,
+            "reveal": "silent",
+            "focus": true,
+            "panel": "shared",
+            "showReuseMessage": false,
+            "clear": true
+         }
+      },
+      {
+         "label": "Euler Tools: Build unit tests",
+         "type": "shell",
+         "options": {
+            "cwd": "${cwd}/tests"
+         },
+         "command": "alr build --development",
+         "hide": true,
+         "problemMatcher": [
+            "$ada"
+         ],
+         "presentation": {
+            "echo": true,
+            "reveal": "silent",
+            "focus": true,
+            "panel": "shared",
+            "showReuseMessage": false,
+            "clear": true
+         }
+      },
+      {
+         "label": "Euler Tools: Run unit tests",
+         "type": "shell",
+         "dependsOn": "Euler Tools: Build unit tests",
+         "options": {
+            "cwd": "${cwd}/tests/bin/"
+         },
+         "command": "./euler_tools_tests",
+         "problemMatcher": {
+            "owner": "aunit-test",
+            "source": "AUnit Tests",
+            "fileLocation": [
+               "relative",
+               "${workspaceFolder}/tests/src/"
+            ],
+            "applyTo": "allDocuments",
+            "pattern": [
+               {
+                  "regexp": "^FAIL\\s+.*$",
+               },
+               {
+                  "regexp": "^\\s+(.*)$",
+                  "message": 1
+               },
+               {
+                  "regexp": "^\\s+at ([^:]*):(\\d+)\\s*$",
+                  "file": 1,
+                  "line": 2
+               }
+            ]
+         },
+         "presentation": {
+            "echo": true,
+            "reveal": "always",
+            "revealProblems": "onProblem",
+            "focus": true,
+            "panel": "shared",
+            "showReuseMessage": false,
+            "clear": false
+         }
+      }
+   ]
+}
