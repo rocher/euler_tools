@@ -9,4 +9,4 @@ licenses = "MIT"
 tags = ["project-euler", "mathematics"]
 website = "https://github.com/rocher/euler_tools"
 [[depends-on]]
-gnat = ">=12.0.0"
+gnat = ">=2021 | (>=12 & <2000)"
