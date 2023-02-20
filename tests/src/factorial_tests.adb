@@ -20,8 +20,16 @@ with Euler_Tools_Int3;
 
 package body Factorial_Tests is
 
+   ----------
+   -- Name --
+   ----------
+
    overriding function Name (T : Factorial_Test_Case) return Test_String is
      (Format ("Factorial Tests          "));
+
+   --------------------
+   -- Register_Tests --
+   --------------------
 
    overriding procedure Register_Tests (T : in out Factorial_Test_Case) is
       use AUnit.Test_Cases.Registration;
@@ -42,6 +50,10 @@ package body Factorial_Tests is
       end if;
    end Register_Tests;
 
+   --------------------
+   -- Test_Factorial --
+   --------------------
+
    procedure Test_Factorial (T : in out Test_Cases.Test_Case'Class) is
       use Euler_Tools;
    begin
@@ -61,6 +73,10 @@ package body Factorial_Tests is
       Assert
         (Factorial (12) = 12 * Factorial (11), "12! is equal to 12 * 11!");
    end Test_Factorial;
+
+   -------------------------
+   -- Test_Factorial_Int3 --
+   -------------------------
 
    procedure Test_Factorial_Int3 (T : in out Test_Cases.Test_Case'Class) is
       use Euler_Tools_Int3;
@@ -90,6 +106,10 @@ package body Factorial_Tests is
       Assert
         (Factorial (33) = 33 * Factorial (32), "33! is equal to 33 * 32!");
    end Test_Factorial_Int3;
+
+   ----------------------
+   -- Test_Combination --
+   ----------------------
 
    procedure Test_Combination (T : in out Test_Cases.Test_Case'Class) is
       use Euler_Tools;
@@ -127,11 +147,19 @@ package body Factorial_Tests is
          "12 over 12 is equal to 1");
    end Test_Combination;
 
+   ------------------
+   -- Factorial_13 --
+   ------------------
+
    procedure Factorial_13 is
       use Euler_Tools;
    begin
       Assert (Factorial (13) = 13 * Factorial (12), "CONSTRAINT ERROR");
    end Factorial_13;
+
+   --------------------------
+   -- Test_Factorial_Error --
+   --------------------------
 
    procedure Test_Factorial_Error (T : in out Test_Cases.Test_Case'Class) is
    begin
@@ -144,6 +172,10 @@ package body Factorial_Tests is
    begin
       Assert (Factorial (34) = 34 * Factorial (33), "CONSTRAINT ERROR");
    end Factorial_34;
+
+   -------------------------------
+   -- Test_Factorial_Int3_Error --
+   -------------------------------
 
    procedure Test_Factorial_Int3_Error (T : in out Test_Cases.Test_Case'Class)
    is

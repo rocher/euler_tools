@@ -21,9 +21,17 @@ with Text_IO;
 
 package body Decimal_Division_Tests is
 
+   ----------
+   -- Name --
+   ----------
+
    overriding function Name
      (T : Decimal_Division_Test_Case) return Test_String is
      (Format ("Decimal_Division Tests   "));
+
+   --------------------
+   -- Register_Tests --
+   --------------------
 
    overriding procedure Register_Tests (T : in out Decimal_Division_Test_Case)
    is
@@ -34,6 +42,10 @@ package body Decimal_Division_Tests is
         (T, Test_Decimal_Division_Increase'Access,
          "Decimal_Division_Increase");
    end Register_Tests;
+
+   ---------------------------
+   -- Test_Decimal_Division --
+   ---------------------------
 
    procedure Test_Decimal_Division (T : in out Test_Case'Class) is
       DDiv, RDiv : Decimal_Division_Type;
@@ -252,6 +264,10 @@ package body Decimal_Division_Tests is
       Assert (DDiv = RDiv, "Invalid Decimal division");
 
    end Test_Decimal_Division;
+
+   ------------------------------------
+   -- Test_Decimal_Division_Increase --
+   ------------------------------------
 
    procedure Test_Decimal_Division_Increase (T : in out Test_Case'Class) is
       DDiv, RDiv : Decimal_Division_Type;

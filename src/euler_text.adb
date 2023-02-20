@@ -34,9 +34,9 @@ package body Euler_Text is
      [Tus ("twenty"), Tus ("thirty"), Tus ("forty"), Tus ("fifty"),
      Tus ("sixty"), Tus ("seventy"), Tus ("eighty"), Tus ("ninety")];
 
-   -----------------------------
-   --  Tenths_And_Units_Text  --
-   -----------------------------
+   ---------------------------
+   -- Tenths_And_Units_Text --
+   ---------------------------
 
    function Tenths_And_Units_Text (Number : Natural) return Unbounded_String is
    begin
@@ -58,9 +58,9 @@ package body Euler_Text is
       end if;
    end Tenths_And_Units_Text;
 
-   ---------------------
-   --  Hundreds_Text  --
-   ---------------------
+   -------------------
+   -- Hundreds_Text --
+   -------------------
 
    function Hundreds_Text (Number : Natural) return Unbounded_String is
       Text : Unbounded_String := Tus ("");
@@ -71,9 +71,9 @@ package body Euler_Text is
       return Text;
    end Hundreds_Text;
 
-   ----------------
-   --  To_Words  --
-   ----------------
+   --------------
+   -- To_Words --
+   --------------
 
    function To_Words (Number : Natural) return String is
       Text      : Unbounded_String := Tus ("");

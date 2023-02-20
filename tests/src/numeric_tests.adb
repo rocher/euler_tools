@@ -17,8 +17,16 @@ with Euler_Tools;      use Euler_Tools;
 
 package body Numeric_Tests is
 
+   ----------
+   -- Name --
+   ----------
+
    overriding function Name (T : Numeric_Test_Case) return Test_String is
      (Format ("Numeric Tests            "));
+
+   --------------------
+   -- Register_Tests --
+   --------------------
 
    overriding procedure Register_Tests (T : in out Numeric_Test_Case) is
       use AUnit.Test_Cases.Registration;
@@ -41,6 +49,10 @@ package body Numeric_Tests is
       Register_Routine (T, Test_Units'Access, "Units");
    end Register_Tests;
 
+   -----------------
+   -- Test_Concat --
+   -----------------
+
    procedure Test_Concat (T : in out Test_Cases.Test_Case'Class) is
    begin
       Assert (Concat (321, 792) = 321_792, "Invalid concatenation of numbers");
@@ -51,6 +63,10 @@ package body Numeric_Tests is
       Assert (Concat (175, 435) /= 75_435, "Invalid concatenation of numbers");
       Assert (Concat (175, 935) /= 17_435, "Invalid concatenation of numbers");
    end Test_Concat;
+
+   -------------------
+   -- Test_Hundreds --
+   -------------------
 
    procedure Test_Hundreds (T : in out Test_Cases.Test_Case'Class) is
    begin
@@ -72,6 +88,10 @@ package body Numeric_Tests is
       Assert (Hundreds (601) /= 3, "Invalid hundreds of number");
    end Test_Hundreds;
 
+   ------------------
+   -- Test_Is_Even --
+   ------------------
+
    procedure Test_Is_Even (T : in out Test_Cases.Test_Case'Class) is
    begin
       Assert (Is_Even (0), "Invalid even test");
@@ -88,6 +108,10 @@ package body Numeric_Tests is
       Assert (not Is_Even (9), "Invalid even test");
    end Test_Is_Even;
 
+   -----------------
+   -- Test_Is_Odd --
+   -----------------
+
    procedure Test_Is_Odd (T : in out Test_Cases.Test_Case'Class) is
    begin
       Assert (Is_Odd (1), "Invalid odd test");
@@ -103,6 +127,10 @@ package body Numeric_Tests is
       Assert (not Is_Odd (8), "Invalid odd test");
       Assert (not Is_Odd (10), "Invalid odd test");
    end Test_Is_Odd;
+
+   ------------------------
+   -- Test_Is_Palindrome --
+   ------------------------
 
    procedure Test_Is_Palindrome (T : in out Test_Cases.Test_Case'Class) is
    begin
@@ -129,6 +157,10 @@ package body Numeric_Tests is
       Assert (not Is_Palindrome (12_698_621), "Invalid palindrome test");
    end Test_Is_Palindrome;
 
+   ---------------
+   -- Test_Left --
+   ---------------
+
    procedure Test_Left (T : in out Test_Cases.Test_Case'Class) is
    begin
       Assert (Left (0, 1) = 0, "Invalid Left number");
@@ -138,6 +170,10 @@ package body Numeric_Tests is
       Assert (Left (123, 4) = 123, "Invalid Left number");
       Assert (Left (123, 5) = 123, "Invalid Left number");
    end Test_Left;
+
+   -----------------
+   -- Test_Length --
+   -----------------
 
    procedure Test_Length (T : in out Test_Cases.Test_Case'Class) is
    begin
@@ -151,6 +187,10 @@ package body Numeric_Tests is
       Assert (Length (12_345) = 5, "Invalid Length of number");
    end Test_Length;
 
+   ----------------
+   -- Test_Right --
+   ----------------
+
    procedure Test_Right (T : in out Test_Cases.Test_Case'Class) is
    begin
       Assert (Right (0, 1) = 0, "Invalid Right number");
@@ -160,6 +200,10 @@ package body Numeric_Tests is
       Assert (Right (123, 4) = 123, "Invalid Right number");
       Assert (Right (123, 5) = 123, "Invalid Right number");
    end Test_Right;
+
+   ---------------------
+   -- Test_Sub_Number --
+   ---------------------
 
    procedure Test_Sub_Number (T : in out Test_Cases.Test_Case'Class) is
    begin
@@ -204,6 +248,10 @@ package body Numeric_Tests is
       Assert (Sub_Number (123_456, 3, 6) = 3_456, "Invalid Sub_Number number");
    end Test_Sub_Number;
 
+   ---------------
+   -- Test_Tens --
+   ---------------
+
    procedure Test_Tens (T : in out Test_Cases.Test_Case'Class) is
    begin
       Assert (Tens (0) = 0, "Invalid tens of number");
@@ -230,6 +278,10 @@ package body Numeric_Tests is
       Assert (Tens (601) /= 3, "Invalid tens of number");
    end Test_Tens;
 
+   --------------------
+   -- Test_Thousands --
+   --------------------
+
    procedure Test_Thousands (T : in out Test_Cases.Test_Case'Class) is
    begin
       Assert (Thousands (0) = 0, "Invalid thousands of number");
@@ -253,6 +305,10 @@ package body Numeric_Tests is
       Assert (Thousands (9_601) /= 3, "Invalid thousands of number");
    end Test_Thousands;
 
+   -------------------------
+   -- Test_To_Number_Char --
+   -------------------------
+
    procedure Test_To_Number_Char (T : in out Test_Cases.Test_Case'Class) is
    begin
       Assert (To_Number ('0') = 0, "Invalid conversion To_Number (Character)");
@@ -266,6 +322,10 @@ package body Numeric_Tests is
       Assert (To_Number ('8') = 8, "Invalid conversion To_Number (Character)");
       Assert (To_Number ('9') = 9, "Invalid conversion To_Number (Character)");
    end Test_To_Number_Char;
+
+   ---------------------------
+   -- Test_To_Number_String --
+   ---------------------------
 
    procedure Test_To_Number_String (T : in out Test_Cases.Test_Case'Class) is
    begin
@@ -288,6 +348,10 @@ package body Numeric_Tests is
          "Invalid conversion To_Number (String)");
    end Test_To_Number_String;
 
+   --------------------
+   -- Test_To_String --
+   --------------------
+
    procedure Test_To_String (T : in out Test_Cases.Test_Case'Class) is
    begin
       Assert (To_String (0) = "0", "Invalid conversion to string");
@@ -300,6 +364,10 @@ package body Numeric_Tests is
       Assert (To_String (167_299) = "167299", "Invalid conversion to string");
       Assert (To_String (01_212) = "1212", "Invalid conversion to string");
    end Test_To_String;
+
+   ----------------
+   -- Test_Units --
+   ----------------
 
    procedure Test_Units (T : in out Test_Cases.Test_Case'Class) is
    begin

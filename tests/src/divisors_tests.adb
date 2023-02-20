@@ -19,8 +19,16 @@ with Euler_Tools_Int3;
 
 package body Divisors_Tests is
 
+   ----------
+   -- Name --
+   ----------
+
    overriding function Name (T : Divisors_Test_Case) return Test_String is
      (Format ("Divisors Tests           "));
+
+   --------------------
+   -- Register_Tests --
+   --------------------
 
    overriding procedure Register_Tests (T : in out Divisors_Test_Case) is
       use AUnit.Test_Cases.Registration;
@@ -34,6 +42,10 @@ package body Divisors_Tests is
       Register_Routine (T, Test_Proper_Divisors'Access, "Proper_Divisors");
       Register_Routine (T, Test_Int3_Is_Perfect'Access, "Is_Perfect (Int3)");
    end Register_Tests;
+
+   -----------------------
+   -- Test_All_Divisors --
+   -----------------------
 
    procedure Test_All_Divisors (T : in out Test_Case'Class) is
       use Euler_Tools;
@@ -85,6 +97,10 @@ package body Divisors_Tests is
       Assert (All_Divisors (200) = Divisors_Set, "Incorrect divisors of 200");
    end Test_All_Divisors;
 
+   -----------------------
+   -- Test_Are_Amicable --
+   -----------------------
+
    procedure Test_Are_Amicable (T : in out Test_Case'Class) is
       use Euler_Tools;
    begin
@@ -105,6 +121,10 @@ package body Divisors_Tests is
       Assert (not Are_Amicable (524, 539), "523 and 539 are not amicable");
       Assert (not Are_Amicable (672, 716), "672 and 716 are not amicable");
    end Test_Are_Amicable;
+
+   ----------------------
+   -- Test_Is_Abundant --
+   ----------------------
 
    procedure Test_Is_Abundant (T : in out Test_Case'Class) is
       use Euler_Tools;
@@ -147,6 +167,10 @@ package body Divisors_Tests is
       Assert (not Is_Abundant (22), "22 is not an abundant number");
       Assert (not Is_Abundant (23), "23 is not an abundant number");
    end Test_Is_Abundant;
+
+   -----------------------
+   -- Test_Is_Deficient --
+   -----------------------
 
    procedure Test_Is_Deficient (T : in out Test_Case'Class) is
       use Euler_Tools;
@@ -203,11 +227,19 @@ package body Divisors_Tests is
       Assert (Is_Deficient (50), "50 is a deficient number");
    end Test_Is_Deficient;
 
+   ------------------------
+   -- Is_Divisor_By_Zero --
+   ------------------------
+
    procedure Is_Divisor_By_Zero is
       use Euler_Tools;
    begin
       Assert (Is_Divisor (1, 0), "cannot divide by 0");
    end Is_Divisor_By_Zero;
+
+   ---------------------
+   -- Test_Is_Divisor --
+   ---------------------
 
    procedure Test_Is_Divisor (T : in out Test_Case'Class) is
       use Euler_Tools;
@@ -246,6 +278,10 @@ package body Divisors_Tests is
       Assert (not Is_Divisor (11, 13), "11 is not evenly divisible by 13");
    end Test_Is_Divisor;
 
+   ---------------------
+   -- Test_Is_Perfect --
+   ---------------------
+
    procedure Test_Is_Perfect (T : in out Test_Case'Class) is
       use Euler_Tools;
    begin
@@ -263,6 +299,10 @@ package body Divisors_Tests is
       Assert (not Is_Perfect (29), "29 is not a perfect number");
       Assert (not Is_Perfect (30), "30 is not a perfect number");
    end Test_Is_Perfect;
+
+   --------------------------
+   -- Test_Proper_Divisors --
+   --------------------------
 
    procedure Test_Proper_Divisors (T : in out Test_Case'Class) is
       use Euler_Tools;
@@ -322,6 +362,10 @@ package body Divisors_Tests is
         (Proper_Divisors (200) = Divisors_Set,
          "Incorrect proper divisors of 200");
    end Test_Proper_Divisors;
+
+   --------------------------
+   -- Test_Int3_Is_Perfect --
+   --------------------------
 
    procedure Test_Int3_Is_Perfect (T : in out Test_Case'Class) is
       use Euler_Tools_Int3;

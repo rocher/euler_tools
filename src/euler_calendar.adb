@@ -14,9 +14,9 @@
 
 package body Euler_Calendar is
 
-   ---------------
-   --  Weekday  --
-   ---------------
+   -------------
+   -- Weekday --
+   -------------
 
    function Weekday
      (Year : Natural; Month : Month_Type; Day : Natural) return Day_Type

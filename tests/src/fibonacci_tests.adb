@@ -17,8 +17,16 @@ with Euler_Tools;      use Euler_Tools;
 
 package body Fibonacci_Tests is
 
+   ----------
+   -- Name --
+   ----------
+
    overriding function Name (T : Fibonacci_Test_Case) return Test_String is
      (Format ("Fibonacci Tests          "));
+
+   --------------------
+   -- Register_Tests --
+   --------------------
 
    overriding procedure Register_Tests (T : in out Fibonacci_Test_Case) is
       use AUnit.Test_Cases.Registration;
@@ -26,6 +34,10 @@ package body Fibonacci_Tests is
       Register_Routine
         (T, Test_Fibonacci'Access, "Fibonacci_Start, Fibonacci_Next");
    end Register_Tests;
+
+   --------------------
+   -- Test_Fibonacci --
+   --------------------
 
    procedure Test_Fibonacci (T : in out Test_Cases.Test_Case'Class) is
       Number : Integer_Type;

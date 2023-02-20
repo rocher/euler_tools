@@ -38,6 +38,10 @@ package body Euler_Test_Suite is
    Prime_Test            : aliased Prime_Test_Case;
    Set_Test              : aliased Set_Test_Case;
 
+   -----------
+   -- Suite --
+   -----------
+
    function Suite return Access_Test_Suite is
    begin
       Add_Test (Result'Access, Crumbled_Natural_Test'Access);

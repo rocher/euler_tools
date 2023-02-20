@@ -21,8 +21,16 @@ with Text_IO;
 
 package body Set_Tests is
 
+   ----------
+   -- Name --
+   ----------
+
    overriding function Name (T : Set_Test_Case) return Test_String is
      (Format ("Set Tests                "));
+
+   --------------------
+   -- Register_Tests --
+   --------------------
 
    overriding procedure Register_Tests (T : in out Set_Test_Case) is
       use AUnit.Test_Cases.Registration;
@@ -33,10 +41,18 @@ package body Set_Tests is
       Register_Routine (T, Test_Sum'Access, "Sum");
    end Register_Tests;
 
+   --------------------
+   -- Test_Type_Size --
+   --------------------
+
    procedure Test_Type_Size (T : in out Test_Cases.Test_Case'Class) is
    begin
       Text_IO.Put_Line ("   Empty_Set'Size =" & Empty_Set'Size'Image);
    end Test_Type_Size;
+
+   ------------------------
+   -- Test_Element_First --
+   ------------------------
 
    procedure Test_Element_First (T : in out Test_Cases.Test_Case'Class) is
 
@@ -59,6 +75,10 @@ package body Set_Tests is
       Set.Insert (1);
       Assert (Element_First (Set) = 1, "Invalid first element");
    end Test_Element_First;
+
+   ----------------------
+   -- Test_Element_Nth --
+   ----------------------
 
    procedure Test_Element_Nth (T : in out Test_Cases.Test_Case'Class) is
       Set : Set_Type := Empty_Set;
@@ -84,6 +104,10 @@ package body Set_Tests is
       Assert (Element_Nth (Set, 6) = 8, "Invalid nth element");
       Assert (Element_Nth (Set, 7) = 10, "Invalid nth element");
    end Test_Element_Nth;
+
+   --------------
+   -- Test_Sum --
+   --------------
 
    procedure Test_Sum (T : in out Test_Cases.Test_Case'Class) is
       Set : Set_Type := Empty_Set;

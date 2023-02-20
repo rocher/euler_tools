@@ -21,9 +21,17 @@ with Text_IO;
 
 package body Crumbled_Natural_Tests is
 
+   ----------
+   -- Name --
+   ----------
+
    overriding function Name
      (T : Crumbled_Natural_Test_Case) return Test_String is
      (Format ("Crumbled_Natural Tests   "));
+
+   --------------------
+   -- Register_Tests --
+   --------------------
 
    overriding procedure Register_Tests (T : in out Crumbled_Natural_Test_Case)
    is
@@ -35,6 +43,10 @@ package body Crumbled_Natural_Tests is
       Register_Routine (T, Test_CN_Assign3'Access, "CN_Assign (Int, CN, <>)");
    end Register_Tests;
 
+   -----------------------
+   -- Test_CN_Type_Size --
+   -----------------------
+
    procedure Test_CN_Type_Size (T : in out Test_Case'Class) is
       Number : Crumbled_Natural := CN_Empty;
    begin
@@ -42,6 +54,10 @@ package body Crumbled_Natural_Tests is
       Text_IO.Put_Line ("   CN_Empty'Size =" & CN_Empty'Size'Image);
       Text_IO.Put_Line ("   CN_Zero'Size =" & CN_Zero'Size'Image);
    end Test_CN_Type_Size;
+
+   ---------------------
+   -- Test_CN_Assign1 --
+   ---------------------
 
    procedure Test_CN_Assign1 (T : in out Test_Case'Class) is
       Number : Crumbled_Natural := CN_Empty;
@@ -60,6 +76,10 @@ package body Crumbled_Natural_Tests is
         (Number = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0], "Invalid crumbled natural");
    end Test_CN_Assign1;
 
+   ---------------------
+   -- Test_CN_Assign2 --
+   ---------------------
+
    procedure Test_CN_Assign2 (T : in out Test_Case'Class) is
       Number : Integer_Type := 0;
    begin
@@ -72,6 +92,10 @@ package body Crumbled_Natural_Tests is
       CN_Assign (Number, [0, 1, 2, 3, 4]);
       Assert (Number = 1_234, "Invalid crumbled natural");
    end Test_CN_Assign2;
+
+   ---------------------
+   -- Test_CN_Assign3 --
+   ---------------------
 
    procedure Test_CN_Assign3 (T : in out Test_Case'Class) is
       Number : Integer_Type := 0;

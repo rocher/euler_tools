@@ -17,8 +17,16 @@ with Euler_Tools;      use Euler_Tools;
 
 package body Prime_Tests is
 
+   ----------
+   -- Name --
+   ----------
+
    overriding function Name (T : Prime_Test_Case) return Test_String is
      (Format ("Prime Tests              "));
+
+   --------------------
+   -- Register_Tests --
+   --------------------
 
    overriding procedure Register_Tests (T : in out Prime_Test_Case) is
       use AUnit.Test_Cases.Registration;
@@ -29,6 +37,10 @@ package body Prime_Tests is
         (T, Test_Prime_Generator'Access, "Prime_First, Prime_Next");
       Register_Routine (T, Test_Prime_Nth'Access, "Prime_Nth");
    end Register_Tests;
+
+   -------------------
+   -- Test_Is_Prime --
+   -------------------
 
    procedure Test_Is_Prime (T : in out Test_Cases.Test_Case'Class) is
    begin
@@ -52,6 +64,10 @@ package body Prime_Tests is
       Assert (Is_Prime (19), "19 is a prime number");
       Assert (not Is_Prime (20), "20 is not a prime number");
    end Test_Is_Prime;
+
+   ------------------------
+   -- Test_Prime_Factors --
+   ------------------------
 
    procedure Test_Prime_Factors (T : in out Test_Cases.Test_Case'Class) is
       use List_Package;
@@ -84,6 +100,10 @@ package body Prime_Tests is
          "Invalid list of prime factors");
    end Test_Prime_Factors;
 
+   --------------------------
+   -- Test_Prime_Generator --
+   --------------------------
+
    procedure Test_Prime_Generator (T : in out Test_Cases.Test_Case'Class) is
       Number : Integer_Type;
    begin
@@ -111,6 +131,10 @@ package body Prime_Tests is
       end loop;
       Assert (Number = 104_743, "Invalid tenth Prime number");
    end Test_Prime_Generator;
+
+   --------------------
+   -- Test_Prime_Nth --
+   --------------------
 
    procedure Test_Prime_Nth (T : in out Test_Case'Class) is
    begin

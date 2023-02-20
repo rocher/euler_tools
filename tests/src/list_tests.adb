@@ -17,8 +17,16 @@ with Euler_Tools;      use Euler_Tools;
 
 package body List_Tests is
 
+   ----------
+   -- Name --
+   ----------
+
    overriding function Name (T : Lists_Test_Case) return Test_String is
      (Format ("List Tests               "));
+
+   --------------------
+   -- Register_Tests --
+   --------------------
 
    overriding procedure Register_Tests (T : in out Lists_Test_Case) is
       use AUnit.Test_Cases.Registration;
@@ -27,6 +35,10 @@ package body List_Tests is
       Register_Routine (T, Test_Product'Access, "Product");
       Register_Routine (T, Test_Sum'Access, "Sum");
    end Register_Tests;
+
+   -----------------
+   -- Test_Equals --
+   -----------------
 
    procedure Test_Equals (T : in out Test_Cases.Test_Case'Class) is
    begin
@@ -37,6 +49,10 @@ package body List_Tests is
       Assert
         (not Equals ([1, 1, 1, 1, 1, 2, 1, 1, 1]), "Invalid Equals result");
    end Test_Equals;
+
+   ------------------
+   -- Test_Product --
+   ------------------
 
    procedure Test_Product (T : in out Test_Cases.Test_Case'Class) is
    begin
@@ -51,6 +67,10 @@ package body List_Tests is
         (Product ([2, 5, 5, 5, 89, 123]) = 2_736_750,
          "Invalid Product result");
    end Test_Product;
+
+   --------------
+   -- Test_Sum --
+   --------------
 
    procedure Test_Sum (T : in out Test_Cases.Test_Case'Class) is
    begin
