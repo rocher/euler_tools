@@ -30,10 +30,12 @@ jobs:
     - name: Get Alire v1.2.2
       uses: alire-project/setup-alire@v2
 
-    - name: Build Euler Tools
-      run: alr build --release
+    - name: Build unit tests
+      run: |
+        cd tests
+        alr build --release
 
-    - name: Run Euler Tools unit tests
+    - name: Run Eul    - name: Run Euler Tools unit tests
       run: |
         cd tests
         ./bin/euler_tools_tests
