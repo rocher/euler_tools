@@ -56,9 +56,9 @@ Traceability matrix of library functions / unit tests.
 | function Sub_Number   (Number : Int_Type; Start, Length : Positive) return Int_Type;                          | [numeric tests](src/numeric_tests.adb)                   |
 | function Sum (List : List_Type) return Int_Type;                                                              | [list tests](src/list_tests.adb)                         |
 | function Sum (Set : Set_Type) return Int_Type;                                                                | [set tests](src/set_tests.adb)                           |
-| function Sum_Multiples (Number : Int_Type; Upper_Bound : Int_Type) return Int_Type;                           | pending                                                  |
-| function Sum_Sequence (Number : Int_Type) return Int_Type;                                                    | pending                                                  |
-| function Sum_Squares (Number : Int_Type) return Int_Type;                                                     | pending                                                  |
+| function Sum_Multiples (Number : Int_Type; Upper_Bound : Int_Type) return Int_Type;                           | [sum tests](src/sum_tests.adb)                           |
+| function Sum_Sequence (Number : Int_Type) return Int_Type;                                                    | [sum tests](src/sum_tests.adb)                           |
+| function Sum_Squares (Number : Int_Type) return Int_Type;                                                     | [sum tests](src/sum_tests.adb)                           |
 | function Tens (Number : Int_Type) return Int_Type;                                                            | [numeric tests](src/numeric_tests.adb)                   |
 | function Thousands (Number : Int_Type) return Int_Type;                                                       | [numeric tests](src/numeric_tests.adb)                   |
 | function To_Number (Chr : Character) return Int_Type;                                                         | [numeric tests](src/numeric_tests.adb)                   |
