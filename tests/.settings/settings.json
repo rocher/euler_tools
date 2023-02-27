@@ -1,6 +1,6 @@
 {
    "ada.defaultCharset": "utf-8",
-   "ada.projectFile": "euler_tool_tests.gpr",
+   "ada.projectFile": "euler_tools_tests.gpr",
    "editor.tabSize": 3,
    "editor.formatOnSave": true,
    "editor.detectIndentation": false,
