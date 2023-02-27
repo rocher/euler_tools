@@ -8,6 +8,6 @@ maintainers-logins = ["rocher"]
 licenses = "MIT"
 tags = ["project-euler", "mathematics"]
 website = "https://github.com/rocher/euler_tools"
-project-files = ["euler_tools.gpr", "tests/euler_tools_tests.gpr"]
+
 [[depends-on]]
 gnat = ">=2021 | (>=12 & <2000)"

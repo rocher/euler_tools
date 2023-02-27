@@ -54,7 +54,14 @@ alr build
 
 ### Unit tests
 
-Unit tests are also built in the previous step. Go to `tests/bin` folder to run all available unit tests at once. Traceability matrix of functions vs unit tests is [provided here](tests/README.md).
+To compile and run the unit tests:
+```sh
+cd tests
+alr build
+./bin/euler_tools_tests
+```
+
+Traceability matrix of functions vs unit tests is [provided here](tests/README.md).
 
 ---
 ## Design
