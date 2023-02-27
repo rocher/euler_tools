@@ -652,7 +652,7 @@ package body Euler_Package is
    function Sum_Multiples
      (Number : Int_Type; Upper_Bound : Int_Type) return Int_Type
    is
-      Num_Multiples : constant Int_Type := (Upper_Bound - 1) / Number;
+      Num_Multiples : constant Int_Type := Upper_Bound / Number;
    begin
       return Number * ((Num_Multiples * Num_Multiples + Num_Multiples) / 2);
    end Sum_Multiples;

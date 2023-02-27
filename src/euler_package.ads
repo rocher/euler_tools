@@ -231,7 +231,8 @@ package Euler_Package is
    --  Return the sum of all numbers of the set.
 
    function Sum_Multiples
-     (Number : Int_Type; Upper_Bound : Int_Type) return Int_Type;
+     (Number : Int_Type; Upper_Bound : Int_Type) return Int_Type with
+     Pre => Number > 0 and then Number <= Upper_Bound;
    --  Returns the sum of all numbers multiples of Number less or equal than
    --  Upper_Bound. e.g. Sum_Multiples (3, 100) = 3 + 6 + 9 + .. + 99.
 
