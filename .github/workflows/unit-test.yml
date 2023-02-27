@@ -33,11 +33,6 @@ jobs:
     - name: Build Euler Tools
       run: alr build --release
 
-    - name: Build unit tests
-      run: |
-        cd tests
-        alr build --release
-
     - name: Run Euler Tools unit tests
       run: |
         cd tests
