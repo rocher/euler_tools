@@ -35,7 +35,7 @@ jobs:
         cd tests
         alr build --release
 
-    - name: Run Eul    - name: Run Euler Tools unit tests
+    - name: Run Euler Tools unit tests
       run: |
         cd tests
         ./bin/euler_tools_tests
