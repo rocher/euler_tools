@@ -16,6 +16,8 @@ with Ada.Containers.Doubly_Linked_Lists;
 with Ada.Containers.Ordered_Sets;
 with Ada.Containers.Vectors;
 
+with Euler_Tools_Config;
+
 generic
    type Int_Type is range <>;
 
@@ -52,6 +54,11 @@ package Euler_Package is
       Cycle      : Natural;
       Remainders : List_Type;
    end record;
+
+   function Library_Name return String is (Euler_Tools_Config.Crate_Name);
+   function Library_Version return String is
+     (Euler_Tools_Config.Crate_Version);
+   --  Basic information.
 
    function All_Divisors (Number : Int_Type) return Set_Type;
    --  Returns the set of all divisors of Number, including 1 and Number.
