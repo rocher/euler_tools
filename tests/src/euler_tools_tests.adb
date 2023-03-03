@@ -14,6 +14,7 @@
 
 with Ada.Command_Line;
 with Ada.Containers;
+with Ada.Text_IO;
 
 with AUnit.Run;
 with AUnit.Reporter.Text;
@@ -21,6 +22,7 @@ with AUnit.Test_Results;
 
 with Euler_Test_Suite;
 with Euler_Tools_Tests_Config; use Euler_Tools_Tests_Config;
+with Euler_Tools;
 
 procedure Euler_Tools_Tests is
 
@@ -30,10 +32,10 @@ procedure Euler_Tools_Tests is
    Results  : AUnit.Test_Results.Result;
 
 begin
+   Ada.Text_IO.Put_Line
+     ("   " & Euler_Tools.Library_Name & " = " & Euler_Tools.Library_Version);
 
-   if Build_Profile = development then
-      Reporter.Set_Use_ANSI_Colors (True);
-   end if;
+   Reporter.Set_Use_ANSI_Colors (Build_Profile = development);
    Run (Reporter, Results);
 
    if not Results.Successful then
