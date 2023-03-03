@@ -1,6 +1,6 @@
 name = "euler_tools_tests"
 description = "Euler Tools - Unit tests"
-version = "1.0"
+version = "1.0.2"
 
 authors = ["Francesc Rocher"]
 maintainers = ["Francesc Rocher <francesc.rocher@gmail.com>"]
@@ -10,7 +10,7 @@ executables = ["euler_tools_tests"]
 [[depends-on]]
 aunit = "^23.0.0"
 [[depends-on]]
-euler_tools = "~1.0.0"
+euler_tools = ">=1.0.2"
 [[pins]]
 euler_tools = { path='..' }
 [[depends-on]]
