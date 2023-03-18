@@ -45,8 +45,8 @@ Traceability matrix of library functions / unit tests.
 | function Length (Set : Set_Type) return Natural;                                                              | *length of* `Ada.Containers.Ordered_Sets`                |
 | function Prime_Factors (Number : Int_Type) return List_Type;                                                  | [prime tests](src/prime_tests.adb)                       |
 | function Prime_First (Cursor : in out Prime_Cursor_Type) return Int_Type;                                     | [prime tests](src/prime_tests.adb)                       |
-| function Prime_Next (Cursor : in out Prime_Cursor_Type) return Int_Type;                                      | [prime tests](src/prime_tests.adb)                       |
-| function Prime_Nth (Cursor : in out Prime_Cursor_Type; Nth : Int_Type) return Int_Type;                       | [prime tests](src/prime_tests.adb)                       |
+| function Prime_Next (Cursor : in out Prime_Cursor_Type; Nth : Int_Type := 1) return Int_Type;                 | [prime tests](src/prime_tests.adb)                       |
+| function Prime_Nth (Nth : Int_Type) return Int_Type;                                                          | [prime tests](src/prime_tests.adb)                       |
 | function Product (List : List_Type) return Int_Type;                                                          | [list tests](src/list_tests.adb)                         |
 | function Proper_Divisors (Number : Int_Type) return Set_Type;                                                 | [divisors tests](src/divisors_tests.adb)                 |
 | function Right (Number : Int_Type; Positions : Positive) return Int_Type;                                     | [numeric tests](src/numeric_tests.adb)                   |

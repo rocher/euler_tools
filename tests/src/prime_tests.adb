@@ -105,32 +105,26 @@ package body Prime_Tests is
    --------------------------
 
    procedure Test_Prime_Generator (T : in out Test_Cases.Test_Case'Class) is
-      Number : Integer_Type;
       Cursor : Prime_Cursor_Type;
    begin
-      Number := Prime_First (Cursor);
-      Assert (Number = 2, "Invalid first Prime number");
+      Assert (Prime_First (Cursor) = 2, "Invalid prime number");
+      Assert (Prime_Next (Cursor) = 3, "Invalid prime number");
+      Assert (Prime_Next (Cursor) = 5, "Invalid prime number");
+      Assert (Prime_Next (Cursor) = 7, "Invalid prime number");
+      Assert (Prime_Next (Cursor) = 11, "Invalid prime number");
+      Assert (Prime_Next (Cursor) = 13, "Invalid prime number");
+      Assert (Prime_Next (Cursor) = 17, "Invalid prime number");
+      Assert (Prime_Next (Cursor) = 19, "Invalid prime number");
+      Assert (Prime_Next (Cursor) = 23, "Invalid prime number");
+      Assert (Prime_Next (Cursor) = 29, "Invalid prime number");
 
-      Number := Prime_Next (Cursor);
-      Assert (Number = 3, "Invalid second Prime number");
-
-      Number := Prime_Next (Cursor);
-      Assert (Number = 5, "Invalid third Prime number");
-
-      for i in 4 .. 10 loop
-         Number := Prime_Next (Cursor);
-      end loop;
-      Assert (Number = 29, "Invalid tenth Prime number");
-
-      for i in 11 .. 20 loop
-         Number := Prime_Next (Cursor);
-      end loop;
-      Assert (Number = 71, "Invalid tenth Prime number");
-
-      for i in 21 .. 10_001 loop
-         Number := Prime_Next (Cursor);
-      end loop;
-      Assert (Number = 104_743, "Invalid tenth Prime number");
+      Assert (Prime_First (Cursor) = 2, "Invalid prime number");
+      Assert (Prime_Next (Cursor, 1) = 3, "Invalid prime number");
+      Assert (Prime_Next (Cursor, 2) = 7, "Invalid prime number");
+      Assert (Prime_Next (Cursor, 3) = 17, "Invalid prime number");
+      Assert (Prime_Next (Cursor, 3) = 29, "Invalid prime number");
+      Assert (Prime_Next (Cursor, 10) = 71, "Invalid prime number");
+      Assert (Prime_Next (Cursor, 9_981) = 104_743, "Invalid prime number");
    end Test_Prime_Generator;
 
    --------------------
@@ -138,21 +132,18 @@ package body Prime_Tests is
    --------------------
 
    procedure Test_Prime_Nth (T : in out Test_Case'Class) is
-      Cursor : Prime_Cursor_Type;
    begin
-      Assert (Prime_Nth (Cursor, 1) = 2, "2 is the 1st prime number");
-      Assert (Prime_Nth (Cursor, 2) = 3, "3 is the 2nd prime number");
-      Assert (Prime_Nth (Cursor, 3) = 5, "5 is the 3rd prime number");
-      Assert (Prime_Nth (Cursor, 4) = 7, "7 is the 4th prime number");
-      Assert (Prime_Nth (Cursor, 5) = 11, "11 is the 5th prime number");
-      Assert (Prime_Nth (Cursor, 6) = 13, "13 is the 6th prime number");
-      Assert (Prime_Nth (Cursor, 7) = 17, "17 is the 7th prime number");
-      Assert (Prime_Nth (Cursor, 8) = 19, "19 is the 8th prime number");
-      Assert (Prime_Nth (Cursor, 9) = 23, "23 is the 9th prime number");
-      Assert (Prime_Nth (Cursor, 10) = 29, "29 is the 10th prime number");
-      Assert
-        (Prime_Nth (Cursor, 10_001) = 104_743,
-         "104_743 is the 10_001 prime number");
+      Assert (Prime_Nth (1) = 2, "Invalid prime number");
+      Assert (Prime_Nth (2) = 3, "Invalid prime number");
+      Assert (Prime_Nth (3) = 5, "Invalid prime number");
+      Assert (Prime_Nth (4) = 7, "Invalid prime number");
+      Assert (Prime_Nth (5) = 11, "Invalid prime number");
+      Assert (Prime_Nth (6) = 13, "Invalid prime number");
+      Assert (Prime_Nth (7) = 17, "Invalid prime number");
+      Assert (Prime_Nth (8) = 19, "Invalid prime number");
+      Assert (Prime_Nth (9) = 23, "Invalid prime number");
+      Assert (Prime_Nth (10) = 29, "Invalid prime number");
+      Assert (Prime_Nth (10_001) = 104_743, "Invalid prime number");
    end Test_Prime_Nth;
 
 end Prime_Tests;

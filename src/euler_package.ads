@@ -196,13 +196,15 @@ package Euler_Package is
 
    function Prime_First (Cursor : in out Prime_Cursor_Type) return Int_Type;
    --  Returns the first prime number (2) and resets the prime number
-   --  generator.
+   --  generator Cursor.
 
-   function Prime_Next (Cursor : in out Prime_Cursor_Type) return Int_Type;
-   --  Returns the next prime number.
+   function Prime_Next
+     (Cursor : in out Prime_Cursor_Type; Nth : Int_Type := 1) return Int_Type;
+   --  Returns the next prime number. Optionally, Nth parameter can be
+   --  specified to jump N numbers. That is, Prime_Next (C, 10) is equivalent
+   --  to call Prime_Next (C) 10 times
 
-   function Prime_Nth
-     (Cursor : in out Prime_Cursor_Type; Nth : Int_Type) return Int_Type;
+   function Prime_Nth (Nth : Int_Type) return Int_Type;
    --  Returns the Nth prime number.
 
    function Product (List : List_Type) return Int_Type with
@@ -272,9 +274,10 @@ package Euler_Package is
 
 private
 
+   type Δ_Prime_Type is mod 4;
    type Prime_Cursor_Type is record
-      Number   : Int_Type := 0;
-      Δ_Number : Int_Type := 0;
+      Number   : Int_Type     := 2;
+      Δ_Number : Δ_Prime_Type := 2;
    end record;
 
 end Euler_Package;

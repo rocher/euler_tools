@@ -394,23 +394,14 @@ package body Euler_Package is
 
    procedure Prime_Next_Try (Cursor : in out Prime_Cursor_Type) is
    begin
-      if Cursor.Δ_Number = 4 then
-         Cursor.Number   := @ + 4;
-         Cursor.Δ_Number := 1;
+      Cursor.Δ_Number := @ + 1;
+      if Cursor.Δ_Number = 0 then
+         Cursor.Number := @ + 4;
       else
-         Cursor.Number   := @ + 2;
-         Cursor.Δ_Number := @ + 1;
+         Cursor.Number := @ + 2;
       end if;
    end Prime_Next_Try;
-
-   function Prime_First_Internal
-     (Cursor : in out Prime_Cursor_Type) return Int_Type
-   is
-   begin
-      Cursor.Number   := 2;
-      Cursor.Δ_Number := 3;
-      return Cursor.Number;
-   end Prime_First_Internal;
+   pragma Inline_Always (Prime_Next_Try);
 
    function Prime_Next_Internal
      (Cursor : in out Prime_Cursor_Type) return Int_Type
@@ -458,16 +449,16 @@ package body Euler_Package is
       return Cursor.Number;
    end Prime_Next_Internal;
 
-   function Prime_Nth_Internal
+   function Prime_Next_Internal
      (Cursor : in out Prime_Cursor_Type; Nth : Int_Type) return Int_Type
    is
-      Prime : Int_Type := Prime_First_Internal (Cursor);
+      Prime : Int_Type;
    begin
       for I in 2 .. Nth loop
          Prime := Prime_Next_Internal (Cursor);
       end loop;
       return Prime;
-   end Prime_Nth_Internal;
+   end Prime_Next_Internal;
 
    -------------------
    -- Prime_Factors --
@@ -477,7 +468,7 @@ package body Euler_Package is
       Cursor   : Prime_Cursor_Type;
       List     : List_Type := Empty_List;
       Dividend : Int_Type  := Number;
-      Prime    : Int_Type  := Prime_First_Internal (Cursor);
+      Prime    : Int_Type  := Prime_First (Cursor);
    begin
       loop
          if Is_Divisor (Dividend, Prime) then
@@ -496,22 +487,40 @@ package body Euler_Package is
    -----------------
 
    function Prime_First (Cursor : in out Prime_Cursor_Type) return Int_Type is
-     (Prime_First_Internal (Cursor));
+   begin
+      Cursor.Number   := 2;
+      Cursor.Δ_Number := 2;
+      return Cursor.Number;
+   end Prime_First;
 
    ----------------
    -- Prime_Next --
    ----------------
 
-   function Prime_Next (Cursor : in out Prime_Cursor_Type) return Int_Type is
-     (Prime_Next_Internal (Cursor));
+   function Prime_Next
+     (Cursor : in out Prime_Cursor_Type; Nth : Int_Type := 1) return Int_Type
+   is
+   begin
+      if Nth = 1 then
+         return Prime_Next_Internal (Cursor);
+      else
+         return Prime_Next_Internal (Cursor, Nth + 1);
+      end if;
+   end Prime_Next;
 
    ---------------
    -- Prime_Nth --
    ---------------
 
-   function Prime_Nth
-     (Cursor : in out Prime_Cursor_Type; Nth : Int_Type) return Int_Type is
-     (Prime_Nth_Internal (Cursor, Nth));
+   function Prime_Nth (Nth : Int_Type) return Int_Type is
+      Cursor : Prime_Cursor_Type;
+   begin
+      if Nth = 1 then
+         return Cursor.Number;
+      else
+         return Prime_Next_Internal (Cursor, Nth);
+      end if;
+   end Prime_Nth;
 
    -------------
    -- Product --
