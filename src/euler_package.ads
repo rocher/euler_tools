@@ -55,6 +55,10 @@ package Euler_Package is
       Remainders : List_Type;
    end record;
 
+   type Prime_Cursor_Type is private;
+   --  The prime numbers generator requires private data to avoid interfering
+   --  with other functions.
+
    function Library_Name return String is (Euler_Tools_Config.Crate_Name);
    function Library_Version return String is
      (Euler_Tools_Config.Crate_Version);
@@ -194,15 +198,15 @@ package Euler_Package is
    function Prime_Factors (Number : Int_Type) return List_Type;
    --  Returns the list of prime factors of Number.
 
-   function Prime_First return Int_Type;
-   --  Returns the first prime number (2) and resets the internal prime
-   --  number generator.
+   function Prime_First (Cursor : in out Prime_Cursor_Type) return Int_Type;
+   --  Returns the first prime number (2) and resets the prime number
+   --  generator.
 
-   function Prime_Next return Int_Type;
-   --  Returns the next prime number. Requires calling the function
-   --  Prime_First to start the sequence.
+   function Prime_Next (Cursor : in out Prime_Cursor_Type) return Int_Type;
+   --  Returns the next prime number.
 
-   function Prime_Nth (Nth : Int_Type) return Int_Type;
+   function Prime_Nth
+     (Cursor : in out Prime_Cursor_Type; Nth : Int_Type) return Int_Type;
    --  Returns the Nth prime number.
 
    function Product (List : List_Type) return Int_Type with
@@ -269,5 +273,12 @@ package Euler_Package is
 
    function Units (Number : Int_Type) return Int_Type;
    --  Returns the last digit (units) of Number.
+
+private
+
+   type Prime_Cursor_Type is record
+      Number   : Int_Type := 0;
+      Δ_Number : Int_Type := 0;
+   end record;
 
 end Euler_Package;

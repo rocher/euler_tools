@@ -403,46 +403,40 @@ package body Euler_Package is
    -- PRIME NUMBERS MANAGEMENT - Private types, objects and functions --
    ---------------------------------------------------------------------
 
-   type Prime_Cursor_Type is record
-      Number : Int_Type := 0;
-      Inc    : Int_Type := 0;
-   end record;
-   type Prime_Cursor_Access is access Prime_Cursor_Type;
-
-   Prime_Private_Cursor : constant Prime_Cursor_Access :=
-     new Prime_Cursor_Type;
-   Prime_Public_Cursor : constant Prime_Cursor_Access := new Prime_Cursor_Type;
-
-   procedure Prime_Next_Try (PC : Prime_Cursor_Access) is
+   procedure Prime_Next_Try (Cursor : in out Prime_Cursor_Type) is
    begin
-      if PC.Inc = 4 then
-         PC.Number := @ + 4;
-         PC.Inc    := 1;
+      if Cursor.Δ_Number = 4 then
+         Cursor.Number   := @ + 4;
+         Cursor.Δ_Number := 1;
       else
-         PC.Number := @ + 2;
-         PC.Inc    := @ + 1;
+         Cursor.Number   := @ + 2;
+         Cursor.Δ_Number := @ + 1;
       end if;
    end Prime_Next_Try;
 
-   function Prime_First_Internal (PC : Prime_Cursor_Access) return Int_Type is
+   function Prime_First_Internal
+     (Cursor : in out Prime_Cursor_Type) return Int_Type
+   is
    begin
-      PC.Number := 2;
-      PC.Inc    := 3;
-      return PC.Number;
+      Cursor.Number   := 2;
+      Cursor.Δ_Number := 3;
+      return Cursor.Number;
    end Prime_First_Internal;
 
-   function Prime_Next_Internal (PC : Prime_Cursor_Access) return Int_Type is
+   function Prime_Next_Internal
+     (Cursor : in out Prime_Cursor_Type) return Int_Type
+   is
    begin
-      if PC.Number < 10 then
-         case PC.Number is
+      if Cursor.Number < 10 then
+         case Cursor.Number is
             when 2 =>
-               PC.Number := 3;
+               Cursor.Number := 3;
             when 3 =>
-               PC.Number := 5;
+               Cursor.Number := 5;
             when 5 =>
-               PC.Number := 7;
+               Cursor.Number := 7;
             when 7 =>
-               PC.Number := 11;
+               Cursor.Number := 11;
             when others =>
                null;
          end case;
@@ -454,14 +448,14 @@ package body Euler_Package is
          begin
             Test_Nex_Prime :
             loop
-               Prime_Next_Try (PC);
+               Prime_Next_Try (Cursor);
                Factor      := 3;
                Square_Root :=
-                 Int_Type (Float'Ceiling (Sqrt (Float (PC.Number))));
+                 Int_Type (Float'Ceiling (Sqrt (Float (Cursor.Number))));
                Is_Prime    := True;
                Test_Prime :
                loop
-                  if PC.Number mod Factor = 0 then
+                  if Cursor.Number mod Factor = 0 then
                      Is_Prime := False;
                      exit Test_Prime;
                   end if;
@@ -472,16 +466,16 @@ package body Euler_Package is
             end loop Test_Nex_Prime;
          end;
       end if;
-      return PC.Number;
+      return Cursor.Number;
    end Prime_Next_Internal;
 
    function Prime_Nth_Internal
-     (N : Int_Type; PC : Prime_Cursor_Access) return Int_Type
+     (Cursor : in out Prime_Cursor_Type; Nth : Int_Type) return Int_Type
    is
-      Prime : Int_Type := Prime_First_Internal (PC);
+      Prime : Int_Type := Prime_First_Internal (Cursor);
    begin
-      for I in 2 .. N loop
-         Prime := Prime_Next_Internal (PC);
+      for I in 2 .. Nth loop
+         Prime := Prime_Next_Internal (Cursor);
       end loop;
       return Prime;
    end Prime_Nth_Internal;
@@ -491,16 +485,17 @@ package body Euler_Package is
    -------------------
 
    function Prime_Factors (Number : Int_Type) return List_Type is
+      Cursor   : Prime_Cursor_Type;
       List     : List_Type := Empty_List;
-      Prime    : Int_Type  := Prime_First_Internal (Prime_Private_Cursor);
       Dividend : Int_Type  := Number;
+      Prime    : Int_Type  := Prime_First_Internal (Cursor);
    begin
       loop
          if Is_Divisor (Dividend, Prime) then
             List.Append (Prime);
             Dividend := @ / Prime;
          else
-            Prime := Prime_Next_Internal (Prime_Private_Cursor);
+            Prime := Prime_Next_Internal (Cursor);
          end if;
          exit when Prime > Dividend;
       end loop;
@@ -511,22 +506,23 @@ package body Euler_Package is
    -- Prime_First --
    -----------------
 
-   function Prime_First return Int_Type is
-     (Prime_First_Internal (Prime_Public_Cursor));
+   function Prime_First (Cursor : in out Prime_Cursor_Type) return Int_Type is
+     (Prime_First_Internal (Cursor));
 
    ----------------
    -- Prime_Next --
    ----------------
 
-   function Prime_Next return Int_Type is
-     (Prime_Next_Internal (Prime_Public_Cursor));
+   function Prime_Next (Cursor : in out Prime_Cursor_Type) return Int_Type is
+     (Prime_Next_Internal (Cursor));
 
    ---------------
    -- Prime_Nth --
    ---------------
 
-   function Prime_Nth (Nth : Int_Type) return Int_Type is
-     (Prime_Nth_Internal (Nth, Prime_Private_Cursor));
+   function Prime_Nth
+     (Cursor : in out Prime_Cursor_Type; Nth : Int_Type) return Int_Type is
+     (Prime_Nth_Internal (Cursor, Nth));
 
    -------------
    -- Product --
