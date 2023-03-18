@@ -80,30 +80,19 @@ package body Euler_Package is
       end loop;
    end CN_Assign;
 
-   -------------------
-   -- Collatz_First --
-   -------------------
-
-   Collatz_Number : Int_Type;
-
-   function Collatz_First (Number : Int_Type) return Int_Type is
-   begin
-      Collatz_Number := Number;
-      return Collatz_Number;
-   end Collatz_First;
-
    ------------------
    -- Collatz_Next --
    ------------------
 
-   function Collatz_Next return Int_Type is
+   function Collatz_Next (Number : Int_Type) return Int_Type is
+      Next : Int_Type;
    begin
-      if Collatz_Number mod 2 = 0 then
-         Collatz_Number := @ / 2;
+      if Number mod 2 = 0 then
+         Next := @ / 2;
       else
-         Collatz_Number := @ * 3 + 1;
+         Next := @ * 3 + 1;
       end if;
-      return Collatz_Number;
+      return Next;
    end Collatz_Next;
 
    -----------------

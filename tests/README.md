@@ -17,8 +17,7 @@ Traceability matrix of library functions / unit tests.
 | procedure CN_Assign (Left : in out Crumbled_Natural; Right : Int_Type);                                       | [crumbled naturals test](src/crumbled_natural_tests.adb) |
 | procedure CN_Assign (Left : in out Int_Type; Right : Crumbled_Natural);                                       | [crumbled naturals test](src/crumbled_natural_tests.adb) |
 | procedure CN_Assign   (Left : in out Int_Type; Right : Crumbled_Natural;  Digit_Start, Digit_End : Positive); | [crumbled naturals test](src/crumbled_natural_tests.adb) |
-| function Collatz_First (Number : Int_Type) return Int_Type;                                                   | pending                                                  |
-| function Collatz_Next return Int_Type;                                                                        | pending                                                  |
+| function Collatz_Next (Number : Int_Type) return Int_Type;                                                    | pending                                                  |
 | function Combination (N, K : Int_Type) return Int_Type;                                                       | [factorial tests](src/factorial_tests.adb)               |
 | function Concat (Left, Right : Int_Type) return Int_Type;                                                     | [numeric tests](src/numeric_tests.adb)                   |
 | function Decimal_Division  (Dividend, Divisor : Int_Type; Decimals : Natural)  return Decimal_Division_Type;  | [decimal division tests](src/decimal_division_tests.adb) |

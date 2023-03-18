@@ -87,12 +87,8 @@ package Euler_Package is
    --  Assigns the value of the Crumbled_Natural in the Right to the Left
    --  number using digits from Digit_Start to Digit_End.
 
-   function Collatz_First (Number : Int_Type) return Int_Type with
+   function Collatz_Next (Number : Int_Type) return Int_Type with
      Pre => Number > 1;
-   --  Sets and returns the first number in the Collatz sequence starting at
-   --  Number, which happens to be Number.
-
-   function Collatz_Next return Int_Type;
    --  Returns the next number in the Collatz sequence, defined by:
    --  Collatz_Next = N/2 if N is even, and Collatz_Next = 3*N+1 if N is odd,
    --  where N is the previous number in the Collatz sequence.
