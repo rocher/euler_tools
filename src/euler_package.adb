@@ -85,7 +85,7 @@ package body Euler_Package is
    ------------------
 
    function Collatz_Next (Number : Int_Type) return Int_Type is
-      Next : Int_Type;
+      Next : Int_Type := Number;
    begin
       if Number mod 2 = 0 then
          Next := @ / 2;
