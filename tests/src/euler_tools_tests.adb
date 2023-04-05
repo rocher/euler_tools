@@ -35,7 +35,10 @@ begin
    Ada.Text_IO.Put_Line
      ("   " & Euler_Tools.Library_Name & " = " & Euler_Tools.Library_Version);
 
+   pragma Warnings (Off);
    Reporter.Set_Use_ANSI_Colors (Build_Profile = development);
+   pragma Warnings (On);
+
    Run (Reporter, Results);
 
    if not Results.Successful then
