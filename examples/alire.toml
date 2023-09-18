@@ -1,0 +1,15 @@
+name = "euler_tools_examples"
+description = "Euler Tools - Examples"
+version = "1.1.1"
+
+authors = ["Francesc Rocher"]
+maintainers = ["Francesc Rocher <francesc.rocher@gmail.com>"]
+maintainers-logins = ["rocher"]
+
+executables = ["euler_tools_examples"]
+[[depends-on]]
+euler_tools = ">=1.1.1"
+[[pins]]
+euler_tools = { path='..' }
+[[depends-on]]
+gnat = ">=2021 | (>=12 & <2000)"
