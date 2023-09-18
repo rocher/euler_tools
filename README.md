@@ -62,7 +62,22 @@ alr build
 ./bin/euler_tools_tests
 ```
 
-Traceability matrix of functions vs unit tests is [provided here](tests/README.md).
+Traceability matrix of functions vs unit tests is [provided
+here](tests/README.md).
+
+
+### Examples
+
+The directory `examples` contains solutions to some problems.
+
+To compile these tests:
+```sh
+cd examples
+alr build
+```
+
+Then check the `bin` directory to run the provided examples.
+
 
 ---
 ## Design
@@ -148,12 +163,6 @@ convenience:
      $n<1000$).
 
 ---
-## Euler Examples
-
-Please check some Project Euler solutions provided as example of use of Euler
-Tools  in [Euler Examples](https://github.com/rocher/euler_examples)
-repository.
-
 ### Contributions
 
 Please feel free to
