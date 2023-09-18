@@ -73,15 +73,31 @@ package body List_Tests is
    --------------
 
    procedure Test_Sum (T : in out Test_Cases.Test_Case'Class) is
+      List : List_Type;
    begin
-      Assert (Sum ([0]) = 0, "Invalid Sum result");
-      Assert (Sum ([1]) = 1, "Invalid Sum result");
-      Assert (Sum ([0, 1]) = 1, "Invalid Sum result");
-      Assert (Sum ([1, 1, 1]) = 3, "Invalid Sum result");
-      Assert (Sum ([1, 2, 3]) = 6, "Invalid Sum result");
-      Assert (Sum ([4, 4, 4, 4]) = 16, "Invalid Sum result");
-      Assert (Sum ([1, 2, 1, 1, 1]) = 6, "Invalid Sum result");
-      Assert (Sum ([2, 5, 5, 5, 89, 123]) = 229, "Invalid Sum result");
+      List := [0];
+      Assert (Sum (List) = 0, "Invalid Sum result");
+
+      List := [1];
+      Assert (Sum (List) = 1, "Invalid Sum result");
+
+      List := [0, 1];
+      Assert (Sum (List) = 1, "Invalid Sum result");
+
+      List := [1, 1, 1];
+      Assert (Sum (List) = 3, "Invalid Sum result");
+
+      List := [1, 2, 3];
+      Assert (Sum (List) = 6, "Invalid Sum result");
+
+      List := [4, 4, 4, 4];
+      Assert (Sum (List) = 16, "Invalid Sum result");
+
+      List := [1, 2, 1, 1, 1];
+      Assert (Sum (List) = 6, "Invalid Sum result");
+
+      List := [2, 5, 5, 5, 89, 123];
+      Assert (Sum (List) = 229, "Invalid Sum result");
    end Test_Sum;
 
 end List_Tests;
