@@ -29,6 +29,8 @@ Traceability matrix of library functions / unit tests.
 | function Fibonacci_Start return Int_Type;                                                                     | [Fibonacci tests](src/fibonacci_tests.adb)               |
 | function Fibonacci_Start (A, B : Int_Type) return Int_Type;                                                   | [Fibonacci tests](src/fibonacci_tests.adb)               |
 | function Fibonacci_Next return Int_Type;                                                                      | [Fibonacci tests](src/fibonacci_tests.adb)               |
+| function Greatest_Common_Divisor (A, B : Int_Type) return Int_Type;                                           | [divisors tests](src/divisors_tests.adb)                 |
+| function Greatest_Common_Divisor (List : List_Type) return Int_Type;                                          | [divisors tests](src/divisors_tests.adb)                 |
 | function Hundreds (Number : Int_Type) return Int_Type;                                                        | [numeric tests](src/numeric_tests.adb)                   |
 | function Is_Abundant (Number : Int_Type) return Boolean;                                                      | [divisors tests](src/divisors_tests.adb)                 |
 | function Is_Deficient (Number : Int_Type) return Boolean;                                                     | [divisors tests](src/divisors_tests.adb)                 |
@@ -38,6 +40,8 @@ Traceability matrix of library functions / unit tests.
 | function Is_Palindrome (Number : Int_Type) return Boolean;                                                    | [numeric tests](src/numeric_tests.adb)                   |
 | function Is_Perfect (Number : Int_Type) return Boolean;                                                       | [divisors tests](src/divisors_tests.adb)                 |
 | function Is_Prime (Number : Int_Type) return Boolean;                                                         | [prime tests](src/prime_tests.adb)                       |
+| function Least_Common_Multiple (A, B : Int_Type) return Int_Type;                                             | [divisors tests](src/divisors_tests.adb)                 |
+| function Least_Common_Multiple (List : List_Type) return Int_Type;                                            | [divisors tests](src/divisors_tests.adb)                 |
 | function Left (Number : Int_Type; Positions : Positive) return Int_Type;                                      | [numeric tests](src/numeric_tests.adb)                   |
 | function Length (Number : Crumbled_Natural) return Natural;                                                   | *length of*  `Ada.Containers.Vector`                     |
 | function Length (Number : Integer_Type) return Natural;                                                       | [numeric tests](src/numeric_tests.adb)                   |

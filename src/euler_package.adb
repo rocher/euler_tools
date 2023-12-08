@@ -241,6 +241,40 @@ package body Euler_Package is
       return Term_N;
    end Fibonacci_Next;
 
+   -----------------------------
+   -- Greatest_Common_Divisor --
+   -----------------------------
+
+   function Greatest_Common_Divisor (A, B : Int_Type) return Int_Type is
+      Zero : Int_Type := Int_Type'Min (A, B);
+      Tmp  : Int_Type;
+   begin
+      return Gcd : Int_Type := Int_Type'Max (A, B) do
+         loop
+            exit when Zero = 0;
+            Tmp  := Zero;
+            Zero := Gcd mod Zero;
+            Gcd  := Tmp;
+         end loop;
+      end return;
+   end Greatest_Common_Divisor;
+
+   -----------------------------
+   -- Greatest_Common_Divisor --
+   -----------------------------
+
+   function Greatest_Common_Divisor (List : List_Type) return Int_Type is
+      Cursor : List_Package.Cursor := List.First.Next;
+   begin
+      return Gcd : Int_Type := List.First_Element do
+         loop
+            exit when not Cursor.Has_Element;
+            Gcd    := Greatest_Common_Divisor (Gcd, Cursor.Element);
+            Cursor := Cursor.Next;
+         end loop;
+      end return;
+   end Greatest_Common_Divisor;
+
    --------------
    -- Hundreds --
    --------------
@@ -349,6 +383,38 @@ package body Euler_Package is
       end if;
       return True;
    end Is_Prime;
+
+   ---------------------------
+   -- Least_Common_Multiple --
+   ---------------------------
+
+   function Least_Common_Multiple (A, B : Int_Type) return Int_Type is
+      Min : constant Int_Type := Int_Type'Min (A, B);
+      Max : constant Int_Type := Int_Type'Max (A, B);
+      Gcd : constant Int_Type := Greatest_Common_Divisor (A, B);
+   begin
+      return Lcm : Int_Type := Min do
+         if Gcd /= 0 then
+            Lcm := Min * (Max / Gcd);
+         end if;
+      end return;
+   end Least_Common_Multiple;
+
+   ---------------------------
+   -- Least_Common_Multiple --
+   ---------------------------
+
+   function Least_Common_Multiple (List : List_Type) return Int_Type is
+      Cursor : List_Package.Cursor := List.First;
+   begin
+      return Lcm : Int_Type := List.First_Element do
+         loop
+            exit when not Cursor.Has_Element;
+            Lcm    := Least_Common_Multiple (Lcm, Cursor.Element);
+            Cursor := Cursor.Next;
+         end loop;
+      end return;
+   end Least_Common_Multiple;
 
    ----------
    -- Left --

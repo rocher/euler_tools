@@ -35,10 +35,12 @@ package body Divisors_Tests is
    begin
       Register_Routine (T, Test_All_Divisors'Access, "All_Divisors");
       Register_Routine (T, Test_Are_Amicable'Access, "Are_Amicable");
+      Register_Routine (T, Test_Greatest_Common_Divisor'Access, "GCD");
       Register_Routine (T, Test_Is_Abundant'Access, "Is_Abundant");
       Register_Routine (T, Test_Is_Deficient'Access, "Is_Deficient");
       Register_Routine (T, Test_Is_Divisor'Access, "Is_Divisor");
       Register_Routine (T, Test_Is_Perfect'Access, "Is_Perfect");
+      Register_Routine (T, Test_Least_Common_Divisor'Access, "LCM");
       Register_Routine (T, Test_Proper_Divisors'Access, "Proper_Divisors");
       Register_Routine (T, Test_Int3_Is_Perfect'Access, "Is_Perfect (Int3)");
    end Register_Tests;
@@ -121,6 +123,42 @@ package body Divisors_Tests is
       Assert (not Are_Amicable (524, 539), "523 and 539 are not amicable");
       Assert (not Are_Amicable (672, 716), "672 and 716 are not amicable");
    end Test_Are_Amicable;
+
+   ----------------------------------
+   -- Test_Greatest_Common_Divisor --
+   ----------------------------------
+
+   procedure Test_Greatest_Common_Divisor (T : in out Test_Case'Class) is
+      use Euler_Tools;
+      List : List_Type;
+   begin
+      Assert (Greatest_Common_Divisor (1, 0) = 1, "gcd (1, 0) is 1");
+      Assert (Greatest_Common_Divisor (1, 1) = 1, "gcd (1, 1) is 1");
+      Assert (Greatest_Common_Divisor (1, 2) = 1, "gcd (1, 2) is 1");
+      Assert (Greatest_Common_Divisor (1, 3) = 1, "gcd (1, 3) is 1");
+      Assert (Greatest_Common_Divisor (2, 2) = 2, "gcd (2, 2) is 2");
+      Assert (Greatest_Common_Divisor (3, 3) = 3, "gcd (3, 3) is 3");
+      Assert (Greatest_Common_Divisor (3, 4) = 1, "gcd (3, 4) is 1");
+      Assert (Greatest_Common_Divisor (30, 40) = 10, "gcd (30, 40) is 10");
+      Assert (Greatest_Common_Divisor (350, 450) = 50, "gcd (350, 450) is 50");
+      Assert
+        (Greatest_Common_Divisor (7_700, 9_900) = 1_100,
+         "gcd (7700, 9900) is 1100");
+
+      List := [1];
+      Assert (Greatest_Common_Divisor (List) = 1, "gcd ([1]) is 1");
+
+      List := [2];
+      Assert (Greatest_Common_Divisor (List) = 2, "gcd ([2]) is 2");
+
+      List := [20, 30, 40];
+      Assert (Greatest_Common_Divisor (List) = 10, "gcd ([20, 30, 40]) is 2");
+
+      List := [7_072, 10_592, 14_112];
+      Assert
+        (Greatest_Common_Divisor (List) = 32,
+         "gcd ([7072, 10592, 14112]) is 32");
+   end Test_Greatest_Common_Divisor;
 
    ----------------------
    -- Test_Is_Abundant --
@@ -299,6 +337,52 @@ package body Divisors_Tests is
       Assert (not Is_Perfect (29), "29 is not a perfect number");
       Assert (not Is_Perfect (30), "30 is not a perfect number");
    end Test_Is_Perfect;
+
+   -------------------------------
+   -- Test_Least_Common_Divisor --
+   -------------------------------
+
+   procedure Test_Least_Common_Divisor (T : in out Test_Case'Class) is
+      use Euler_Tools;
+      List : List_Type;
+   begin
+      Assert (Least_Common_Multiple (0, 0) = 0, "lcm (0, 0) is 0");
+      Assert (Least_Common_Multiple (1, 0) = 0, "lcm (1, 0) is 0");
+      Assert (Least_Common_Multiple (1, 2) = 2, "lcm (1, 2) is 2");
+      Assert (Least_Common_Multiple (2, 2) = 2, "lcm (2, 2) is 2");
+      Assert (Least_Common_Multiple (2, 3) = 6, "lcm (2, 3) is 6");
+      Assert (Least_Common_Multiple (3, 3) = 3, "lcm (3, 3) is 3");
+      Assert (Least_Common_Multiple (3, 4) = 12, "lcm (3, 4) is 12");
+      Assert (Least_Common_Multiple (30, 40) = 120, "lcm (30, 40) is 120");
+
+      List := [0];
+      Assert (Least_Common_Multiple (List) = 0, "lcm ([0]) is 0");
+
+      List := [1];
+      Assert (Least_Common_Multiple (List) = 1, "lcm ([1]) is 1");
+
+      List := [1, 0];
+      Assert (Least_Common_Multiple (List) = 0, "lcm ([1, 0]) is 0");
+
+      List := [2, 4];
+      Assert (Least_Common_Multiple (List) = 4, "lcm ([2, 4]) is 4");
+
+      List := [2, 4, 6];
+      Assert (Least_Common_Multiple (List) = 12, "lcm ([2, 4, 6]) is 12");
+
+      List := [2, 4, 6, 8];
+      Assert (Least_Common_Multiple (List) = 24, "lcm ([2, 4, 6, 8]) is 24");
+
+      List := [2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+      Assert
+        (Least_Common_Multiple (List) = 5_040,
+         "lcm ([2, 4, 6, 8, 10, 12, 14, 16, 18, 20]) is 5040");
+
+      List := [12, 14, 16, 18, 110, 112, 114, 116, 118, 120];
+      Assert
+        (Least_Common_Multiple (List) = 1_802_298_960,
+         "lcm ([12, 14, 16, 18, 110, 112, 114, 116, 118, 120]) is 1802298960");
+   end Test_Least_Common_Divisor;
 
    --------------------------
    -- Test_Proper_Divisors --

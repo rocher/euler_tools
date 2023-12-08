@@ -144,6 +144,14 @@ package Euler_Package is
    function Fibonacci_Next return Int_Type;
    --  Returns the next Fibonacci number.
 
+   function Greatest_Common_Divisor (A, B : Int_Type) return Int_Type;
+   --  Returns the greatest common divisor of A, B, also known as Gcd (A, B).
+
+   function Greatest_Common_Divisor (List : List_Type) return Int_Type with
+     Pre => not List.Is_Empty;
+   --  Returns the Gcd of all numbers in the list using the formula
+   --     Gcd ({Ai}) = Gcd (A1, Gcd (A2, Gcd ( ... ))).
+
    function Hundreds (Number : Int_Type) return Int_Type;
    --  Returns the hundreds of Number.
 
@@ -175,6 +183,15 @@ package Euler_Package is
 
    function Is_Prime (Number : Int_Type) return Boolean;
    --  Returns True if Number is prime.
+
+   function Least_Common_Multiple (A, B : Int_Type) return Int_Type;
+   --  Returns the least common multiple computed with the formula
+   --     Lcm (A, B) = Min (A, B) * (Max (A, B) / Gcd(A, B))
+
+   function Least_Common_Multiple (List : List_Type) return Int_Type with
+     Pre => not List.Is_Empty;
+   --  Returns the leas common multiple of all numbers in the list using the
+   --  formula  Lcm ({Ai}}) = Lcm (A1, Lcm (A2, Lcm ( ... ))).
 
    function Left (Number : Int_Type; Positions : Positive) return Int_Type;
    --  Returns the number formed by the leftmost digit Positions of Number.
