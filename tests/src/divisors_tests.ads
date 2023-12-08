@@ -24,10 +24,12 @@ package Divisors_Tests is
 
    procedure Test_All_Divisors (T : in out Test_Case'Class);
    procedure Test_Are_Amicable (T : in out Test_Case'Class);
+   procedure Test_Greatest_Common_Divisor (T : in out Test_Case'Class);
    procedure Test_Is_Abundant (T : in out Test_Case'Class);
    procedure Test_Is_Deficient (T : in out Test_Case'Class);
    procedure Test_Is_Divisor (T : in out Test_Case'Class);
    procedure Test_Is_Perfect (T : in out Test_Case'Class);
+   procedure Test_Least_Common_Divisor (T : in out Test_Case'Class);
    procedure Test_Proper_Divisors (T : in out Test_Case'Class);
 
    procedure Test_Int3_Is_Perfect (T : in out Test_Case'Class);
